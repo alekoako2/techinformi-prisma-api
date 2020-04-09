@@ -1,0 +1,11 @@
+type Language{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    code: LanguageCode! @unique
+    name: String! @unique
+}
+
+enum LanguageCode{
+    KA,EN,FR,ES,IT,RU,DE
+}

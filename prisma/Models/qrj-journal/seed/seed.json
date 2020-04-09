@@ -1,0 +1,863 @@
+[
+  {
+    "code": "ISSN 0135-0765",
+    "geo": "ა. ელიაშვილის მართვის სისტემების ინსტიტუტის შრომათა კრებული",
+    "eng": "A.Eliashvili Institute of Control Systems, Proceedings",
+    "address_geo": "http:\/\/gtu.ge\/msi\/Pages\/About-Collections.php",
+    "address_eng": "http:\/\/gtu.ge\/msi\/Pages\/About-Collections.php"
+  },
+  {
+    "code": "ISBN 978-9941-406-51-5",
+    "geo": "ა. ჯანელიძის გეოლოგიის ინსტიტუტის შრომების კრებული",
+    "eng": "A.Janelidze Institute of Geology, Proceedings",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 0375-6644",
+    "geo": "აბასთუმნის ასტროფიზიკური ობსერვატორიიის ბიულეტენი",
+    "eng": "Bulletin of Abastumani Astrophysical Observatory",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-6335",
+    "geo": "აგრარულ-ეკონომიკური მეცნიერება და ტექნოლოგიები",
+    "eng": "Agrarian-Economic Science and Technologies",
+    "address_geo": "http:\/\/www.gaas.dsl.ge\/%E1%83%98%E1%83%9C%E1%83%A4%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%AA%E1%83%98%E1%83%94%E1%83%91%E1%83%98\/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AA%E1%83%94%E1%83%9B%E1%83%94%E1%83%91%E1%83%98\/%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%98%E1%83%A1-%E1%83%A8%E1%83%A0%E1%83%9D%E1%83%9B%E1%83%90%E1%83%97%E1%83%90-%E1%83%99%E1%83%A0%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98",
+    "address_eng": "http:\/\/www.gaas.dsl.ge\/%E1%83%98%E1%83%9C%E1%83%A4%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%AA%E1%83%98%E1%83%94%E1%83%91%E1%83%98\/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AA%E1%83%94%E1%83%9B%E1%83%94%E1%83%91%E1%83%98\/%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%98%E1%83%A1-%E1%83%A8%E1%83%A0%E1%83%9D%E1%83%9B%E1%83%90%E1%83%97%E1%83%90-%E1%83%99%E1%83%A0%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98"
+  },
+  {
+    "code": "ISSN 2233-3711",
+    "geo": "აკაკი წერეთლის სახელმწიფო უნივერსიტეტის მოამბე",
+    "eng": "Bulletin of Akaki Tsereteli State University",
+    "address_geo": "https:\/\/moambe.atsu.edu.ge\/",
+    "address_eng": "https:\/\/moambe.atsu.edu.ge\/"
+  },
+  {
+    "code": "ISSN 2233-3266",
+    "geo": "არქიტექტურისა და ქალაქმშენებლობის თანამედროვე პრობლემები",
+    "eng": "Modern Problems of Architecture and Town Planning",
+    "address_geo": "http:\/\/gtu.ge\/Arch\/Resources\/Publications.php\/",
+    "address_eng": "http:\/\/gtu.ge\/Arch\/Resources\/Publications.php\/"
+  },
+  {
+    "code": "ISSN 1512-2581",
+    "geo": "აღმაშენებელი",
+    "eng": "Aghmashenebeli",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-8729",
+    "geo": "ახალი აგრარული საქართველო",
+    "eng": "Akhali Agraruli Sakartvelo (New Agrarian Georgia)",
+    "address_geo": "http:\/\/www.regionica.org\/journal_geo.html",
+    "address_eng": "http:\/\/www.regionica.org\/journal_geo.html"
+  },
+  {
+    "code": "ISSN 1512-4649",
+    "geo": "ახალი ეკონომისტი",
+    "eng": "Akhali Economisti (New Economist)",
+    "address_geo": "http:\/\/www.loi.ge\/ka\/eco\/online\/",
+    "address_eng": "http:\/\/www.loi.ge\/ka\/eco\/online\/"
+  },
+  {
+    "code": "ISSN 1987-9857",
+    "geo": "ბავშვთა კარდიოლოგია",
+    "eng": "Pediatric Cardiology",
+    "address_geo": "http:\/\/www.sppf.info\/",
+    "address_eng": "http:\/\/www.sppf.info\/"
+  },
+  {
+    "code": "ISSN 1987-6041",
+    "geo": "ბიზნეს კურიერი",
+    "eng": "Business Courier",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-0538",
+    "geo": "ბიზნეს-ინჟინერინგი",
+    "eng": "Business-Engineering",
+    "address_geo": "http:\/\/business-engineering.bpengi.com\/",
+    "address_eng": "http:\/\/business-engineering.bpengi.com\/"
+  },
+  {
+    "code": "ISSN 1987-9598",
+    "geo": "ბიომეურნე",
+    "eng": "Biofarmer",
+    "address_geo": "http:\/\/www.elkana.org.ge\/index.php?action=publication&pub=&lang=geo&page=2",
+    "address_eng": "http:\/\/www.elkana.org.ge\/index.php?action=publication&pub=&lang=geo&page=2"
+  },
+  {
+    "code": "1",
+    "geo": "ბიოსისტემების მათემატიკური მოდელირება და მისი გამოყენება ციტრუსების ინტეგრირებულ დაცვაში",
+    "eng": "Mathematical modeling and application of biosystems in the integrated citrus protection. G. Aleksidze, E. Orjonikidze, A. Murvanidze, L. Nozadze, T. Epitashvili, I. Geguchadze. Monograph.",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-0805",
+    "geo": "ბუღალტრული აღრიცხვა",
+    "eng": "Accounting",
+    "address_geo": "http:\/\/www.google.com",
+    "address_eng": "http:\/\/www.google.com"
+  },
+  {
+    "code": "ISBN 978-9941-17-347-9",
+    "geo": "გ. თავართქილაძის სასწავლო უნივერსიტეტის სამეცნიერო შრომათა კრებული",
+    "eng": "G. Tavartkiladze Teaching University, Scientific Works",
+    "address_geo": "http:\/\/www.gttu.edu.ge\/ge\/volume-of-scientific-works2\/volume-of-scientific-works",
+    "address_eng": "http:\/\/www.gttu.edu.ge\/ge\/volume-of-scientific-works2\/volume-of-scientific-works"
+  },
+  {
+    "code": "ISSN 1987-9156",
+    "geo": "გადასახადები",
+    "eng": "Gadasaxadebi (Taxes)",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-4096",
+    "geo": "გაენათის მაცნე",
+    "eng": "Gaenatis Matsne (Gaenati Herald)",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-782X",
+    "geo": "განათლება – სამეცნიერო ჟურნალი",
+    "eng": "Ganatleba (Education) – Scientific Journal",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-066X",
+    "geo": "გონი",
+    "eng": "Goni",
+    "address_geo": "http:\/\/www.mermis.ge\/",
+    "address_eng": "http:\/\/www.mermis.ge\/"
+  },
+  {
+    "code": "ISSN 2587-4810",
+    "geo": "საქართველოს დავით აღმაშენებლის სახელობის უნივერსიტეტის ჟურნალი სპექტრი",
+    "eng": "David Aghmashenebeli University of Georgia Scientific Journal Spectre",
+    "address_geo": "https:\/\/sdasu.edu.ge\/ka\/publikaciebi",
+    "address_eng": "https:\/\/sdasu.edu.ge\/ka\/publikaciebi"
+  },
+  {
+    "code": "ISSN 2449-2655",
+    "geo": "დიპლომატია და სამართალი",
+    "eng": "Diplomacy and Law",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/174026",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/174026"
+  },
+  {
+    "code": "ISBN 978-9941-0-3679-8",
+    "geo": "ევროგაერთიანების აღმოსავლეთის პარტნიორობის პროგრამა და საქართველოს ინოვაციური განვითარების პერსპექტივები",
+    "eng": "The EU Eastern Partnership Programme and Prospects of Innovative Development of Georgia. Tbilisi",
+    "address_geo": "http:\/\/www.inovdev.ge\/?page=morepubbooks&id=179&lang=geo",
+    "address_eng": "http:\/\/www.inovdev.ge\/?page=morepubbooks&id=179&lang=geo"
+  },
+  {
+    "code": "2",
+    "geo": "ეკოლოგიურად სუფთა პროდუქტების წარმოების თანამედროვე ტექნოლოგიები. სოფლის მეურნეობის მდგრადი განვითარებისათვის. საერთ. სამეცნ. კონფ. მასალები ",
+    "eng": "Modern technologies to produce ecologically safe products for sustainable development of agriculture. Int. Sci. Conf. Materials",
+    "address_geo": "http:\/\/www.gaas.dsl.ge\/images\/2018_PDF\/Konferenc_Shromebi_2016.pdf",
+    "address_eng": "http:\/\/www.gaas.dsl.ge\/images\/2018_PDF\/Konferenc_Shromebi_2016.pdf"
+  },
+  {
+    "code": "ISSN 2587-4713 ",
+    "geo": "ეკონომიკა",
+    "eng": "Economics",
+    "address_geo": "https:\/\/sites.google.com\/a\/bpengi.com\/economics_2018\/",
+    "address_eng": "https:\/\/sites.google.com\/a\/bpengi.com\/economics_2018\/"
+  },
+  {
+    "code": "ISSN 1987-5789",
+    "geo": "ეკონომიკა და ბიზნესი",
+    "eng": "Economics and Business",
+    "address_geo": "https:\/\/www.tsu.ge\/ge\/faculties\/economics\/jurnal\/",
+    "address_eng": "https:\/\/www.tsu.ge\/ge\/faculties\/economics\/jurnal\/"
+  },
+  {
+    "code": "ISSN 1987-6890 E ISSN 2346-8432",
+    "geo": "ეკონომისტი",
+    "eng": "Economisti",
+    "address_geo": "http:\/\/ekonomisti.tsu.ge\/?cat=arq&leng=ge",
+    "address_eng": "http:\/\/ekonomisti.tsu.ge\/?cat=arq&leng=ge"
+  },
+  {
+    "code": "ISSN 1512-0120",
+    "geo": "ენერგია",
+    "eng": "Energy",
+    "address_geo": "http:\/\/www.energyonline.ge\/index.php?option=com_content&view=category&id=42&Itemid=181&lang=ka",
+    "address_eng": "http:\/\/www.energyonline.ge\/index.php?option=com_content&view=category&id=42&Itemid=181&lang=ka"
+  },
+  {
+    "code": "ISSN 1512-0392",
+    "geo": "ექსპერიმენტული და კლინიკური მედიცინა",
+    "eng": "Experimental & Clinical Medicine",
+    "address_geo": "http:\/\/www.jecm.ge\/",
+    "address_eng": "http:\/\/www.jecm.ge\/"
+  },
+  {
+    "code": "ISBN 99940-60-19-4",
+    "geo": "ვ. ბაგრატიონის გეოგრაფიის ინსტიტუტის შრომათა კრებული",
+    "eng": "Transactions of V. Bagrationi Institute of Geography",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 2449-271X",
+    "geo": "თბილისის ბალნეოლოგიური კურორტის სამეცნიერო შრომათა კრებული",
+    "eng": "Scientific Works of Tbilisi Balneological Resort",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "3",
+    "geo": "თბილისის მოსახლეობის უსაფრთხოების უზრუნველყოფა მდინარე ვერეს წყალშემკრებ აუზში ეროზიულ-ღვარცოფული პროცესების რეგულირების გათვალისწინებით",
+    "eng": "Ensuring Tbilisi population safety subject to management of erosion and mudflow processes within the Vere River catchment basin.N.Gavardavili. Monograph",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN1987-8990",
+    "geo": "თბილისის სახელმწიფო სამედიცინო უნივერ. სამეც. შრომ. კრებული",
+    "eng": "Collection of Scientific Works of Tbilisi State Medical University",
+    "address_geo": "http:\/\/4science.ge\/journals\/index.php\/CSW",
+    "address_eng": "http:\/\/4science.ge\/journals\/index.php\/CSW"
+  },
+  {
+    "code": "ISSN 1987-7277",
+    "geo": "ი. ქუთათელაძის ფარმაკოქიმიის ინსტიტუტის სამეცნიერო შრომათა კრებული",
+    "eng": "Collected Scientific Works of I. Kutateladze Pharmacochemistry Institute",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-0333",
+    "geo": "ინტელექტი",
+    "eng": "Intellect",
+    "address_geo": "http:\/\/intelecti.ge\/",
+    "address_eng": "http:\/\/intelecti.ge\/"
+  },
+  {
+    "code": "ISSN 1987-863X",
+    "geo": "კავკასიის საერთაშორისო უნივერსიტეტის მაცნე",
+    "eng": "Caucasus International University Herald",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-8869",
+    "geo": "კავკასიის უნივერსიტეტის შრომათა კრებული",
+    "eng": "Scientific Works of Caucasus University",
+    "address_geo": "https:\/\/cu.edu.ge\/survey\/publications\/prof-publications\/published-prof-publications",
+    "address_eng": "https:\/\/cu.edu.ge\/survey\/publications\/prof-publications\/published-prof-publications"
+  },
+  {
+    "code": "ISSN 1512-1291 E ISSN 1512-1968",
+    "geo": "კარდიოლოგია და შინაგანი მედიცინა - XXI",
+    "eng": "Cardiology and Internal Medicine-XXI",
+    "address_geo": "http:\/\/www.gisc.ge\/Med1\/index1.htm",
+    "address_eng": "http:\/\/www.gisc.ge\/Med1\/index1.htm"
+  },
+  {
+    "code": "ISSN 1512-0325",
+    "geo": "კერამიკა",
+    "eng": "Ceramics",
+    "address_geo": "http:\/\/gtu.ge\/Journals\/keramika\/gamocemebi.htm",
+    "address_eng": "http:\/\/gtu.ge\/Journals\/keramika\/gamocemebi.htm"
+  },
+  {
+    "code": "ISSN 1512-1232",
+    "geo": "კომპიუტერული მეცნიერებანი და ტელეკომუნიკაციები - ქართული ელექტრონული სამეცნიერო ჟურნალი (ქესჟ) ",
+    "eng": "Computer Sciences and Telecommunications - Georgian electronic scientific journal (GESJ)",
+    "address_geo": "http:\/\/gesj.internet-academy.org.ge\/ge\/title_ge.php?b_sec=&section_l=comp",
+    "address_eng": "http:\/\/gesj.internet-academy.org.ge\/ge\/title_ge.php?b_sec=&section_l=comp"
+  },
+  {
+    "code": "ISSN 1512-2689 ",
+    "geo": "კრიტიკულ მდგომარეობათა და კატასტროფათა მედიცინა ",
+    "eng": "Critical Care & Catastrophe Medicine",
+    "address_geo": "http:\/\/www.kheladze.ge\/Publisher.htm",
+    "address_eng": "http:\/\/www.kheladze.ge\/Publisher.htm"
+  },
+  {
+    "code": "ISSN 2449-271X31",
+    "geo": "კურორტოლოგიის, ფიზიოთერაპიისა და რეაბილიტაციის საკითხები",
+    "eng": "The Questions of Health resort managing, Physiotherapy and Rehabilitation",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/184671",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/184671"
+  },
+  {
+    "code": "ISSN 1512-1135",
+    "geo": "მ. ნოდიას სახ. გეოფიზიკის ინსტიტუტის შრომების კრებული ",
+    "eng": "Transactions of M. Nodia Institute of Geophysics",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/239577",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/239577"
+  },
+  {
+    "code": "ISSN 1512-4169",
+    "geo": "მედიცინისა და მენეჯმენტის თანამედროვე პრობლემები",
+    "eng": "Modern Issues of Medicine and Management",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/111066",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/111066"
+  },
+  {
+    "code": "ISSN 1512-4585",
+    "geo": "მერმისი",
+    "eng": "Mermisi",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/153097",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/153097"
+  },
+  {
+    "code": "ISBN 978-9941-442-01-8 ",
+    "geo": "მეფუტკრეობა",
+    "eng": "Bee-keeping",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 0130-7061",
+    "geo": "მეცნიერება და ტექნოლოგიები",
+    "eng": "Metsniereba da Technologiebi (Science and Technologies)",
+    "address_geo": "http:\/\/publishhouse.gtu.ge\/ge\/archive\/techno",
+    "address_eng": "http:\/\/publishhouse.gtu.ge\/ge\/archive\/techno"
+  },
+  {
+    "code": "ISSN 1987-9377",
+    "geo": "მეცნიერება და ცხოვრება",
+    "eng": "Metsniereba da Tskhovreba (Science and Life)",
+    "address_geo": "http:\/\/tu.edu.ge\/ge\/tu-scientific-journal\/",
+    "address_eng": "http:\/\/tu.edu.ge\/ge\/tu-scientific-journal\/"
+  },
+  {
+    "code": "ISSN 1512-3936 ",
+    "geo": "მშენებლობა",
+    "eng": "Building",
+    "address_geo": "http:\/\/gtu.ge\/Construction\/Resources\/Publications.php",
+    "address_eng": "http:\/\/gtu.ge\/Construction\/Resources\/Publications.php"
+  },
+  {
+    "code": "4",
+    "geo": "მცენარეთა დაცვა",
+    "eng": "Plant protection. G. Aleksidze. Monograph",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "5",
+    "geo": "ნიადაგის მსოფლიო დღისადმი მიძღვნილი სამეცნიერო კონფერენციის მასალები",
+    "eng": "Materials of a scientific conference dedicated to the World Soil Day ",
+    "address_geo": "http:\/\/www.gaas.dsl.ge\/images\/2017_PDF\/Niadagis-dge-051216.pdf",
+    "address_eng": "http:\/\/www.gaas.dsl.ge\/images\/2017_PDF\/Niadagis-dge-051216.pdf"
+  },
+  {
+    "code": "ISSN 1512-3715",
+    "geo": "ნოვაცია",
+    "eng": "Novation",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/147845",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/147845"
+  },
+  {
+    "code": "ISSN 1987-7420",
+    "geo": "პარაზიტოლოგიის აქტუალური პრობლემები საქართველოში",
+    "eng": "Actual Problems of Parasitology in Georgia",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/5969",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/5969"
+  },
+  {
+    "code": "E ISSN 2449-2671",
+    "geo": "პოლიტიკისა და დემოკრატიზაციის ჟურნალი (JPD) ",
+    "eng": "Journal of Politics and Democratization (JPD)",
+    "address_geo": "https:\/\/gipa.ge\/JPD\/",
+    "address_eng": "https:\/\/gipa.ge\/JPD\/"
+  },
+  {
+    "code": "ISSN 1987-6831",
+    "geo": "პროფესიონალის ხმა",
+    "eng": "Professional’s Voice",
+    "address_geo": "https:\/\/acaduni.edu.ge\/tag\/%E1%83%9E%E1%83%A0%E1%83%9D%E1%83%A4%E1%83%94%E1%83%A1%E1%83%98%E1%83%9D%E1%83%9C%E1%83%90%E1%83%9A%E1%83%98%E1%83%A1-%E1%83%AE%E1%83%9B%E1%83%90\/",
+    "address_eng": "https:\/\/acaduni.edu.ge\/tag\/%E1%83%9E%E1%83%A0%E1%83%9D%E1%83%A4%E1%83%94%E1%83%A1%E1%83%98%E1%83%9D%E1%83%9C%E1%83%90%E1%83%9A%E1%83%98%E1%83%A1-%E1%83%AE%E1%83%9B%E1%83%90\/"
+  },
+  {
+    "code": "ISSN 1512-0031",
+    "geo": "რენტგენოლოგიის და რადიოლოგიის მაცნე",
+    "eng": "Georgian Journal of Radiology",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-6866",
+    "geo": "საერთაშორისო სამართლისა და მართვის ქართულ-ბრიტანული უნივერსიტეტის სამეცნიერო შრომათა კრებული",
+    "eng": "Scientific Works of Georgian-British Institute of International Law and Management",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-8303",
+    "geo": "სამართალი და ეკონომიკა",
+    "eng": "Law and Economics",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/20969",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/20969"
+  },
+  {
+    "code": "ISSN 1512-407X",
+    "geo": "სამთო ჟურნალი",
+    "eng": "Mining Journal",
+    "address_geo": "https:\/\/mining.org.ge\/mining-journal.html",
+    "address_eng": "https:\/\/mining.org.ge\/mining-journal.html"
+  },
+  {
+    "code": "ISBN 978-9941-406-51-521 ",
+    "geo": "სასოფლო-სამეურნეო კრედიტებისა და დაზღვევის კვლევის შედეგები",
+    "eng": "Results of Study of Farm Loan and Farm Insuгance. Elkana",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "6",
+    "geo": "სამედიცინო რეაბილიტაციის, პრევენციისა და ცხოვრების ჯანსაღი წესის თანამედროვე ასპექტები. საერთ. სიმპ. – საირმე. 9-13 ოქტომბერი",
+    "eng": "სამედიცინო რეაბილიტაციის, პრევენციისა და ცხოვრების ჯანსაღი წესის თანამედროვე ასპექტები. საერთ. სიმპ. – საირმე. 9-13 ოქტომბერი",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-0546",
+    "geo": "სატყეო მოამბე",
+    "eng": "Wood Bulletin",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/112155",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/112155"
+  },
+  {
+    "code": "ISSN 1512-195X ",
+    "geo": "საქართველოს განათლების მეცნიერებათა აკადემიის მოამბე",
+    "eng": "Newsletter of Academy of Education Sciences of Georgia",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-102X",
+    "geo": "საქართველოს განათლების მეცნიერებათა აკადემიის ჟურნალ მოამბის დამატება",
+    "eng": "Appendix to the Journal Newsletters of Education Sciences of Georgia",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-1127",
+    "geo": "საქართველოს გეოფიზიკური საზოგადოების ჟურნალი \u2028ა. დედამიწის ფიზიკა",
+    "eng": "Journal of Georgian Geophysical Society \u2028a. Physics of Solid Earth  ",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/22777",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/22777"
+  },
+  {
+    "code": "ISSN 1512-112712313",
+    "geo": "საქართველოს გეოფიზიკური საზოგადოების ჟურნალი \u2028ბ. ატმოსფეროს, ოკეანის და კოსმოსური პლაზმის ფიზიკა",
+    "eng": "Journal of Georgian Geophysical Society \u2028b. Physics of Atmosphere, Ocean and Space Plasma",
+    "address_geo": " http:\/\/dspace.nplg.gov.ge\/handle\/1234\/22777 ",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/22777 "
+  },
+  {
+    "code": "ISSN 1512-1267",
+    "geo": "საქართველოს გეოგრაფია",
+    "eng": "Georgian Journal of Geography",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 2233-3207",
+    "geo": "საქართველოს ეკონომიკურ მეცნიერებათა აკადემიის შრომები",
+    "eng": "Works of Georgian Academy of Economic Sciences",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISBN 978-9941-0-8415-7",
+    "geo": "საქართველოს მეაბრეშუმეობა – პრობლემები, რეაბილიტაცია, აღორძინება",
+    "eng": "Georgia’s silk breeding - problems, rehabilitation, restoration. G. Nikoleishvili, E. Shapakidze.  Monograph",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 0321-1665123",
+    "geo": "საქართველოს მეცნიერებათა ეროვნული აკადემიის მაცნე, ბიოლოგიის სერია „ა“ ",
+    "eng": "Proceedings of the Georgian Academy of Sciences, Biological Series A",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-2123",
+    "geo": "საქართველოს მეცნიერებათა ეროვნული აკადემიის მაცნე, ბიოლოგიის სერია \"ბ\"",
+    "eng": "Proceedings of the Georgian Academy of Sciences, Biological Series B",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 0321-1665",
+    "geo": "საქართველოს მეცნიერებათა ეროვნული აკადემიის მაცნე, ბიომედიცინის სერია",
+    "eng": "Proceedings of the Georgian National Academy of Sciences, Biomedical Series",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 0132-6074",
+    "geo": "საქართველოს მეცნიერებათა ეროვნული აკადემიის მაცნე, ქიმიის სერია",
+    "eng": "Proceedings of the Georgian National Academy of Sciences – Chemical Series",
+    "address_geo": "http:\/\/www.ipoc.org.ge\/",
+    "address_eng": "http:\/\/www.ipoc.org.ge\/"
+  },
+  {
+    "code": "ISSN 0132-1447",
+    "geo": "საქართველოს მეცნიერებათა ეროვნული აკადემიის მოამბე",
+    "eng": "Bulletin of Georgian National Academy of Sciences",
+    "address_geo": "http:\/\/science.org.ge\/moambe\/moambe-g.html",
+    "address_eng": "http:\/\/science.org.ge\/moambe\/moambe-g.html"
+  },
+  {
+    "code": "ISSN 1512-0457",
+    "geo": "საქართველოს ნავთობი და გაზი",
+    "eng": "Georgian Oil and Gas",
+    "address_geo": "http:\/\/gtu.ge\/Mining\/Science-and-Engineering\/-PUBLICATIONS.php",
+    "address_eng": "http:\/\/gtu.ge\/Mining\/Science-and-Engineering\/-PUBLICATIONS.php"
+  },
+  {
+    "code": "ISSN 1512-1542",
+    "geo": "საქართველოს პედიატრი",
+    "eng": "Georgian Pediatrician",
+    "address_geo": "http:\/\/pediatria.org.ge\/journals.html",
+    "address_eng": "http:\/\/pediatria.org.ge\/journals.html"
+  },
+  {
+    "code": "ISSN 1512-2778",
+    "geo": "საქართველოს რესპირაციული ჟურნალი",
+    "eng": "Respiratory Journal of Georgia",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-0287 ",
+    "geo": "საქართველოს საინჟინრო სიახლენი (GEN)",
+    "eng": "Georgian Engineering News (GEN)",
+    "address_geo": "http:\/\/www.techinformi.ge\/gen",
+    "address_eng": "http:\/\/www.techinformi.ge\/gen"
+  },
+  {
+    "code": "ISSN 1512-0112 ",
+    "geo": "საქართველოს სამედიცინო სიახლენი (GMN)",
+    "eng": "Georgian Medical News (GMN) ",
+    "address_geo": "http:\/\/www.geomednews.org\/",
+    "address_eng": "http:\/\/www.geomednews.org\/"
+  },
+  {
+    "code": "ISSN 1987-7234",
+    "geo": "საქართველოს სამეცნიერო სიახლეები (GSN)",
+    "eng": "Georgian Scientific News (GSN)",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-0813",
+    "geo": "საქართველოს სტრატეგიული კვლევებისა და განვითარების ცენტრის ბიულეტენი",
+    "eng": "Bulletin of Centre of Strategic Development of Georgia",
+    "address_geo": "http:\/\/www.csrdg.ge\/biuletinebi\/\u2028",
+    "address_eng": "http:\/\/www.csrdg.ge\/biuletinebi\/\u2028"
+  },
+  {
+    "code": "ISSN 1512-0996",
+    "geo": "საქართველოს ტექნიკური უნივერსიტეტის შრომები",
+    "eng": "Transactions of Technical University of Georgia",
+    "address_geo": "http:\/\/publishhouse.gtu.ge\/ge\/archive\/shroma",
+    "address_eng": "http:\/\/publishhouse.gtu.ge\/ge\/archive\/shroma"
+  },
+  {
+    "code": "7",
+    "geo": "საქართველოს ფიტოგენეტიკური რესურსი და მისი გაუმჯობესების ინოვაციური ტექნოლოგიები. სამეცნ. კონფ. მასალები",
+    "eng": "The phytogenetic resources of Georgia and innovative technologies for their improvement. Materials of a Scientific Conference",
+    "address_geo": "http:\/\/www.gaas.dsl.ge\/images\/2017_PDF\/konferencia-210916.pdf",
+    "address_eng": "http:\/\/www.gaas.dsl.ge\/images\/2017_PDF\/konferencia-210916.pdf"
+  },
+  {
+    "code": "ISSN 1512-0686 ",
+    "geo": "საქართველოს ქიმიური ჟურნალი",
+    "eng": "Georgian Chemical Journal",
+    "address_geo": "http:\/\/archive.is\/xqNYm",
+    "address_eng": "http:\/\/archive.is\/xqNYm"
+  },
+  {
+    "code": "ISSN 1512- 4916",
+    "geo": "საჰაერო ტრანსპორტი ",
+    "eng": "Air Transport",
+    "address_geo": "http:\/\/www.ssu.edu.ge\/index.php\/ka\/2017-02-16-14-21-11\/2017-02-16-14-22-26\/2017-03-11-14-01-03",
+    "address_eng": "http:\/\/www.ssu.edu.ge\/index.php\/ka\/2017-02-16-14-21-11\/2017-02-16-14-22-26\/2017-03-11-14-01-03"
+  },
+  {
+    "code": "ISSN 1987-7471",
+    "geo": "სოციალური ეკონომიკა",
+    "eng": "Social Economics",
+    "address_geo": "http:\/\/socialuri-economica.bpengi.com\/",
+    "address_eng": "http:\/\/socialuri-economica.bpengi.com\/"
+  },
+  {
+    "code": "ISBN 978-9941-17-879-5",
+    "geo": "სოციალური კაპიტალის როლი საქართველოს სოფლის განვითარებაში  ",
+    "eng": "The Role of Social Capital in Rural Development of Georgia",
+    "address_geo": "http:\/\/cssge.ge\/wp-content\/uploads\/2013\/01\/socialuri-kapitali-CSS-ASCN.pdf",
+    "address_eng": "http:\/\/cssge.ge\/wp-content\/uploads\/2013\/01\/socialuri-kapitali-CSS-ASCN.pdf"
+  },
+  {
+    "code": "ISSN 1987-9865",
+    "geo": "სოციალური, ეკოლოგიური და კლინიკური პედიატრია",
+    "eng": "Social, Ecological and Clinical Pediatrics",
+    "address_geo": "http:\/\/www.sppf.info\/",
+    "address_eng": "http:\/\/www.sppf.info\/"
+  },
+  {
+    "code": "ISSN 1987-572X",
+    "geo": "სოხუმის სახელმწიფო უნივერსიტეტის მაცნე",
+    "eng": "Herald of Sokhumi State University",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISBN 978-9941-20-096-0 ISBN978-9941-20-098-4",
+    "geo": "სტუ-ს საერთაშ. სამეც. კონფ. შრომები. 21-ე საუკუნის მეცნიერებისა და ტექნოლოგიების განვითარების ძირითადი პარადიგმები ",
+    "eng": "Proceedings of Int. Sci. Conf. of Technical University of Georgia, Basic Paradigms in Science and Technology Development for the 21st Century",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 0207-9224",
+    "geo": "სუბტროპიკული კულტურები",
+    "eng": "Subtropical Crops",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISBN 978-9941-0-3995-9",
+    "geo": "სურსათის უვნებლობა და ხარისხი",
+    "eng": "Food Safety and Quality",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-5711",
+    "geo": "სუხიშვილის უნივერსიტეტის სამეცნიერო შრომათა კრებული",
+    "eng": "Collection of Scientific Works of Sukhishvili University",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "E ISSN 2346-8491",
+    "geo": "ტრანსლაციური და კლინიკური მედიცინა - საქართველოს სამედიცინო ჟურნალი",
+    "eng": "Translational and Clinical Medicine - Georgian Medical Journal",
+    "address_geo": "http:\/\/tcm.tsu.ge\/",
+    "address_eng": "http:\/\/tcm.tsu.ge\/"
+  },
+  {
+    "code": "ISSN 1512-3537",
+    "geo": "ტრანსპორტი და მანქანათმშენებლობა",
+    "eng": "Transport and Machinebuilding",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/248720",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/248720"
+  },
+  {
+    "code": "ISSN 1512-1461",
+    "geo": "ფიზიკა - ქართული ელექტრონული სამეცნიერო ჟურნალი (ქესჟ) ",
+    "eng": "Physics  - Georgian electronic scientific journal (GESJ)",
+    "address_geo": "http:\/\/gesj.internet-academy.org.ge\/ge\/title_ge.php?b_sec=&section_l=phys",
+    "address_eng": "http:\/\/gesj.internet-academy.org.ge\/ge\/title_ge.php?b_sec=&section_l=phys"
+  },
+  {
+    "code": "ISSN 2298-0091 E ISSN 2449-299X",
+    "geo": "ქალთა ჯანმრთელობის აქტუალური საკითხები",
+    "eng": "Actual Topics of Women’s Health",
+    "address_geo": "http:\/\/www.actualtopicswomenshealth.org\/jurnali.html",
+    "address_eng": "http:\/\/www.actualtopicswomenshealth.org\/jurnali.html"
+  },
+  {
+    "code": "ISBN 978-9941-26-067-4",
+    "geo": "შავი ზღვის ეკოლოგიური პარამეტრების კვლევა მულტიმედიური ბაზების საფუძველზე ",
+    "eng": "Study of the Black Sea ecological parameters using multimedia databases. A. Gavardashvili. Monograph.",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/bitstream\/1234\/237141\/1\/ShaviZgvisEkologiuriParametrebisKvlevaMultimediuriBazebisSafudzvelze.pdf",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/bitstream\/1234\/237141\/1\/ShaviZgvisEkologiuriParametrebisKvlevaMultimediuriBazebisSafudzvelze.pdf"
+  },
+  {
+    "code": "ISSN 1512-2344",
+    "geo": "წყალთა მეურნეობის ინსტიტუტის სამეცნიერო შრომათა კრებული",
+    "eng": "Collected Papers of Institute of Water Management",
+    "address_geo": "http:\/\/www.wmi.ge\/GEO\/7.htm",
+    "address_eng": "http:\/\/www.wmi.ge\/GEO\/7.htm"
+  },
+  {
+    "code": "ISSN 1512-3812",
+    "geo": "ხანძთა",
+    "eng": "Khandzta",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "E ISSN 2346-7983",
+    "geo": "ჯანდაცვის პოლიტიკა, ეკონომიკა და სოციოლოგია",
+    "eng": "Health Policy, Economics and Sociology",
+    "address_geo": "https:\/\/heconomic.wordpress.com\/health-economics\/",
+    "address_eng": "v"
+  },
+  {
+    "code": "ISBN 978-9941-405-81-5",
+    "geo": "ჰიდროგეოლოგიის და საინჟინრო გეოლოგიის ინსტიტუტის შრომათა კრებული",
+    "eng": "Institute of Hydrogeology and Engineering Geology, Proceedings",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1512-410X ",
+    "geo": "ჰიდროინჟინერია",
+    "eng": "Hydro Engineering",
+    "address_geo": "http:\/\/publishhouse.gtu.ge\/ge\/archive\/hidroi",
+    "address_eng": "http:\/\/publishhouse.gtu.ge\/ge\/archive\/hidroi"
+  },
+  {
+    "code": "ISSN 1512-0902",
+    "geo": "ჰიდრომეტეოროლოგიის ინსტიტუტის შრომათა კრებული ",
+    "eng": "Transactions of the Institute of Hydrometeorology",
+    "address_geo": "http:\/\/www.ecohydmet.ge\/publication-geo.html",
+    "address_eng": "http:\/\/www.ecohydmet.ge\/publication-geo.html"
+  },
+  {
+    "code": "ISSN 2346-8068 E ISSN 2346-8181",
+    "geo": "გარემო და სიცოცხლე. სამხრეთ კავკასიის საერთაშორისო სამეცნიერო სამედიცინო ჟურნალი (Ambiance In Life. International Scientific Journal In Medicine of Southern Caucasus)",
+    "eng": "Ambiance In Life. International Scientific Journal In Medicine of Southern Caucasus",
+    "address_geo": "http:\/\/sc-media.org\/ambiance-in-life-isjmsc\/",
+    "address_eng": "http:\/\/sc-media.org\/ambiance-in-life-isjmsc\/"
+  },
+  {
+    "code": "ISSN 1512-1887",
+    "geo": "აგრარული მეცნიერების მაცნე - Annals of agrarian science",
+    "eng": "Annals of agrarian science",
+    "address_geo": "https:\/\/www.journals.elsevier.com\/annals-of-agrarian-science\/",
+    "address_eng": "https:\/\/www.journals.elsevier.com\/annals-of-agrarian-science\/"
+  },
+  {
+    "code": "ISSN 0132-14471",
+    "geo": "საერთ. კონფ. მოხსენებათა თეზისები - Bacteriophages and Probiotics – Alternatives to Antiriotics ",
+    "eng": "Bacteriophages and Probiotics – Alternatives to Antibiotics – Intern. Conf. Abstr.",
+    "address_geo": "http:\/\/www.eliava-institute.org\/",
+    "address_eng": "http:\/\/www.eliava-institute.org\/"
+  },
+  {
+    "code": "ISSN 1987-6521 E ISSN 2346-7541",
+    "geo": "შავი ზღვა  Black Sea",
+    "eng": "Black Sea - Scientific Journal of Academic Research",
+    "address_geo": "http:\/\/sc-media.org\/gulustan-bssjar\/",
+    "address_eng": "http:\/\/sc-media.org\/gulustan-bssjar\/"
+  },
+  {
+    "code": "ISSN 2587-4861",
+    "geo": "ერუდიტი",
+    "eng": "Eruditi",
+    "address_geo": "http:\/\/nu.edu.ge\/?page_id=2565",
+    "address_eng": "http:\/\/nu.edu.ge\/?page_id=2565"
+  },
+  {
+    "code": "ISSN 0132-14473",
+    "geo": "კულტურა და ფილოსოფია",
+    "eng": "Culture & Philosophy",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 1987-8826",
+    "geo": "ნანო კვლევები - Nano Studies",
+    "eng": "Nano Studies",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/140636?locale=ka",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/140636?locale=ka"
+  },
+  {
+    "code": "ISSN 2298-0946 E ISSN 1987-6114",
+    "geo": "კავკასია - სამხრეთ კავკასიის აკადემიური კვლევების სამეცნიერო ჟურნალი (The Caucasus - Southern Caucasus Scientific Journal of Academic Research)",
+    "eng": "The Caucasus - Southern Caucasus Scientific Journal of Academic Research",
+    "address_geo": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/183352",
+    "address_eng": "http:\/\/dspace.nplg.gov.ge\/handle\/1234\/183352"
+  },
+  {
+    "code": "ISSN 1987-7293",
+    "geo": "კავკასია და მსოფლიო - The Caucasus and the World ",
+    "eng": "The Caucasus and the World",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 2587-5094",
+    "geo": "საქართველოს საერთაშორისო სასწავლო უნივერსიტეტის სამეცნიერო ჟურნალი - UNIGEO",
+    "eng": "UNIGEO Scientific Journal of Teaching University of Georgia",
+    "address_geo": "https:\/\/unigeo.edu.ge\/ge\/sametsniero-shromebis-krebuli\/",
+    "address_eng": "https:\/\/unigeo.edu.ge\/ge\/sametsniero-shromebis-krebuli\/"
+  },
+  {
+    "code": "ISSN 0512-1909",
+    "geo": "მეტალურგიის, შედუღების და ლითონმცოდნეობის პრობლემები (Проблемы Металлургии, Сварки и Материаловедении)",
+    "eng": "Problems of Metallurgy, Welding and Material Science",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "ISSN 2613-5817 E ISSN 2613-5825",
+    "geo": "კვლევების, განათლებისა და სწავლების საერთაშორისო ცენტრის შრომები - PIRETC (Proceeding of the International Research Education & Training Center)",
+    "eng": "PIRETC (Proceeding of the International Research Education & Training Center)",
+    "address_geo": "http:\/\/sc-media.org\/piretc\/",
+    "address_eng": "http:\/\/sc-media.org\/piretc\/"
+  },
+  {
+    "code": "ISSN 1512-2743",
+    "geo": "საქართველოს სოფლის მეურნეობის მეცნიერებათა აკადემიის მოამბე",
+    "eng": "Bulletin of Georgian Academy of Agricultural Sciences",
+    "address_geo": "http:\/\/www.gaas.dsl.ge\/%E1%83%98%E1%83%9C%E1%83%A4%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%AA%E1%83%98%E1%83%94%E1%83%91%E1%83%98\/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AA%E1%83%94%E1%83%9B%E1%83%94%E1%83%91%E1%83%98\/%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%98%E1%83%A1-%E1%83%9B%E1%83%9D%E1%83%90%E1%83%9B%E1%83%91%E1%83%94",
+    "address_eng": "http:\/\/www.gaas.dsl.ge\/%E1%83%98%E1%83%9C%E1%83%A4%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%AA%E1%83%98%E1%83%94%E1%83%91%E1%83%98\/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%AA%E1%83%94%E1%83%9B%E1%83%94%E1%83%91%E1%83%98\/%E1%83%90%E1%83%99%E1%83%90%E1%83%93%E1%83%94%E1%83%9B%E1%83%98%E1%83%98%E1%83%A1-%E1%83%9B%E1%83%9D%E1%83%90%E1%83%9B%E1%83%91%E1%83%94"
+  },
+  {
+    "code": "ISSN 1512-3979   E ISSN 1512-2174 ",
+    "geo": "მართვის ავტომატიზებული სისტემები - სტუ-ს თემატური სამეცნიერო შრომების კრებული",
+    "eng": "Automated Control Systems - Transactions of GTU",
+    "address_geo": "http:\/\/gtu.ge\/Journals\/mas\/",
+    "address_eng": "http:\/\/gtu.ge\/Journals\/mas\/"
+  },
+  {
+    "code": "8",
+    "geo": "სამართლი და მსოფლიო",
+    "eng": "სამართლი და მსოფლიო",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "9",
+    "geo": "კლინიკური ონკოლოგია",
+    "eng": "კლინიკური ონკოლოგია",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "10",
+    "geo": "მართლმსაჯულება და კანონი",
+    "eng": "მართლმსაჯულება და კანონი",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "11",
+    "geo": "პათოლოგიის, თერაპიისა და სამედიცინო რეაბილიტაციის აქტუალური პრობლემები",
+    "eng": "პათოლოგიის, თერაპიისა და სამედიცინო რეაბილიტაციის აქტუალური პრობლემები",
+    "address_geo": "",
+    "address_eng": ""
+  },
+  {
+    "code": "12",
+    "geo": "21-ე საუკუნის მეცნიერებისა და ტექნოლოგიების განვითარების ძირითადი პარადიგმები. საერთაშ. სამეცნ. კონფ. შრ. თბილისი. 19–21 ივნ.",
+    "eng": "21-ე საუკუნის მეცნიერებისა და ტექნოლოგიების განვითარების ძირითადი პარადიგმები. საერთაშ. სამეცნ. კონფ. შრ. თბილისი. 19–21 ივნ.",
+    "address_geo": "",
+    "address_eng": ""
+  }
+]

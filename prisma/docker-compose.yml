@@ -1,0 +1,37 @@
+version: '3'
+services:
+  prisma:
+    image: prismagraphql/prisma:1.33
+    restart: always
+    ports:
+      - "4466:4466"
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        databases:
+          default:
+            connector: mysql
+            host: prismaDb
+            database: ${MYSQL_DATABASE}
+            rawAccess: true
+            port: 3306
+            user: root
+            password: ${MYSQL_ROOT_PASSWORD}
+  prismaDb:
+    image: mariadb:10.3.16
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+#      - ./mariadb/dump:/docker-entrypoint-initdb.d
+      - persistent:/var/lib/mysql
+    networks:
+      - default
+  prismaPhpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8000:80
+volumes:
+  persistent:

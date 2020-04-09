@@ -1,0 +1,29 @@
+type Expert {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    workExperience: String
+    inpDate: DateTime
+    email: String
+    web: String
+    tel: String
+    mobile: String
+    publications: String
+    translation: [ExpertTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    oecds: [Oecd] @relation(link: TABLE, onDelete: CASCADE)
+    languages:[Language] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type ExpertTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    fullName: String
+    qualification: String
+    academicDegree: String
+    specialization: String
+    workingPlace: String
+    position: String
+    language:Language! @relation
+}

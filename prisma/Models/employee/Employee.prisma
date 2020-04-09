@@ -1,0 +1,56 @@
+type Employee {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    email: String!
+    gender: Gender!
+    tel: String!
+    department: Department! @relation(link: TABLE, onDelete: CASCADE)
+    position: EmployeePosition! @relation(link: TABLE, onDelete: CASCADE)
+    translation: [EmployeeTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+}
+
+type EmployeeTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    firstName: String!
+    lastName: String!
+    language:Language! @relation
+}
+
+type EmployeePosition{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    translation: [EmployeePositionTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+}
+
+type EmployeePositionTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    name: String! @unique
+    language: Language! @relation
+    position:EmployeePosition!
+}
+
+enum Gender{
+    MALE,FEMALE
+}
+
+type Department{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    translation: [DepartmentTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+}
+
+type DepartmentTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    name: String! @unique
+    language:Language! @relation
+    department:Department!
+}

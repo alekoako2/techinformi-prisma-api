@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d62700af-ce1a-4f30-ad15-bd6fd92f8ce4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="techinformi@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="techinformi@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="techinformi@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="techinformi: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="techinformi@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="techinformi: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="techinformi@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="techinformi: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="techinform-api" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="aleksandre &lt;alekofaco@gmail.com&gt;" />
+        <option value="&lt;alekofaco@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="security-feature" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/api" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1PWNvm5YXFTXRJw7XG8NCWIohTR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules/EmployeeModule" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettier.import.notification.dismissed" value="true" />
+    <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="project" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/api/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/EmployeeModule" />
+      <recent name="$PROJECT_DIR$/prisma/Models/employee/seed" />
+      <recent name="$PROJECT_DIR$/prisma" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/modules/ResearchProjectModule/resolvers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/prisma" />
+      <recent name="$PROJECT_DIR$/prisma/mariadb/dump" />
+      <recent name="$PROJECT_DIR$/elk" />
+      <recent name="$PROJECT_DIR$/src/modules/TechnologyTransferCenters" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="prisma.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="postgres" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="prisma/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.prisma.postgres: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d62700af-ce1a-4f30-ad15-bd6fd92f8ce4" name="Default Changelist" comment="" />
+      <created>1560862189449</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560862189449</updated>
+      <workItem from="1560862191284" duration="5667000" />
+      <workItem from="1560889395290" duration="832000" />
+      <workItem from="1560934568642" duration="856000" />
+      <workItem from="1561039742397" duration="13517000" />
+      <workItem from="1561289430112" duration="21027000" />
+      <workItem from="1561737524548" duration="177000" />
+      <workItem from="1561737979760" duration="1883000" />
+      <workItem from="1561740211160" duration="9848000" />
+      <workItem from="1561831878802" duration="48000" />
+      <workItem from="1561832124685" duration="417000" />
+      <workItem from="1561833511413" duration="2528000" />
+      <workItem from="1561881863730" duration="9090000" />
+      <workItem from="1561893938333" duration="11586000" />
+      <workItem from="1561927797895" duration="21000" />
+      <workItem from="1561927935929" duration="32000" />
+      <workItem from="1561968750245" duration="18664000" />
+      <workItem from="1562142788434" duration="770000" />
+      <workItem from="1562145163906" duration="2136000" />
+      <workItem from="1562177319856" duration="10602000" />
+      <workItem from="1562321615819" duration="516000" />
+      <workItem from="1562361249661" duration="1046000" />
+      <workItem from="1562362310980" duration="880000" />
+      <workItem from="1562363915246" duration="265000" />
+      <workItem from="1562407628661" duration="2361000" />
+      <workItem from="1562513975022" duration="1414000" />
+      <workItem from="1562881541990" duration="131000" />
+      <workItem from="1563128737064" duration="20000" />
+      <workItem from="1563199924677" duration="29000" />
+      <workItem from="1564082438596" duration="177000" />
+      <workItem from="1565986126813" duration="5338000" />
+      <workItem from="1566037174910" duration="73000" />
+      <workItem from="1566052141223" duration="12895000" />
+      <workItem from="1566198615860" duration="63000" />
+      <workItem from="1566198695815" duration="1020000" />
+      <workItem from="1566199900007" duration="21000" />
+      <workItem from="1566199939012" duration="63000" />
+      <workItem from="1566200015085" duration="34000" />
+      <workItem from="1566200210403" duration="17000" />
+      <workItem from="1566201100488" duration="1783000" />
+      <workItem from="1566280755523" duration="7872000" />
+      <workItem from="1566386664107" duration="79000" />
+      <workItem from="1566404425588" duration="84000" />
+      <workItem from="1566569340190" duration="36000" />
+      <workItem from="1566569421144" duration="730000" />
+      <workItem from="1566577387050" duration="599000" />
+      <workItem from="1566634493819" duration="10326000" />
+      <workItem from="1566727339998" duration="6929000" />
+      <workItem from="1566828542522" duration="82000" />
+      <workItem from="1566828687375" duration="4596000" />
+      <workItem from="1566833787688" duration="3665000" />
+      <workItem from="1566885721628" duration="722000" />
+      <workItem from="1566886815801" duration="861000" />
+      <workItem from="1566887755365" duration="163000" />
+      <workItem from="1566887980621" duration="3551000" />
+      <workItem from="1567064954136" duration="8982000" />
+      <workItem from="1567154184230" duration="11174000" />
+      <workItem from="1567180783218" duration="913000" />
+      <workItem from="1567241615888" duration="25000" />
+      <workItem from="1567241660282" duration="1027000" />
+      <workItem from="1567267048244" duration="677000" />
+      <workItem from="1568025794834" duration="78000" />
+      <workItem from="1568025891038" duration="553000" />
+      <workItem from="1568541010368" duration="21000" />
+      <workItem from="1568541056122" duration="33000" />
+      <workItem from="1568541103152" duration="295000" />
+      <workItem from="1568547447215" duration="214000" />
+      <workItem from="1569522980543" duration="96000" />
+      <workItem from="1569523108414" duration="1919000" />
+      <workItem from="1569581392694" duration="122000" />
+      <workItem from="1569581533249" duration="5249000" />
+      <workItem from="1569676796116" duration="769000" />
+      <workItem from="1569911756339" duration="2362000" />
+      <workItem from="1570010598011" duration="22542000" />
+      <workItem from="1570428366069" duration="4892000" />
+      <workItem from="1570528072493" duration="7940000" />
+      <workItem from="1570543089595" duration="3101000" />
+      <workItem from="1570606027145" duration="7856000" />
+      <workItem from="1570626641177" duration="11271000" />
+      <workItem from="1570768023391" duration="20755000" />
+      <workItem from="1570982379992" duration="7084000" />
+      <workItem from="1570990917974" duration="18077000" />
+      <workItem from="1571331083456" duration="5309000" />
+      <workItem from="1571410911623" duration="9459000" />
+      <workItem from="1571479152770" duration="3104000" />
+      <workItem from="1571485875376" duration="1101000" />
+      <workItem from="1571555199933" duration="5107000" />
+      <workItem from="1571644235526" duration="15576000" />
+      <workItem from="1571819937361" duration="2339000" />
+      <workItem from="1572249242176" duration="2000" />
+      <workItem from="1572347232843" duration="1960000" />
+      <workItem from="1572602303108" duration="3953000" />
+      <workItem from="1572699330872" duration="3443000" />
+      <workItem from="1572803919581" duration="3276000" />
+      <workItem from="1572860977685" duration="637000" />
+      <workItem from="1572876419530" duration="676000" />
+      <workItem from="1572896769903" duration="696000" />
+      <workItem from="1573124025334" duration="3003000" />
+      <workItem from="1573202043452" duration="1443000" />
+      <workItem from="1573300534233" duration="5578000" />
+      <workItem from="1573644514571" duration="13210000" />
+      <workItem from="1574253690888" duration="6025000" />
+      <workItem from="1574590214920" duration="39000" />
+      <workItem from="1574590278297" duration="1915000" />
+      <workItem from="1574592705995" duration="6486000" />
+      <workItem from="1574938128205" duration="8607000" />
+      <workItem from="1575031347956" duration="35000" />
+      <workItem from="1575031421759" duration="82000" />
+      <workItem from="1575281880353" duration="10856000" />
+      <workItem from="1575375676911" duration="132000" />
+      <workItem from="1575375928957" duration="66000" />
+      <workItem from="1575376015577" duration="11896000" />
+      <workItem from="1576052340844" duration="334000" />
+      <workItem from="1576583608719" duration="2447000" />
+      <workItem from="1576859763466" duration="1544000" />
+      <workItem from="1576861562952" duration="2028000" />
+      <workItem from="1579094407160" duration="672000" />
+      <workItem from="1579095411900" duration="5259000" />
+      <workItem from="1579210546539" duration="5000" />
+      <workItem from="1579277890475" duration="722000" />
+      <workItem from="1579519075905" duration="1801000" />
+      <workItem from="1579687503861" duration="777000" />
+      <workItem from="1579796465750" duration="2145000" />
+      <workItem from="1579885955238" duration="2542000" />
+      <workItem from="1579940368584" duration="1063000" />
+      <workItem from="1580572089003" duration="857000" />
+      <workItem from="1584824127668" duration="922000" />
+      <workItem from="1586364682759" duration="87000" />
+      <workItem from="1586451760810" duration="1822000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial">
+      <created>1562363116049</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562363116049</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial">
+      <created>1562363257475</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1562363257475</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="408" y="198" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579095363183">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="408" y="198" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1579095363183" />
+    <state x="221" y="100" key="SettingsEditor" timestamp="1586452343257">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1586452343257" />
+    <state width="563" height="503" key="SwitcherDM" timestamp="1586453398099">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="563" height="503" key="SwitcherDM/0.23.1440.877@0.23.1440.877" timestamp="1586453398099" />
+    <state width="751" height="676" key="SwitcherDM/0.23.1920.1177@0.23.1920.1177" timestamp="1579687951763" />
+    <state x="443" y="261" width="1035" height="701" key="find.popup" timestamp="1580572926151">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="443" y="261" width="1035" height="701" key="find.popup/0.23.1920.1177@0.23.1920.1177" timestamp="1580572926151" />
+  </component>
+</project>

@@ -1,0 +1,17 @@
+type News{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    translation: [NewsTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type NewsTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    title: String
+    description: String
+    content: String
+    language:Language! @relation
+}

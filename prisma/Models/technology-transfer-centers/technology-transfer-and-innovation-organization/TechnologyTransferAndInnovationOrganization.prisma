@@ -1,0 +1,10 @@
+type TechnologyTransferAndInnovationOrganization {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    url: String
+    title: String
+    text: String
+    region: String
+    author: User!
+}

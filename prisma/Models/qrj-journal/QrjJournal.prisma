@@ -1,0 +1,17 @@
+type QrjJournal {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    code: String! @unique
+    translation: [QrjJournalTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type QrjJournalTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    name: String
+    address: String
+    language:Language! @relation
+}

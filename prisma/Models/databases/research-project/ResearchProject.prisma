@@ -1,0 +1,56 @@
+type ResearchProject {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    inpDate: DateTime
+    regDate: DateTime
+    startDate: DateTime
+    endDate: DateTime
+    regNumb: String
+    research: String
+    researchDirection: String
+    researchExecutionBasis: String
+    abstract: String
+    annotation: String
+    budget: Int
+    organizationName: String
+    organizationShortName: String
+    organizationCode: String
+    organizationHead: String
+    organizationCity: String
+    organizationAddress: String
+    organizationIndex: String
+    organizationTel: String
+    organizationWeb: String
+    participatingInstitutionName: String
+    participatingInstitutionCountryCity: String
+    participatingInstitutionTel: String
+    participatingInstitutionEmail: String
+    participatingInstitutionWeb: String
+    leaderName: String
+    leaderPosition: String
+    leaderAcademicDegree: String
+    leaderTel: String
+    leaderMobile: String
+    leaderEmail: String
+    researchExecutors: String
+    financing: String
+    note: String
+    pincode: String
+    translation: [ResearchProjectTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    oecds: [Oecd] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type ResearchProjectTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    title: String
+    key: [Keyword] @relation
+    language:Language! @relation
+}
+type Keyword{
+    id: ID! @id
+    name:String
+}

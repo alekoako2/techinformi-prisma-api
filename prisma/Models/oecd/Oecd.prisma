@@ -1,0 +1,16 @@
+type Oecd {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    code: String! @unique
+    translation: [OecdTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type OecdTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    name: String!
+    language:Language! @relation
+}

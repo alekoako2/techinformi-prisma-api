@@ -1,0 +1,24 @@
+type User {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    email: String! @unique
+    password: String!
+    news:[News!]
+    oecds:[Oecd!]
+    role: Role! @default(value: CUSTOMER)
+    translation: [UserTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+}
+
+type UserTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    firstName: String!
+    lastName: String!
+    language:Language! @relation
+}
+
+enum Role{
+    ADMIN,EDITOR,CUSTOMER
+}
