@@ -1,0 +1,23 @@
+version: '3'
+services:
+  techinformiapi:
+    build:
+      .
+    environment:
+      - PRISMA_URL=${PRISMA_URL}
+      - PRISMA_SECRET=${PRISMA_SECRET}
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 4000:4000
+    external_links:
+      - techinformi-prisma_default
+    labels:
+      - traefik.frontend.rule=Host:api.techinformi.localhost
+      - traefik.port=4000
+      - traefik.enable=true
+    networks:
+      - techinformi-traefik_default
+networks:
+  techinformi-traefik_default:
+    external: true
