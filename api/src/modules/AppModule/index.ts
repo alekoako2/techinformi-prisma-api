@@ -12,16 +12,16 @@ import { ResearchProjectModule } from "../ResearchProjectModule";
 import { EmployeeModule } from "../EmployeeModule";
 
 export const AppModule = [
-  UserModule,
+  TechnologyTransferAndInnovationOrganizationModule,
+  TechnologyTransferNetworkModule,
+  ResearchProjectModule,
+  QrjPublicationModule,
+  QrjJournalModule,
   EmployeeModule,
   LanguageModule,
+  ExpertModule,
+  UserModule,
   NewsModule,
   OecdModule,
-  QrjJournalModule,
-  QrjPublicationModule,
-  QrjModule,
-  TechnologyTransferNetworkModule,
-  TechnologyTransferAndInnovationOrganizationModule,
-  ExpertModule,
-  ResearchProjectModule
+  QrjModule
 ];

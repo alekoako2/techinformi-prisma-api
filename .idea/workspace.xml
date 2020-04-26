@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d62700af-ce1a-4f30-ad15-bd6fd92f8ce4" name="Default Changelist" comment="" />
+    <list default="true" id="d62700af-ce1a-4f30-ad15-bd6fd92f8ce4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,9 +59,6 @@
     </expand>
     <select />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="techinform-api" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -83,20 +82,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="$PROJECT_DIR$/.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1PWNvm5YXFTXRJw7XG8NCWIohTR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -106,8 +97,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.18.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/modules" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -122,19 +113,19 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/api/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/api" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/modules/EmployeeModule" />
-      <recent name="$PROJECT_DIR$/prisma/Models/employee/seed" />
-      <recent name="$PROJECT_DIR$/prisma" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/api" />
       <recent name="$PROJECT_DIR$/prisma" />
       <recent name="$PROJECT_DIR$/prisma/mariadb/dump" />
       <recent name="$PROJECT_DIR$/elk" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/src/modules" />
+      <recent name="$PROJECT_DIR$/api" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/modules/EmployeeModule" />
+      <recent name="$PROJECT_DIR$/prisma/Models/employee/seed" />
     </key>
   </component>
   <component name="RunManager">
@@ -156,18 +147,6 @@
         <item itemvalue="Docker.prisma.postgres: Compose Deployment" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -311,6 +290,14 @@
       <workItem from="1586466424526" duration="1678000" />
       <workItem from="1586522809183" duration="634000" />
       <workItem from="1586523465686" duration="4604000" />
+      <workItem from="1587129891403" duration="4000" />
+      <workItem from="1587129931798" duration="200000" />
+      <workItem from="1587205188926" duration="1346000" />
+      <workItem from="1587243352835" duration="93000" />
+      <workItem from="1587315797475" duration="3081000" />
+      <workItem from="1587396844425" duration="18691000" />
+      <workItem from="1587637965031" duration="5487000" />
+      <workItem from="1587730654560" duration="94000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1562363116049</created>
@@ -339,7 +326,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -356,9 +343,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -377,6 +362,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -392,23 +378,61 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="408" y="198" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1579095363183" />
+    <state x="628" y="298" key="FileChooserDialogImpl" timestamp="1587555199365">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="628" y="298" key="FileChooserDialogImpl/0.23.1680.1027@0.23.1680.1027" timestamp="1587555199365" />
+    <state width="1659" height="275" key="GridCell.Tab.0.bottom" timestamp="1587048657557">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1659" height="275" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1587048657557" />
+    <state width="1659" height="275" key="GridCell.Tab.0.center" timestamp="1587048657556">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1659" height="275" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1587048657556" />
+    <state width="1659" height="275" key="GridCell.Tab.0.left" timestamp="1587048657556">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1659" height="275" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1587048657556" />
+    <state width="1659" height="275" key="GridCell.Tab.0.right" timestamp="1587048657557">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1659" height="275" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1587048657557" />
     <state x="221" y="100" key="SettingsEditor" timestamp="1586452343257">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1586452343257" />
-    <state width="563" height="503" key="SwitcherDM" timestamp="1586527936980">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="657" height="590" key="SwitcherDM" timestamp="1587666365149">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="563" height="503" key="SwitcherDM/0.23.1440.877@0.23.1440.877" timestamp="1586527936980" />
+    <state width="657" height="590" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1587666365149" />
     <state width="751" height="676" key="SwitcherDM/0.23.1920.1177@0.23.1920.1177" timestamp="1579687951763" />
+    <state x="100" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1587556146281">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="100" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1587556146281" />
+    <state x="100" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587556146282">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="100" y="123" width="1480" height="827" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1587556146282" />
     <state x="502" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586459163259">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="502" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1586459163259" />
-    <state x="332" y="200" width="777" height="523" key="find.popup" timestamp="1586526986631">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="387" y="230" width="907" height="613" key="find.popup" timestamp="1587555212591">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="332" y="200" width="777" height="523" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1586526986631" />
+    <state x="387" y="230" width="907" height="613" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1587555212591" />
     <state x="443" y="261" width="1035" height="701" key="find.popup/0.23.1920.1177@0.23.1920.1177" timestamp="1580572926151" />
+    <state x="624" y="280" key="refactoring.ChangeSignatureDialog" timestamp="1587578052213">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="624" y="280" key="refactoring.ChangeSignatureDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1587578052213" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1587663529538">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1587663529538" />
   </component>
 </project>

@@ -20,13 +20,13 @@ export const typeDefs = gql`
     type Oecd{
         id: ID!
         code: String
-        translation(language:LanguageCode): [OecdTranslation]
-        author:User!
+        translation(language:LanguageCode): [OecdTranslation!]!
+        author:User
     }
 
     type OecdTranslation{
-        name:String
-        language:Language!
+        name:String!
+        language:Language
     }
 
     input OecdInput{

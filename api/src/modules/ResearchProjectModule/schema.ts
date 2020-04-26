@@ -1,21 +1,25 @@
-import { gql } from "apollo-server-express";
+import {gql} from "apollo-server-express";
 
 export const typeDefs = gql`
+    scalar Date
     extend type Query{
-        countResearchProjects(query:ResearchProjectQueryInput):Int
         researchProjects(query:ResearchProjectQueryInput, first:Int, skip:Int):[ResearchProject!]!
+        countResearchProjects(query:ResearchProjectQueryInput):Int
         researchProject(id:String):ResearchProject!
     }
     input ResearchProjectQueryInput{
+        principalExecutingOrganization:String
+        yearResearchProgressStartOrEndYear:Date
+        leaderExecutors:String
+        keywords:String
+        fromYear:Date
         title:String
-        researchExecutors:String
-        keyword:String
-        organizationName:String
         oecd:String
+        toYear:Date
     }
     extend type Mutation {
-        createResearchProject(input: ResearchProjectInput):ResearchProject
         updateResearchProject(id:ID!, input: ResearchProjectInput):ResearchProject
+        createResearchProject(input: ResearchProjectInput):ResearchProject
         deleteResearchProject(id:ID):ResearchProject
     }
 
@@ -24,52 +28,52 @@ export const typeDefs = gql`
     }
 
     type ResearchProject{
-        id: ID
-        inpDate: String
-        regDate: String
-        startDate: String
-        endDate: String
-        regNumb: String
-        research: String
-        researchDirection: String
+        translation(language:LanguageCode): [ResearchProjectTranslation]
+        participatingInstitutionCountryCity: String
+        participatingInstitutionEmail: String
+        participatingInstitutionName: String
+        participatingInstitutionTel: String
+        participatingInstitutionWeb: String
         researchExecutionBasis: String
-        abstract: String
-        annotation: String
-        budget: Int
-        organizationName: String
         organizationShortName: String
+        leaderAcademicDegree: String
+        organizationAddress: String
+        researchDirection: String
+        organizationIndex: String
+        researchExecutors: String
+        organizationName: String
         organizationCode: String
         organizationHead: String
         organizationCity: String
-        organizationAddress: String
-        organizationIndex: String
         organizationTel: String
         organizationWeb: String
-        participatingInstitutionName: String
-        participatingInstitutionCountryCity: String
-        participatingInstitutionTel: String
-        participatingInstitutionEmail: String
-        participatingInstitutionWeb: String
-        leaderName: String
         leaderPosition: String
-        leaderAcademicDegree: String
-        leaderTel: String
         leaderMobile: String
         leaderEmail: String
-        researchExecutors: String
+        annotation: String
+        leaderName: String
+        startDate: String
+        leaderTel: String
         financing: String
-        note: String
+        research: String
+        abstract: String
+        inpDate: String
+        regDate: String
+        endDate: String
+        regNumb: String
         pincode: String
-        translation(language:LanguageCode): [ResearchProjectTranslation]
         oecds: [Oecd]
-        author:User!
+        note: String
+        budget: Int
+        author:User
+        id: ID
     }
 
 
     type ResearchProjectTranslation{
-        title: String
+        language:Language
         key: [Keyword]
-        language:Language!
+        title: String
     }
 
     type Keyword{
@@ -77,14 +81,14 @@ export const typeDefs = gql`
     }
 
     input ResearchProjectInput{
+        researchExecutionBasis: String
+        researchDirection: String
+        startDate: String
         inpDate: String
         regDate: String
-        startDate: String
         endDate: String
         regNumb: String
         research: String
-        researchDirection: String
-        researchExecutionBasis: String
         abstract: String
         annotation: String
         budget: Int

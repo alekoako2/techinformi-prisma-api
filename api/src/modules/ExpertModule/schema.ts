@@ -24,7 +24,7 @@ export const typeDefs = gql`
     }
 
     type Expert{
-        id: ID!
+        id: ID
         inpDate: String
         workExperience: String
         email: String
@@ -35,7 +35,7 @@ export const typeDefs = gql`
         translation(language:LanguageCode): [ExpertTranslation]
         oecds: [Oecd]
         languages:[Language]
-        author:User!
+        author:User
     }
 
 
@@ -46,7 +46,7 @@ export const typeDefs = gql`
         specialization: String
         workingPlace: String
         position: String
-        language:Language!
+        language:Language
     }
 
     input ExpertInput{

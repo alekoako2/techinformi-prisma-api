@@ -29,7 +29,7 @@ export const typeDefs = gql`
     }
 
     type QrjPublication{
-        id: ID!
+        id: ID
         edited:Boolean
         index:String
         year:String
@@ -39,7 +39,7 @@ export const typeDefs = gql`
         inputDate:String
         oecd:Oecd
         translation(language:LanguageCode): [QrjPublicationTranslation]
-        author:User!
+        author:User
     }
 
     type QrjPublicationTranslation{
@@ -47,7 +47,7 @@ export const typeDefs = gql`
         publicationAuthor: String
         publicationLang: String
         abstract: String
-        language:Language!
+        language:Language
     }
 
     input QrjPublicationInput{

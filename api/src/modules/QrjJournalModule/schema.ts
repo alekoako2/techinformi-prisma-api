@@ -21,13 +21,13 @@ export const typeDefs = gql`
         id: ID!
         code: String
         translation(language:LanguageCode): [QrjJournalTranslation]
-        author:User!
+        author:User
     }
 
     type QrjJournalTranslation{
         name: String
         address: String
-        language:Language!
+        language:Language
     }
 
     input QrjJournalInput{
