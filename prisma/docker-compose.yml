@@ -6,6 +6,7 @@ services:
     ports:
       - "4466:4466"
     environment:
+      LOG_LEVEL: TRACE
       PRISMA_CONFIG: |
         port: 4466
         databases:
@@ -31,6 +32,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - persistent:/var/lib/mysql
+      - ./logs:/var/log/mysql
     networks:
       - techinformi-traefik_default
   prismaPhpmyadmin:
@@ -43,6 +45,13 @@ services:
       PMA_HOST: prismaDB
     labels:
       - traefik.frontend.rule=Host:prisma.pma.techinformi.localhost
+      - traefik.enable=true
+    networks:
+      - techinformi-traefik_default
+  techinformi:
+    image: alekoako2/techinformi
+    labels:
+      - traefik.frontend.rule=Host:techinformi.localhost
       - traefik.enable=true
     networks:
       - techinformi-traefik_default
