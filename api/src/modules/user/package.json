@@ -1,0 +1,4 @@
+{
+  "main": "user.module.ts",
+  "typings": "user.module.ts"
+}

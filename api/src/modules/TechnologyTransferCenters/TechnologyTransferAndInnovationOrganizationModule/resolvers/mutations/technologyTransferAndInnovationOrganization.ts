@@ -1,98 +1,122 @@
-import { Context, getUser } from "../../../../../utils/utils";
+import { getUser } from '../../../../../utils'
 import {
   TechnologyTransferAndInnovationOrganizationCreateInput,
-  TechnologyTransferAndInnovationOrganizationUpdateInput
-} from "../../../../../generated/prisma-client";
-import { TechnologyTransferAndInnovationOrganization } from "../TechnologyTransferAndInnovationOrganization";
+  TechnologyTransferAndInnovationOrganizationUpdateInput,
+} from '@prisma-client'
+import { Context } from '@interfaces/apollo/context'
 
 async function setNonTranslatedSchema(schema, input, ctx: Context, id?) {
-  const user = await getUser(ctx);
+  const user = await getUser(ctx)
 
   if (!user) {
-    throw new Error("User not authenticated");
+    throw new Error('User not authenticated')
   }
 
   schema.author = {
     connect: {
-      email: user.email
-    }
-  };
+      email: user.email,
+    },
+  }
 
   if (input.url) {
-    schema.url = input.url;
+    schema.url = input.url
   }
   if (input.title) {
-    schema.title = input.title;
+    schema.title = input.title
   }
   if (input.text) {
-    schema.text = input.text;
+    schema.text = input.text
   }
   if (input.region) {
-    schema.region = input.region;
+    schema.region = input.region
   }
 
-  return schema;
+  return schema
 }
 
-async function createTechnologyTransferAndInnovationOrganizationSchema(input, ctx: Context) {
-  let schema: TechnologyTransferAndInnovationOrganizationCreateInput = <TechnologyTransferAndInnovationOrganizationCreateInput>{};
+async function createTechnologyTransferAndInnovationOrganizationSchema(
+  input,
+  ctx: Context
+) {
+  let schema: TechnologyTransferAndInnovationOrganizationCreateInput = <
+    TechnologyTransferAndInnovationOrganizationCreateInput
+  >{}
 
-  schema = await setNonTranslatedSchema(schema, input, ctx);
+  schema = await setNonTranslatedSchema(schema, input, ctx)
 
-  return schema;
+  return schema
 }
 
-async function updateTechnologyTransferAndInnovationOrganizationSchema(input, id, ctx: Context) {
+async function updateTechnologyTransferAndInnovationOrganizationSchema(
+  input,
+  id,
+  ctx: Context
+) {
+  let schema: TechnologyTransferAndInnovationOrganizationUpdateInput = <
+    TechnologyTransferAndInnovationOrganizationUpdateInput
+  >{}
 
+  schema = await setNonTranslatedSchema(schema, input, ctx, id)
 
-  let schema: TechnologyTransferAndInnovationOrganizationUpdateInput = <TechnologyTransferAndInnovationOrganizationUpdateInput>{};
-
-  schema = await setNonTranslatedSchema(schema, input, ctx, id);
-
-  return schema;
+  return schema
 }
 
 export const technologyTransferAndInnovationOrganization = {
-
-  async createTechnologyTransferAndInnovationOrganization(parent, args, ctx: Context) {
-    const input = args.input;
+  async createTechnologyTransferAndInnovationOrganization(
+    parent,
+    args,
+    ctx: Context
+  ) {
+    const input = args.input
 
     return await ctx.prisma.createTechnologyTransferAndInnovationOrganization({
-      ...(await createTechnologyTransferAndInnovationOrganizationSchema(input, ctx))
-    });
-
+      ...(await createTechnologyTransferAndInnovationOrganizationSchema(
+        input,
+        ctx
+      )),
+    })
   },
 
-  async updateTechnologyTransferAndInnovationOrganization(parent, args, ctx: Context) {
+  async updateTechnologyTransferAndInnovationOrganization(
+    parent,
+    args,
+    ctx: Context
+  ) {
+    const { input, id } = args
 
-    const { input, id } = args;
-
-    const technologyTransferAndInnovationOrganization = await ctx.prisma.technologyTransferAndInnovationOrganization({ id });
+    const technologyTransferAndInnovationOrganization = await ctx.prisma.technologyTransferAndInnovationOrganization(
+      { id }
+    )
 
     if (!technologyTransferAndInnovationOrganization) {
-      throw new Error("TechnologyTransferAndInnovationOrganization not found!");
+      throw new Error('TechnologyTransferAndInnovationOrganization not found!')
     }
 
     return await ctx.prisma.updateTechnologyTransferAndInnovationOrganization({
       data: {
-        ...(await updateTechnologyTransferAndInnovationOrganizationSchema(input, id, ctx))
+        ...(await updateTechnologyTransferAndInnovationOrganizationSchema(
+          input,
+          id,
+          ctx
+        )),
       },
-      where: { id }
-    });
-
+      where: { id },
+    })
   },
 
-  async deleteTechnologyTransferAndInnovationOrganization(parent, { id }, ctx: Context) {
-
-    const user = await getUser(ctx);
+  async deleteTechnologyTransferAndInnovationOrganization(
+    parent,
+    { id },
+    ctx: Context
+  ) {
+    const user = await getUser(ctx)
 
     if (!user) {
-      throw new Error("User not authenticated");
+      throw new Error('User not authenticated')
     }
 
     return ctx.prisma.deleteTechnologyTransferAndInnovationOrganization({
-      id
-    });
-  }
-
-};
+      id,
+    })
+  },
+}

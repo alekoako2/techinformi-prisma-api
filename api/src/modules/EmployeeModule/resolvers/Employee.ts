@@ -1,13 +1,15 @@
-import { Context } from "../../../utils/utils";
+import { Context } from '@interfaces/apollo/context'
 
 export const Employee = {
   translation: ({ id }, args, ctx: Context) => {
-    return ctx.prisma.employee({ id }).translation({ where: { language: { code: args.language } } });
+    return ctx.prisma
+      .employee({ id })
+      .translation({ where: { language: { code: args.language } } })
   },
   department: ({ id }, args, ctx: Context) => {
-    return ctx.prisma.employee({ id }).department();
+    return ctx.prisma.employee({ id }).department()
   },
   position: ({ id }, args, ctx: Context) => {
-    return ctx.prisma.employee({ id }).position();
-  }
-};
+    return ctx.prisma.employee({ id }).position()
+  },
+}
