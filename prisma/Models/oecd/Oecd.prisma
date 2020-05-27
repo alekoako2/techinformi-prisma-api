@@ -14,3 +14,4 @@ type OecdTranslation{
     name: String!
     language:Language! @relation
 }
+

@@ -1,8 +1,8 @@
-import { Context } from "../../../../utils/utils";
 import {
   TechnologyTransferAndInnovationOrganizationOrderByInput,
-  TechnologyTransferAndInnovationOrganizationWhereInput
-} from "../../../../generated/prisma-client";
+  TechnologyTransferAndInnovationOrganizationWhereInput,
+} from '@prisma-client'
+import { Context } from '@interfaces/apollo/context'
 
 interface opArgs {
   first: String
@@ -12,35 +12,39 @@ interface opArgs {
 }
 
 export const Query = {
-
   technologyTransferAndInnovationOrganizations(parent, args, ctx: Context) {
     const opArgs: opArgs = {
       first: args.first,
-      skip: args.skip
-    };
+      skip: args.skip,
+    }
 
     if (args.query) {
       opArgs.where = {
         OR: [
           {
-            url_contains: args.query
-          }
-        ]
-      };
+            url_contains: args.query,
+          },
+        ],
+      }
     }
 
-    opArgs.orderBy = "createdAt_DESC";
+    opArgs.orderBy = 'createdAt_DESC'
 
-    return ctx.prisma.technologyTransferAndInnovationOrganizations(opArgs);
-
+    return ctx.prisma.technologyTransferAndInnovationOrganizations()
   },
 
-  countTechnologyTransferAndInnovationOrganizations(parent, args, ctx: Context) {
-    return ctx.prisma.technologyTransferAndInnovationOrganizationsConnection().aggregate().count();
+  countTechnologyTransferAndInnovationOrganizations(
+    parent,
+    args,
+    ctx: Context
+  ) {
+    return ctx.prisma
+      .technologyTransferAndInnovationOrganizationsConnection()
+      .aggregate()
+      .count()
   },
 
   technologyTransferAndInnovationOrganization(parent, { id }, ctx: Context) {
-    return ctx.prisma.technologyTransferAndInnovationOrganization({ id });
-  }
-
-};
+    return ctx.prisma.technologyTransferAndInnovationOrganization({ id })
+  },
+}

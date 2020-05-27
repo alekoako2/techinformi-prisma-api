@@ -1,8 +1,5 @@
-import { Context } from "../../../utils/utils";
-import {
-  QrjOrderByInput,
-  QrjWhereInput
-} from "../../../generated/prisma-client";
+import { Context } from '@interfaces/apollo/context'
+import { QrjOrderByInput, QrjWhereInput } from '@prisma-client'
 
 interface opArgs {
   first: String
@@ -12,35 +9,35 @@ interface opArgs {
 }
 
 export const Query = {
-
   qrjs(parent, args, ctx: Context) {
     const opArgs: opArgs = {
       first: args.first,
-      skip: args.skip
-    };
+      skip: args.skip,
+    }
 
     if (args.query) {
       opArgs.where = {
         OR: [
           {
-            year_contains: args.query
-          }
-        ]
-      };
+            year_contains: args.query,
+          },
+        ],
+      }
     }
 
-    opArgs.orderBy = "createdAt_DESC";
+    opArgs.orderBy = 'createdAt_DESC'
 
-    return ctx.prisma.qrjs(opArgs);
-
+    return ctx.prisma.qrjs()
   },
 
   countQrjs(parent, args, ctx: Context) {
-    return ctx.prisma.qrjsConnection().aggregate().count();
+    return ctx.prisma
+      .qrjsConnection()
+      .aggregate()
+      .count()
   },
 
   qrj(parent, { id }, ctx: Context) {
-    return ctx.prisma.qrj({ id });
-  }
-
-};
+    return ctx.prisma.qrj({ id })
+  },
+}

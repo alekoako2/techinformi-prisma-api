@@ -1,5 +1,5 @@
-import { Context } from "../../../utils/utils";
-import { NewsOrderByInput, NewsWhereInput } from "../../../generated/prisma-client";
+import { Context } from '@interfaces/apollo/context'
+import { NewsOrderByInput, NewsWhereInput } from '@prisma-client'
 
 interface opArgs {
   first: String
@@ -8,34 +8,34 @@ interface opArgs {
   orderBy?: NewsOrderByInput
 }
 
-
 export const Query = {
   newses(parent, args, ctx: Context) {
     const opArgs: opArgs = {
       first: args.first,
-      skip: args.skip
-    };
+      skip: args.skip,
+    }
 
     if (args.query) {
       opArgs.where = {
         OR: [
           {
-            id_contains: args.query
-          }
-        ]
-      };
+            id_contains: args.query,
+          },
+        ],
+      }
     }
 
-    opArgs.orderBy = "createdAt_DESC";
+    opArgs.orderBy = 'createdAt_DESC'
 
-    return ctx.prisma.newses(opArgs);
-
+    return ctx.prisma.newses()
   },
   countNewses(parent, args, ctx: Context) {
-    return ctx.prisma.newsesConnection().aggregate().count();
+    return ctx.prisma
+      .newsesConnection()
+      .aggregate()
+      .count()
   },
   news(parent, { id }, ctx: Context) {
-    return ctx.prisma.news({ id });
-  }
-
-};
+    return ctx.prisma.news({ id })
+  },
+}

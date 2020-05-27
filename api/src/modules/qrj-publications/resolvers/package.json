@@ -1,0 +1,4 @@
+{
+  "main": "resolvers.ts",
+  "typings": "resolvers.ts"
+}

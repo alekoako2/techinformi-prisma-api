@@ -1,0 +1,4 @@
+{
+  "main": "mutation.ts",
+  "typings": "mutation.ts"
+}

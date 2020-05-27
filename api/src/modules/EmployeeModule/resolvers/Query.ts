@@ -1,8 +1,5 @@
-import { Context } from "../../../utils/utils";
-import {
-  ExpertOrderByInput,
-  ExpertWhereInput
-} from "../../../generated/prisma-client";
+import { Context } from '@interfaces/apollo/context'
+import { ExpertOrderByInput, ExpertWhereInput } from '@prisma-client'
 
 interface opArgs {
   first: String
@@ -12,25 +9,24 @@ interface opArgs {
 }
 
 export const Query = {
-
   employees(parent, args, ctx: Context) {
     const opArgs: opArgs = {
       first: args.first,
-      skip: args.skip
-    };
+      skip: args.skip,
+    }
 
     if (args.query) {
-      opArgs.where = { AND: [] };
-      opArgs.where.AND = [];
+      opArgs.where = { AND: [] }
+      opArgs.where.AND = []
       if (args.query.department) {
-        opArgs.where.AND.push({ translation_some: { fullName_contains: args.query.fullName } });
+        opArgs.where.AND.push({
+          translation_some: { fullName_contains: args.query.fullName },
+        })
       }
     }
 
-    opArgs.orderBy = "createdAt_DESC";
+    opArgs.orderBy = 'createdAt_DESC'
 
-    return ctx.prisma.employees(opArgs);
-
+    return ctx.prisma.employees()
   },
-
-};
+}

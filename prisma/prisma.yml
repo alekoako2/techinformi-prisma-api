@@ -4,9 +4,9 @@ endpoint: ${env:PRISMA_URL}
 datamodel: [
   Models/language/Language.prisma,
   Models/user/User.prisma,
+  Models/oecd/Oecd.prisma,
   Models/employee/Employee.prisma,
   Models/news/News.prisma,
-  Models/oecd/Oecd.prisma,
   Models/qrj-journal/QrjJournal.prisma,
   Models/qrj/Qrj.prisma,
   Models/databases/qrj-publication/QrjPublication.prisma,
@@ -20,7 +20,7 @@ datamodel: [
 # Specifies the language and directory for the generated Prisma client.
 generate:
   - generator: typescript-client
-    output: ../api/src/generated/prisma-client
+    output: ../api/src/libs/interfaces/prisma/generated/prisma-client
 
 # Seed your service with initial data based on `seed.graphql`.
 #seed:

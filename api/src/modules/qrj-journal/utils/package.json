@@ -1,0 +1,4 @@
+{
+  "main": "utils.ts",
+  "typings": "utils.ts"
+}

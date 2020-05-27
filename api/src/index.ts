@@ -1,27 +1,26 @@
-import { prisma } from "./generated/prisma-client";
+import { prisma } from './libs/interfaces/prisma/generated/prisma-client'
+import { ApolloServer } from 'apollo-server-express'
+import { modules } from './modules'
 
-const express = require("express");
-import { ApolloServer } from "apollo-server-express";
-import { AppModule } from "./modules/AppModule";
+const express = require('express')
 
 const server = new ApolloServer({
-  modules: [
-    ...AppModule
-  ],
+  modules,
   introspection: true,
   context: request => ({
     ...request,
-    prisma
-  })
-});
+    prisma,
+  }),
+})
 
-const app = express();
+const app = express()
+
 server.applyMiddleware({
   app,
   cors: true,
-  path: "/graphql"
-});
+  path: '/graphql',
+})
 
 app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
-);
+)
