@@ -3,12 +3,14 @@ import { Context } from '@interfaces/apollo/context'
 import {
   QrjPublicationCreateInput,
   QrjPublicationTranslationWhereInput,
+  QrjPublicationUpdateInput,
   QrjPublicationWhereInput,
 } from '@prisma-client'
+import { codeComment } from 'prisma-client-lib/dist/utils/codeComment'
 
 export async function setNonTranslatedSchema(
   schema: QrjPublicationCreateInput,
-  { index, year, number, pages, inputDate, journal, oecd },
+  { index, year, number, pages, inputDate, qrjJournal, oecd },
   ctx: Context
 ) {
   const user = await getUser(ctx)
@@ -37,8 +39,51 @@ export async function setNonTranslatedSchema(
   if (inputDate) {
     schema.inputDate = inputDate
   }
-  if (journal) {
-    schema.journal = { connect: { code: journal } }
+  if (qrjJournal) {
+    schema.journal = { connect: { code: qrjJournal } }
+  }
+  if (oecd) {
+    schema.oecd = { connect: { code: oecd } }
+  }
+
+  schema.edited = true
+
+  return schema
+}
+
+export async function setNonTranslatedUpdateSchema(
+  schema: QrjPublicationUpdateInput,
+  { index, year, number, pages, inputDate, qrjJournal, oecd },
+  ctx: Context
+) {
+  const user = await getUser(ctx)
+
+  if (!user) {
+    throw new Error('User not authenticated')
+  }
+
+  schema.author = {
+    connect: {
+      email: user.email,
+    },
+  }
+  if (index) {
+    schema.index = index
+  }
+  if (year) {
+    schema.year = year
+  }
+  if (number) {
+    schema.number = number
+  }
+  if (pages) {
+    schema.pages = pages
+  }
+  if (inputDate) {
+    schema.inputDate = inputDate
+  }
+  if (qrjJournal) {
+    schema.journal = { connect: { code: qrjJournal } }
   }
   if (oecd) {
     schema.oecd = { connect: { code: oecd } }

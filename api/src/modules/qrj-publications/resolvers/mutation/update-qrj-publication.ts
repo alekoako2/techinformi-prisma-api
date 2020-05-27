@@ -1,43 +1,43 @@
 import { Context } from '@interfaces/apollo/context'
 import {
-  OecdTranslationUpdateDataInput,
-  OecdTranslationUpdateManyInput,
-  OecdTranslationUpdateWithWhereUniqueNestedInput,
-  OecdTranslationWhereUniqueInput,
-  OecdUpdateInput,
   QrjPublicationTranslationUpdateDataInput,
   QrjPublicationTranslationUpdateManyInput,
   QrjPublicationTranslationUpdateWithWhereUniqueNestedInput,
   QrjPublicationTranslationWhereUniqueInput,
   QrjPublicationUpdateInput,
 } from '@prisma-client'
-import { setNonTranslatedSchema } from '../../../oecd/utils'
+import {
+  setNonTranslatedSchema,
+  setNonTranslatedUpdateSchema,
+} from '../../utils'
 
-export const updateQrjPublication = async (_, { input, id }, ___: Context) => {
+export const updateQrjPublication = async (_, { input }, ___: Context) => {
+  const { id } = input
+
   const qrjPublication = await ___.prisma.qrjPublication({ id })
 
   if (!qrjPublication) {
     throw new Error('QrjPublication not found!')
   }
-  let schema: QrjPublicationUpdateInput = <QrjPublicationUpdateInput>{}
 
-  schema = await setNonTranslatedSchema(schema, input, ___)
+  let schema: QrjPublicationUpdateInput = {} as QrjPublicationUpdateInput
+  schema = await setNonTranslatedUpdateSchema(schema, input, ___)
 
-  schema.translation = <QrjPublicationTranslationUpdateManyInput>{}
-  schema.translation.update = <
-    QrjPublicationTranslationUpdateWithWhereUniqueNestedInput[]
-  >[]
+  schema.translation = {} as QrjPublicationTranslationUpdateManyInput
+  schema.translation.update = [] as QrjPublicationTranslationUpdateWithWhereUniqueNestedInput[]
 
   for (let i = 0; i < input.translation.length; i++) {
-    schema.translation.update[i] = <
-      QrjPublicationTranslationUpdateWithWhereUniqueNestedInput
-    >{}
-    schema.translation.update[i].where = <
-      QrjPublicationTranslationWhereUniqueInput
-    >{}
-    schema.translation.update[i].data = <
-      QrjPublicationTranslationUpdateDataInput
-    >{}
+    schema.translation.update[
+      i
+    ] = {} as QrjPublicationTranslationUpdateWithWhereUniqueNestedInput
+
+    schema.translation.update[
+      i
+    ].where = {} as QrjPublicationTranslationWhereUniqueInput
+
+    schema.translation.update[
+      i
+    ].data = {} as QrjPublicationTranslationUpdateDataInput
 
     let translation = await ___.prisma.qrjPublication({ id }).translation({
       where: { language: { code: input.translation[i].language } },
@@ -61,6 +61,7 @@ export const updateQrjPublication = async (_, { input, id }, ___: Context) => {
 
     schema.translation.update[i].where.id = translation[0].id
   }
+
   return ___.prisma.updateQrjPublication({
     data: {
       ...schema,

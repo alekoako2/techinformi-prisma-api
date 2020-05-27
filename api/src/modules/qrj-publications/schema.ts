@@ -54,7 +54,7 @@ export const typeDefs = gql`
   }
 
   input QrjPublicationCreateInput {
-    index: String
+    index: String!
     year: String
     edited: Boolean
     number: String
@@ -66,8 +66,8 @@ export const typeDefs = gql`
   }
 
   input QrjPublicationUpdateInput {
-    id: ID
-    index: String
+    id: ID!
+    index: String!
     year: String
     edited: Boolean
     number: String

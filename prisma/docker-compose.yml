@@ -22,7 +22,7 @@ services:
       - traefik.frontend.rule=Host:prisma.api.techinformi.localhost
       - traefik.enable=true
     networks:
-      - techinformi-traefik_default
+      - traeifik_default
   prismaDB:
     image: mariadb:10.3.16
     ports:
@@ -34,7 +34,7 @@ services:
       - persistent:/var/lib/mysql
       - ./logs:/var/log/mysql
     networks:
-      - techinformi-traefik_default
+      - traeifik_default
   prismaPhpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -47,18 +47,18 @@ services:
       - traefik.frontend.rule=Host:prisma.pma.techinformi.localhost
       - traefik.enable=true
     networks:
-      - techinformi-traefik_default
+      - traeifik_default
   techinformi:
     image: alekoako2/techinformi
     labels:
       - traefik.frontend.rule=Host:techinformi.localhost
       - traefik.enable=true
     networks:
-      - techinformi-traefik_default
+      - traeifik_default
 networks:
   default:
     driver: bridge
-  techinformi-traefik_default:
+  traeifik_default:
     external: true
 volumes:
   persistent:
