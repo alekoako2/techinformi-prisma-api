@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d62700af-ce1a-4f30-ad15-bd6fd92f8ce4" name="Default Changelist" comment="initial">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_27_20,_20_12_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_27_20__20_12__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -119,7 +121,7 @@
     <property name="database.console.LAST_STATE" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.3" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/src/modules/experts/resolvers/expert" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -142,19 +144,19 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/api/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/api/src/modules/experts/resolvers/expert" />
-      <recent name="$PROJECT_DIR$/api/src/modules/qrj-publications/resolvers/qrj-publication" />
-      <recent name="$PROJECT_DIR$/api/src/modules/experts/resolvers" />
-      <recent name="$PROJECT_DIR$/api/src/modules/experts/resolvers/mutation" />
-      <recent name="$PROJECT_DIR$/api/src/modules/experts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/src/modules/qrj-publications/resolvers/qrj-publication" />
       <recent name="$PROJECT_DIR$/api/src/modules/oecd/utils" />
       <recent name="$PROJECT_DIR$/api/src/modules/qrj-publications/resolvers" />
       <recent name="$PROJECT_DIR$/api/src/libs/interfaces" />
       <recent name="$PROJECT_DIR$/api/src/modules/oecd/resolvers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/api/src/modules/experts/resolvers/expert" />
+      <recent name="$PROJECT_DIR$/api/src/modules/qrj-publications/resolvers/qrj-publication" />
+      <recent name="$PROJECT_DIR$/api/src/modules/experts/resolvers" />
+      <recent name="$PROJECT_DIR$/api/src/modules/experts/resolvers/mutation" />
     </key>
   </component>
   <component name="RunManager">
@@ -358,22 +360,6 @@
       <workItem from="1589805014374" duration="3032000" />
       <workItem from="1589822724710" duration="1511000" />
       <workItem from="1589893243788" duration="31000" />
-      <workItem from="1589993812726" duration="1266000" />
-      <workItem from="1590074900014" duration="1122000" />
-      <workItem from="1590079529997" duration="78000" />
-      <workItem from="1590079620521" duration="49000" />
-      <workItem from="1590079705293" duration="35000" />
-      <workItem from="1590079754360" duration="28000" />
-      <workItem from="1590079800929" duration="47000" />
-      <workItem from="1590079863041" duration="142000" />
-      <workItem from="1590080023235" duration="689000" />
-      <workItem from="1590130731501" duration="968000" />
-      <workItem from="1590162019431" duration="608000" />
-      <workItem from="1590255463526" duration="1145000" />
-      <workItem from="1590308275153" duration="2471000" />
-      <workItem from="1590393467537" duration="5763000" />
-      <workItem from="1590469370830" duration="2525000" />
-      <workItem from="1590563094889" duration="7148000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1562363116049</created>
@@ -510,12 +496,13 @@
     <state x="258" y="113" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1588434089090" />
     <state x="926" y="384" key="SettingsEditor/0.23.3200.1777@0.23.3200.1777" timestamp="1590080076833" />
     <state x="1252" y="496" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1589130985554" />
-    <state width="1252" height="1023" key="SwitcherDM" timestamp="1590579121107">
-      <screen x="0" y="23" width="3200" height="1777" />
+    <state width="658" height="605" key="SwitcherDM" timestamp="1590596300875">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="751" height="608" key="SwitcherDM/-238.-1057.1920.1057/0.23.1280.777@-238.-1057.1920.1057" timestamp="1588882381025" />
     <state width="751" height="608" key="SwitcherDM/-238.-1057.1920.1057/0.23.1440.877@-238.-1057.1920.1057" timestamp="1588610909278" />
     <state width="751" height="608" key="SwitcherDM/-331.-1057.1920.1057/0.23.1280.777@-331.-1057.1920.1057" timestamp="1589043354351" />
+    <state width="658" height="605" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1590596300875" />
     <state width="1502" height="1243" key="SwitcherDM/0.0.3840.2160@0.0.3840.2160" timestamp="1589315836517" />
     <state width="563" height="503" key="SwitcherDM/0.23.1440.877@0.23.1440.877" timestamp="1586527936980" />
     <state width="657" height="590" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1588676131519" />
@@ -553,13 +540,13 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="624" y="280" key="refactoring.ChangeSignatureDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1588434441216" />
-    <state x="962" y="416" width="1492" height="1173" key="search.everywhere.popup" timestamp="1590394032664">
-      <screen x="0" y="23" width="3200" height="1777" />
+    <state x="505" y="232" width="783" height="693" key="search.everywhere.popup" timestamp="1590596296262">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="339" y="-823" width="894" height="697" key="search.everywhere.popup/-238.-1057.1920.1057/0.23.1280.777@-238.-1057.1920.1057" timestamp="1588882283785" />
     <state x="339" y="-823" width="894" height="697" key="search.everywhere.popup/-238.-1057.1920.1057/0.23.1440.877@-238.-1057.1920.1057" timestamp="1588610728299" />
     <state x="246" y="-823" width="894" height="697" key="search.everywhere.popup/-331.-1057.1920.1057/0.23.1280.777@-331.-1057.1920.1057" timestamp="1589043344123" />
-    <state x="505" y="232" width="783" height="693" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1589817164819" />
+    <state x="505" y="232" width="783" height="693" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1590596296262" />
     <state x="433" y="217" width="670" height="578" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1588112658589" />
     <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1587663529538" />
     <state x="962" y="416" width="1492" height="1173" key="search.everywhere.popup/0.23.3200.1777@0.23.3200.1777" timestamp="1590394032664" />
