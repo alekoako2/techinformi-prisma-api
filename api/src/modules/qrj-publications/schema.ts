@@ -40,6 +40,7 @@ export const typeDefs = gql`
     number: String
     pages: String
     inputDate: String
+    doiUrl: String
     qrjJournal: QrjJournal
     oecd: Oecd
     translation(language: LanguageCode): [QrjPublicationTranslation]
@@ -59,6 +60,7 @@ export const typeDefs = gql`
     edited: Boolean
     number: String
     pages: String
+    doiUrl: String
     qrjJournal: String
     inputDate: String
     oecd: String
@@ -72,6 +74,7 @@ export const typeDefs = gql`
     edited: Boolean
     number: String
     pages: String
+    doiUrl: String
     qrjJournal: String
     inputDate: String
     oecd: String
