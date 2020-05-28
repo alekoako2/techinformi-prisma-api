@@ -4165,6 +4165,7 @@ type QrjPublication {
   year: String
   number: String
   pages: String
+  doiUrl: String
   journal: QrjJournal
   inputDate: DateTime
   oecd: Oecd
@@ -4185,6 +4186,7 @@ input QrjPublicationCreateInput {
   year: String
   number: String
   pages: String
+  doiUrl: String
   journal: QrjJournalCreateOneInput
   inputDate: DateTime
   oecd: OecdCreateOneInput
@@ -4214,6 +4216,8 @@ enum QrjPublicationOrderByInput {
   number_DESC
   pages_ASC
   pages_DESC
+  doiUrl_ASC
+  doiUrl_DESC
   inputDate_ASC
   inputDate_DESC
 }
@@ -4227,6 +4231,7 @@ type QrjPublicationPreviousValues {
   year: String
   number: String
   pages: String
+  doiUrl: String
   inputDate: DateTime
 }
 
@@ -4582,6 +4587,7 @@ input QrjPublicationUpdateInput {
   year: String
   number: String
   pages: String
+  doiUrl: String
   journal: QrjJournalUpdateOneInput
   inputDate: DateTime
   oecd: OecdUpdateOneInput
@@ -4595,6 +4601,7 @@ input QrjPublicationUpdateManyMutationInput {
   year: String
   number: String
   pages: String
+  doiUrl: String
   inputDate: DateTime
 }
 
@@ -4687,6 +4694,20 @@ input QrjPublicationWhereInput {
   pages_not_starts_with: String
   pages_ends_with: String
   pages_not_ends_with: String
+  doiUrl: String
+  doiUrl_not: String
+  doiUrl_in: [String!]
+  doiUrl_not_in: [String!]
+  doiUrl_lt: String
+  doiUrl_lte: String
+  doiUrl_gt: String
+  doiUrl_gte: String
+  doiUrl_contains: String
+  doiUrl_not_contains: String
+  doiUrl_starts_with: String
+  doiUrl_not_starts_with: String
+  doiUrl_ends_with: String
+  doiUrl_not_ends_with: String
   journal: QrjJournalWhereInput
   inputDate: DateTime
   inputDate_not: DateTime

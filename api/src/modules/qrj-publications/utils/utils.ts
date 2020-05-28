@@ -10,7 +10,7 @@ import { codeComment } from 'prisma-client-lib/dist/utils/codeComment'
 
 export async function setNonTranslatedSchema(
   schema: QrjPublicationCreateInput,
-  { index, year, number, pages, inputDate, qrjJournal, oecd },
+  { index, year, number, pages, inputDate, doiUrl, qrjJournal, oecd },
   ctx: Context
 ) {
   const user = await getUser(ctx)
@@ -38,6 +38,9 @@ export async function setNonTranslatedSchema(
   }
   if (inputDate) {
     schema.inputDate = inputDate
+  }
+  if (doiUrl) {
+    schema.doiUrl = doiUrl
   }
   if (qrjJournal) {
     schema.journal = { connect: { code: qrjJournal } }
@@ -53,7 +56,7 @@ export async function setNonTranslatedSchema(
 
 export async function setNonTranslatedUpdateSchema(
   schema: QrjPublicationUpdateInput,
-  { index, year, number, pages, inputDate, qrjJournal, oecd },
+  { index, year, number, pages, inputDate, doiUrl, qrjJournal, oecd },
   ctx: Context
 ) {
   const user = await getUser(ctx)
@@ -81,6 +84,9 @@ export async function setNonTranslatedUpdateSchema(
   }
   if (inputDate) {
     schema.inputDate = inputDate
+  }
+  if (doiUrl) {
+    schema.doiUrl = doiUrl
   }
   if (qrjJournal) {
     schema.journal = { connect: { code: qrjJournal } }
@@ -121,7 +127,6 @@ export function getWhereInput(query) {
         translationAND.push({ title_contains: translation.title })
 
       AND.push({ translation_some: { AND: translationAND } })
-      console.log(AND)
     }
 
     if (qrjJournal != undefined)
