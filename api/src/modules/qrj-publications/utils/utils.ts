@@ -70,24 +70,14 @@ export async function setNonTranslatedUpdateSchema(
       email: user.email,
     },
   }
-  if (index) {
-    schema.index = index
-  }
-  if (year) {
-    schema.year = year
-  }
-  if (number) {
-    schema.number = number
-  }
-  if (pages) {
-    schema.pages = pages
-  }
-  if (inputDate) {
-    schema.inputDate = inputDate
-  }
-  if (doiUrl) {
-    schema.doiUrl = doiUrl
-  }
+
+  schema.index = index
+  schema.year = year
+  schema.number = number
+  schema.pages = pages
+  schema.inputDate = inputDate
+  schema.doiUrl = doiUrl
+
   if (qrjJournal) {
     schema.journal = { connect: { code: qrjJournal } }
   }
