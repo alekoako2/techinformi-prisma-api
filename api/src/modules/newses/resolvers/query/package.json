@@ -1,0 +1,4 @@
+{
+  "main": "query.ts",
+  "typings": "query.ts"
+}

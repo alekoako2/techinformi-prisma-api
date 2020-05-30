@@ -1,41 +1,80 @@
 import { Context } from '@interfaces/apollo/context'
 import {
-  OecdTranslationCreateInput,
-  OecdTranslationCreateManyInput,
   QrjPublicationCreateInput,
   QrjPublicationTranslationCreateInput,
   QrjPublicationTranslationCreateManyInput,
 } from '@prisma-client'
-import { setNonTranslatedSchema } from '../../utils'
+import { getUser } from '../../../../utils'
 
-export const createQrjPublication = async (_, { input }, ___: Context) => {
-  let schema: QrjPublicationCreateInput = <QrjPublicationCreateInput>{}
+export const createQrjPublication = async (
+  _,
+  {
+    input: {
+      index,
+      year,
+      number,
+      pages,
+      inputDate,
+      doiUrl,
+      qrjJournal,
+      oecd,
+      translation,
+    },
+  },
+  ___: Context
+) => {
+  let schema: QrjPublicationCreateInput = {} as QrjPublicationCreateInput
 
-  schema = await setNonTranslatedSchema(schema, input, ___)
+  const user = await getUser(___)
 
-  schema.translation = <QrjPublicationTranslationCreateManyInput>{}
-  schema.translation.create = <QrjPublicationTranslationCreateInput[]>[]
+  if (!user) {
+    throw new Error('User not authenticated')
+  }
 
-  for (let i = 0; i < input.translation.length; i++) {
-    schema.translation.create[i] = <QrjPublicationTranslationCreateInput>{}
-    if (input.translation[i].language) {
-      schema.translation.create[i].language = {
-        connect: { code: input.translation[i].language },
-      }
-    }
-    if (input.translation[i].title) {
-      schema.translation.create[i].title = input.translation[i].title
-    }
-    if (input.translation[i].publicationAuthor) {
-      schema.translation.create[i].publicationAuthor =
-        input.translation[i].publicationAuthor
-    }
-    if (input.translation[i].publicationLang) {
-      schema.translation.create[i].publicationLang =
-        input.translation[i].publicationLang
-    }
-    if (input.translation[i].abstract) {
-      schema.translation.create[i].abstract = input.translation[i].abstract
+  schema = {
+    index,
+    year,
+    number,
+    pages,
+    inputDate,
+    doiUrl,
+    edited: true,
+    author: {
+      connect: {
+        email: user.email,
+      },
+    },
+  }
+
+  if (qrjJournal) {
+    schema.journal = { connect: { code: qrjJournal } }
+  }
+  if (oecd) {
+    schema.oecd = { connect: { code: oecd } }
+  }
+
+  schema.translation = {} as QrjPublicationTranslationCreateManyInput
+  schema.translation.create = [] as QrjPublicationTranslationCreateInput[]
+
+  for (let i = 0; i < translation.length; i++) {
+    const {
+      title,
+      publicationAuthor,
+      publicationLang,
+      abstract,
+      language,
+    } = translation[i]
+
+    schema.translation.create[i] = {} as QrjPublicationTranslationCreateInput
+
+    schema.translation.create[i] = {
+      title,
+      publicationAuthor,
+      publicationLang,
+      abstract,
+      language: {
+        connect: { code: language },
+      },
     }
   }
 

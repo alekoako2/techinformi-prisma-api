@@ -9,7 +9,7 @@ export const typeDefs = gql`
       skip: Int
       orderBy: String
     ): [QrjJournal!]!
-    qrjJournal(id: String): QrjJournal!
+    qrjJournal(id: ID): QrjJournal!
   }
 
   extend type Mutation {

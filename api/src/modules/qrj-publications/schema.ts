@@ -9,7 +9,7 @@ export const typeDefs = gql`
       skip: Int
       orderBy: String
     ): [QrjPublication!]!
-    qrjPublication(id: String): QrjPublication!
+    qrjPublication(id: ID): QrjPublication!
   }
 
   input QrjPublicationQueryInput {
@@ -47,6 +47,7 @@ export const typeDefs = gql`
   }
 
   type QrjPublicationTranslation {
+    id: ID
     title: String
     publicationAuthor: String
     publicationLang: String
@@ -82,6 +83,7 @@ export const typeDefs = gql`
   }
 
   input QrjPublicationTranslationInput {
+    id: ID
     title: String
     publicationAuthor: String
     publicationLang: String

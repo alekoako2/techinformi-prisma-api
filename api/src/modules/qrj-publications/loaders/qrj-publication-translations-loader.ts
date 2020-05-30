@@ -16,7 +16,7 @@ const qrjPublicationsTranslationsBatch: QrjPublicationTranslationsBatch = async 
   const qrjPublicationsTranslations = await prisma
     .qrjPublications({ where: { OR: [...ids.map(id => ({ id }))] } })
     .$fragment<any[]>(
-      `{ id translation ${where} { title abstract publicationAuthor publicationLang } }`
+      `{ id translation ${where} { id title abstract publicationAuthor publicationLang } }`
     )
 
   return ids.map(

@@ -6,27 +6,68 @@ import {
   QrjPublicationTranslationWhereUniqueInput,
   QrjPublicationUpdateInput,
 } from '@prisma-client'
-import {
-  setNonTranslatedSchema,
-  setNonTranslatedUpdateSchema,
-} from '../../utils'
+import { getUser } from '../../../../utils'
 
-export const updateQrjPublication = async (_, { input }, ___: Context) => {
-  const { id } = input
-
+export const updateQrjPublication = async (
+  _,
+  {
+    input: {
+      id,
+      index,
+      year,
+      number,
+      pages,
+      inputDate,
+      doiUrl,
+      qrjJournal,
+      oecd,
+      translation,
+    },
+  },
+  ___: Context
+) => {
   const qrjPublication = await ___.prisma.qrjPublication({ id })
 
   if (!qrjPublication) {
-    throw new Error('QrjPublication not found!')
+    throw new Error('News not found!')
   }
 
   let schema: QrjPublicationUpdateInput = {} as QrjPublicationUpdateInput
-  schema = await setNonTranslatedUpdateSchema(schema, input, ___)
+
+  const user = await getUser(___)
+
+  if (!user) {
+    throw new Error('User not authenticated')
+  }
+
+  schema = {
+    index,
+    year,
+    number,
+    pages,
+    inputDate,
+    doiUrl,
+    edited: true,
+    author: {
+      connect: {
+        email: user.email,
+      },
+    },
+  }
 
   schema.translation = {} as QrjPublicationTranslationUpdateManyInput
   schema.translation.update = [] as QrjPublicationTranslationUpdateWithWhereUniqueNestedInput[]
 
-  for (let i = 0; i < input.translation.length; i++) {
+  for (let i = 0; i < translation.length; i++) {
+    const {
+      title,
+      publicationAuthor,
+      publicationLang,
+      abstract,
+      language,
+      id,
+    } = translation[i]
+
     schema.translation.update[
       i
     ] = {} as QrjPublicationTranslationUpdateWithWhereUniqueNestedInput
@@ -39,27 +80,17 @@ export const updateQrjPublication = async (_, { input }, ___: Context) => {
       i
     ].data = {} as QrjPublicationTranslationUpdateDataInput
 
-    let translation = await ___.prisma.qrjPublication({ id }).translation({
-      where: { language: { code: input.translation[i].language } },
-    })
-
-    if (input.translation[i].title) {
-      schema.translation.update[i].data.title = input.translation[i].title
-    }
-    if (input.translation[i].publicationAuthor) {
-      schema.translation.update[i].data.publicationAuthor =
-        input.translation[i].publicationAuthor
-    }
-    if (input.translation[i].publicationLang) {
-      schema.translation.update[i].data.publicationLang =
-        input.translation[i].publicationLang
+    schema.translation.update[i].data = {
+      title,
+      publicationAuthor,
+      publicationLang,
+      abstract,
+      language: {
+        connect: { code: language },
+      },
     }
 
-    if (input.translation[i].abstract) {
-      schema.translation.update[i].data.abstract = input.translation[i].abstract
-    }
-
-    schema.translation.update[i].where.id = translation[0].id
+    schema.translation.update[i].where = { id }
   }
 
   return ___.prisma.updateQrjPublication({

@@ -1,5 +1,5 @@
 export async function seedQrjJournals(db, _cliProgress) {
-  console.log("Seeding QrjPublication Journals...");
+  console.log("Seeding News Journals...");
 
   const bar = new _cliProgress.Bar({}, _cliProgress.Presets.shades_classic);
   const data = require("./seed.json");
@@ -8,14 +8,7 @@ export async function seedQrjJournals(db, _cliProgress) {
 
   let count = 1;
   for (let i = 0; i < length; i++) {
-
-    const {
-      code,
-      geo,
-      eng,
-      address_geo,
-      address_eng
-    } = data[i];
+    const { code, geo, eng, address_geo, address_eng } = data[i];
 
     let schema: any = {};
 
@@ -25,7 +18,12 @@ export async function seedQrjJournals(db, _cliProgress) {
       schema.code = code;
     }
 
-    schema.translation = { create: [{ language: { connect: { code: "KA" } } }, { language: { connect: { code: "EN" } } }] };
+    schema.translation = {
+      create: [
+        { language: { connect: { code: "KA" } } },
+        { language: { connect: { code: "EN" } } }
+      ]
+    };
 
     if (geo) {
       schema.translation.create[0].name = geo;
@@ -44,14 +42,12 @@ export async function seedQrjJournals(db, _cliProgress) {
     }
 
     await db.createQrjJournal({
-        ...schema
-      }
-    );
+      ...schema
+    });
 
     bar.update(count++);
-
   }
 
   bar.stop();
-  return "QrjPublication Journals Completed";
+  return "News Journals Completed";
 }

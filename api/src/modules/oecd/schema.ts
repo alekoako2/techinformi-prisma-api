@@ -9,7 +9,7 @@ export const typeDefs = gql`
       skip: Int
       orderBy: String
     ): [Oecd!]!
-    oecd(id: String): Oecd!
+    oecd(id: ID): Oecd!
   }
 
   extend type Mutation {
