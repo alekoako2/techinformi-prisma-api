@@ -9,7 +9,7 @@ export const typeDefs = gql`
       skip: Int
     ): [TechnologyTransferAndInnovationOrganization!]!
     technologyTransferAndInnovationOrganization(
-      id: String
+      id: ID
     ): TechnologyTransferAndInnovationOrganization!
   }
 

@@ -8,7 +8,7 @@ import { TechnologyTransferNetworkModule } from './TechnologyTransferCenters/Tec
 import { ResearchProjectModule } from './ResearchProjectModule'
 import { EmployeeModule } from './EmployeeModule'
 import { ExpertModule } from './experts/experts.module'
-import { NewsModule } from './NewsModule'
+import { NewsModule } from './newses/newses.module'
 import { QrjModule } from './QrjModule'
 
 export const modules = [

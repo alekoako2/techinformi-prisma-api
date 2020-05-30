@@ -1,0 +1,4 @@
+{
+  "main": "news.ts",
+  "typings": "news.ts"
+}

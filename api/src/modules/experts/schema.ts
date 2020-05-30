@@ -9,7 +9,7 @@ export const typeDefs = gql`
       skip: Int
       orderBy: String
     ): [Expert!]!
-    expert(id: String): Expert!
+    expert(id: ID): Expert!
   }
 
   input expertQueryInput {
