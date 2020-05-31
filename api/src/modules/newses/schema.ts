@@ -49,6 +49,7 @@ export const typeDefs = gql`
   }
 
   input NewsTranslationInput {
+    id: ID
     title: String
     description: String
     content: String

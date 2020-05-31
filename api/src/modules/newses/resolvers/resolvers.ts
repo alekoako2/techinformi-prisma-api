@@ -1,7 +1,7 @@
 import { Query } from './query'
 import { User } from './user'
-import { Mutation } from '../../qrj-publications/resolvers/mutation'
 import { News } from './news'
+import { Mutation } from './mutation'
 
 export const resolvers = {
   Mutation,

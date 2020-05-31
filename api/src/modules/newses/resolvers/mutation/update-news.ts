@@ -1,11 +1,12 @@
 import { Context } from '@interfaces/apollo/context'
 import {
-  NewsTranslationUpdateDataInput,
-  NewsTranslationUpdateManyInput,
   NewsTranslationUpdateWithWhereUniqueNestedInput,
   NewsTranslationWhereUniqueInput,
+  NewsTranslationUpdateDataInput,
+  NewsTranslationUpdateManyInput,
   NewsUpdateInput,
 } from '@prisma-client'
+import { getUser } from '../../../../utils'
 
 export const updateNews = async (
   _,
@@ -16,6 +17,12 @@ export const updateNews = async (
 
   if (!news) {
     throw new Error('News not found!')
+  }
+
+  const user = await getUser(___)
+
+  if (!user) {
+    throw new Error('User not authenticated')
   }
 
   let schema: NewsUpdateInput = {} as NewsUpdateInput
@@ -42,8 +49,8 @@ export const updateNews = async (
         connect: { code: language },
       },
     }
-
     schema.translation.update[i].where = { id }
+    console.log(language, id)
   }
 
   return ___.prisma.updateNews({
