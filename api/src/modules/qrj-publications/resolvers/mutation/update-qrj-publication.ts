@@ -7,6 +7,7 @@ import {
   QrjPublicationUpdateInput,
 } from '@prisma-client'
 import { getUser } from '../../../../utils'
+import { qrj } from '../../../QrjModule/resolvers/mutations/qrj'
 
 export const updateQrjPublication = async (
   _,
@@ -29,7 +30,7 @@ export const updateQrjPublication = async (
   const qrjPublication = await ___.prisma.qrjPublication({ id })
 
   if (!qrjPublication) {
-    throw new Error('News not found!')
+    throw new Error('QrjPublication not found!')
   }
 
   let schema: QrjPublicationUpdateInput = {} as QrjPublicationUpdateInput
@@ -54,6 +55,9 @@ export const updateQrjPublication = async (
       },
     },
   }
+  if (oecd) schema.oecd = { connect: { code: oecd } }
+
+  if (qrjJournal) schema.journal = { connect: { code: qrjJournal } }
 
   schema.translation = {} as QrjPublicationTranslationUpdateManyInput
   schema.translation.update = [] as QrjPublicationTranslationUpdateWithWhereUniqueNestedInput[]
