@@ -50,7 +50,6 @@ export const updateNews = async (
       },
     }
     schema.translation.update[i].where = { id }
-    console.log(language, id)
   }
 
   return ___.prisma.updateNews({
