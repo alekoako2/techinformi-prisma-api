@@ -10,4 +10,5 @@ RUN yarn install
 
 EXPOSE 4001
 
+
 CMD ["yarn", "start"]
