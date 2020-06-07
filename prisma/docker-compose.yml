@@ -48,13 +48,6 @@ services:
       - traefik.enable=true
     networks:
       - traeifik_default
-  techinformi:
-    image: alekoako2/techinformi
-    labels:
-      - traefik.frontend.rule=Host:techinformi.localhost
-      - traefik.enable=true
-    networks:
-      - traeifik_default
 networks:
   default:
     driver: bridge
