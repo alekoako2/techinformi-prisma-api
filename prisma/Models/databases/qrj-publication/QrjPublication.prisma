@@ -6,8 +6,8 @@ type QrjPublication {
     edited: Boolean
     year: String
     number: String
-    pages:String
-    doiUrl:String
+    pages: String
+    doiUrl: String
     journal: QrjJournal
     inputDate: DateTime
     oecd: Oecd

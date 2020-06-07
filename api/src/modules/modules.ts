@@ -5,7 +5,6 @@ import { UserModule } from './user'
 import { QrjPublicationModule } from './qrj-publications'
 import { TechnologyTransferAndInnovationOrganizationModule } from './TechnologyTransferCenters/TechnologyTransferAndInnovationOrganizationModule'
 import { TechnologyTransferNetworkModule } from './TechnologyTransferCenters/TechnologyTransferNetworkModule'
-import { ResearchProjectModule } from './ResearchProjectModule'
 import { EmployeeModule } from './EmployeeModule'
 import { ExpertModule } from './experts'
 import { NewsModule } from './newses'
@@ -19,7 +18,6 @@ export const modules = [
   OecdModule,
   TechnologyTransferAndInnovationOrganizationModule,
   TechnologyTransferNetworkModule,
-  ResearchProjectModule,
   EmployeeModule,
   ExpertModule,
   NewsModule,

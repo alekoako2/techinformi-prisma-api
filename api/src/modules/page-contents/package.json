@@ -1,0 +1,4 @@
+{
+  "main": "page-contents.module.ts",
+  "typings": "qrj-publications.module.ts"
+}
