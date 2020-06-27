@@ -7,7 +7,6 @@ import {
   QrjPublicationUpdateInput,
 } from '@prisma-client'
 import { getUser } from '../../../../utils'
-import { qrj } from '../../../QrjModule/resolvers/mutations/qrj'
 
 export const updateQrjPublication = async (
   _,

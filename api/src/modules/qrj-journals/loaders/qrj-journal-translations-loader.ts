@@ -15,7 +15,7 @@ const qrjJournalTranslationsBatch: QrjJournalTranslationsBatch = async args => {
 
   const qrjJournalTranslations = await prisma
     .qrjJournals({ where: { OR: [...ids.map(id => ({ id }))] } })
-    .$fragment<any[]>(`{ id translation ${where} { name address } }`)
+    .$fragment<any[]>(`{ id translation ${where} { id name address } }`)
 
   return ids.map(
     id =>

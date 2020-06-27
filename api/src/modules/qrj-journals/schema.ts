@@ -2,9 +2,9 @@ import { gql } from 'apollo-server-express'
 
 export const typeDefs = gql`
   extend type Query {
-    countQrjJournals(query: QrjJournalsQueryInput): Int
+    countQrjJournals(query: QrjJournalQueryInput): Int
     qrjJournals(
-      query: QrjJournalsQueryInput
+      query: QrjJournalQueryInput
       first: Int
       skip: Int
       orderBy: String
@@ -13,12 +13,12 @@ export const typeDefs = gql`
   }
 
   extend type Mutation {
-    createQrjJournal(input: QrjJournalInput): QrjJournal
-    updateQrjJournal(id: ID!, input: QrjJournalInput): QrjJournal
+    createQrjJournal(input: QrjJournalCreateInput): QrjJournal
+    updateQrjJournal(input: QrjJournalUpdateInput): QrjJournal
     deleteQrjJournal(id: ID): QrjJournal
   }
 
-  input QrjJournalsQueryInput {
+  input QrjJournalQueryInput {
     code: String
     name: String
   }
@@ -34,17 +34,25 @@ export const typeDefs = gql`
   }
 
   type QrjJournalTranslation {
+    id: ID
     name: String
     address: String
     language: Language
   }
 
-  input QrjJournalInput {
+  input QrjJournalCreateInput {
+    code: String
+    translation: [QrjJournalTranslationInput!]
+  }
+
+  input QrjJournalUpdateInput {
+    id: ID!
     code: String
     translation: [QrjJournalTranslationInput!]
   }
 
   input QrjJournalTranslationInput {
+    id: ID
     name: String
     address: String
     language: LanguageCode
