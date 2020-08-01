@@ -1,0 +1,27 @@
+type QrjPublication {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    index: String! @unique
+    edited: Boolean
+    year: String
+    number: String
+    pages: String
+    doiUrl: String
+    journal: QrjJournal
+    inputDate: DateTime
+    oecd: Oecd
+    translation: [QrjPublicationTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type QrjPublicationTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    title: String
+    publicationAuthor: String
+    publicationLang: String
+    abstract: String
+    language: Language! @relation
+}

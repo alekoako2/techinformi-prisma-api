@@ -1,7 +1,7 @@
 import { typeDefs } from './schema'
 import { resolvers } from './resolvers'
 
-export const QrjPublicationModule = {
+export const DepositedModule = {
   typeDefs,
   resolvers,
 }

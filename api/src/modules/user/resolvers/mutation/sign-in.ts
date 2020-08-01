@@ -16,10 +16,11 @@ export const signIn = async (parent, { input }, ctx: Context) => {
   if (!valid) {
     throw new Error('Invalid password')
   }
-  console.log(process.env.APP_SECRET)
 
   return {
-    token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
+    token: jwt.sign({ userId: user.id }, process.env.APP_SECRET, {
+      expiresIn: '24h',
+    }),
     user,
   }
 }
