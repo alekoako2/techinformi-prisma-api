@@ -12,6 +12,12 @@ export const typeDefs = gql`
     qrjPublication(id: ID): QrjPublication!
   }
 
+  extend type Mutation {
+    createQrjPublication(input: QrjPublicationCreateInput): QrjPublication
+    updateQrjPublication(input: QrjPublicationUpdateInput): QrjPublication
+    deleteQrjPublication(id: ID): QrjPublication
+  }
+
   input QrjPublicationQueryInput {
     index: String
     translation: QrjPublicationTranslationInput
@@ -20,12 +26,6 @@ export const typeDefs = gql`
     keywords: [String]
     yearStart: String
     yearEnd: String
-  }
-
-  extend type Mutation {
-    createQrjPublication(input: QrjPublicationCreateInput): QrjPublication
-    updateQrjPublication(input: QrjPublicationUpdateInput): QrjPublication
-    deleteQrjPublication(id: ID): QrjPublication
   }
 
   extend type User {

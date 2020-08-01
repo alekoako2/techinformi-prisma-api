@@ -1,4 +1,4 @@
-import { QrjJournalModule } from './qrj-journal'
+import { QrjJournalsModule } from './qrj-journals'
 import { LanguageModule } from './language'
 import { OecdModule } from './oecd'
 import { UserModule } from './user'
@@ -12,7 +12,7 @@ import { QrjModule } from './QrjModule'
 import { DepositedModule } from './deposited'
 
 export const modules = [
-  QrjJournalModule,
+  QrjJournalsModule,
   QrjPublicationModule,
   DepositedModule,
   LanguageModule,
