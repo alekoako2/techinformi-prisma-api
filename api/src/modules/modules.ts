@@ -9,10 +9,12 @@ import { EmployeeModule } from './EmployeeModule'
 import { ExpertModule } from './experts'
 import { NewsModule } from './newses'
 import { QrjModule } from './QrjModule'
+import { DepositedModule } from './deposited'
 
 export const modules = [
   QrjJournalsModule,
   QrjPublicationModule,
+  DepositedModule,
   LanguageModule,
   UserModule,
   OecdModule,

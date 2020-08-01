@@ -18,7 +18,9 @@ export const signIn = async (parent, { input }, ctx: Context) => {
   }
 
   return {
-    token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
+    token: jwt.sign({ userId: user.id }, process.env.APP_SECRET, {
+      expiresIn: '24h',
+    }),
     user,
   }
 }

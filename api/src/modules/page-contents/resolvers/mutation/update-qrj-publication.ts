@@ -30,7 +30,7 @@ export const updateQrjPublication = async (
   const qrjPublication = await ___.prisma.qrjPublication({ id })
 
   if (!qrjPublication) {
-    throw new Error('QrjPublication not found!')
+    throw new Error('Deposited not found!')
   }
 
   let schema: QrjPublicationUpdateInput = {} as QrjPublicationUpdateInput

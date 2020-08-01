@@ -10,6 +10,14 @@ type AggregateDepartmentTranslation {
   count: Int!
 }
 
+type AggregateDeposited {
+  count: Int!
+}
+
+type AggregateDepositedTranslation {
+  count: Int!
+}
+
 type AggregateEmployee {
   count: Int!
 }
@@ -468,6 +476,549 @@ input DepartmentWhereInput {
 
 input DepartmentWhereUniqueInput {
   id: ID
+}
+
+type Deposited {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  index: String!
+  uak: String
+  year: String
+  oecd: Oecd
+  translation(where: DepositedTranslationWhereInput, orderBy: DepositedTranslationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DepositedTranslation!]
+  author: User!
+}
+
+type DepositedConnection {
+  pageInfo: PageInfo!
+  edges: [DepositedEdge]!
+  aggregate: AggregateDeposited!
+}
+
+input DepositedCreateInput {
+  id: ID
+  index: String!
+  uak: String
+  year: String
+  oecd: OecdCreateOneInput
+  translation: DepositedTranslationCreateManyInput
+  author: UserCreateOneInput!
+}
+
+type DepositedEdge {
+  node: Deposited!
+  cursor: String!
+}
+
+enum DepositedOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  index_ASC
+  index_DESC
+  uak_ASC
+  uak_DESC
+  year_ASC
+  year_DESC
+}
+
+type DepositedPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  index: String!
+  uak: String
+  year: String
+}
+
+type DepositedSubscriptionPayload {
+  mutation: MutationType!
+  node: Deposited
+  updatedFields: [String!]
+  previousValues: DepositedPreviousValues
+}
+
+input DepositedSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: DepositedWhereInput
+  AND: [DepositedSubscriptionWhereInput!]
+  OR: [DepositedSubscriptionWhereInput!]
+  NOT: [DepositedSubscriptionWhereInput!]
+}
+
+type DepositedTranslation {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+  language: Language!
+}
+
+type DepositedTranslationConnection {
+  pageInfo: PageInfo!
+  edges: [DepositedTranslationEdge]!
+  aggregate: AggregateDepositedTranslation!
+}
+
+input DepositedTranslationCreateInput {
+  id: ID
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+  language: LanguageCreateOneInput!
+}
+
+input DepositedTranslationCreateManyInput {
+  create: [DepositedTranslationCreateInput!]
+  connect: [DepositedTranslationWhereUniqueInput!]
+}
+
+type DepositedTranslationEdge {
+  node: DepositedTranslation!
+  cursor: String!
+}
+
+enum DepositedTranslationOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  title_ASC
+  title_DESC
+  author_ASC
+  author_DESC
+  institute_ASC
+  institute_DESC
+  articleLang_ASC
+  articleLang_DESC
+  resume_ASC
+  resume_DESC
+}
+
+type DepositedTranslationPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+}
+
+input DepositedTranslationScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  institute: String
+  institute_not: String
+  institute_in: [String!]
+  institute_not_in: [String!]
+  institute_lt: String
+  institute_lte: String
+  institute_gt: String
+  institute_gte: String
+  institute_contains: String
+  institute_not_contains: String
+  institute_starts_with: String
+  institute_not_starts_with: String
+  institute_ends_with: String
+  institute_not_ends_with: String
+  articleLang: String
+  articleLang_not: String
+  articleLang_in: [String!]
+  articleLang_not_in: [String!]
+  articleLang_lt: String
+  articleLang_lte: String
+  articleLang_gt: String
+  articleLang_gte: String
+  articleLang_contains: String
+  articleLang_not_contains: String
+  articleLang_starts_with: String
+  articleLang_not_starts_with: String
+  articleLang_ends_with: String
+  articleLang_not_ends_with: String
+  resume: String
+  resume_not: String
+  resume_in: [String!]
+  resume_not_in: [String!]
+  resume_lt: String
+  resume_lte: String
+  resume_gt: String
+  resume_gte: String
+  resume_contains: String
+  resume_not_contains: String
+  resume_starts_with: String
+  resume_not_starts_with: String
+  resume_ends_with: String
+  resume_not_ends_with: String
+  AND: [DepositedTranslationScalarWhereInput!]
+  OR: [DepositedTranslationScalarWhereInput!]
+  NOT: [DepositedTranslationScalarWhereInput!]
+}
+
+type DepositedTranslationSubscriptionPayload {
+  mutation: MutationType!
+  node: DepositedTranslation
+  updatedFields: [String!]
+  previousValues: DepositedTranslationPreviousValues
+}
+
+input DepositedTranslationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: DepositedTranslationWhereInput
+  AND: [DepositedTranslationSubscriptionWhereInput!]
+  OR: [DepositedTranslationSubscriptionWhereInput!]
+  NOT: [DepositedTranslationSubscriptionWhereInput!]
+}
+
+input DepositedTranslationUpdateDataInput {
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+  language: LanguageUpdateOneRequiredInput
+}
+
+input DepositedTranslationUpdateInput {
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+  language: LanguageUpdateOneRequiredInput
+}
+
+input DepositedTranslationUpdateManyDataInput {
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+}
+
+input DepositedTranslationUpdateManyInput {
+  create: [DepositedTranslationCreateInput!]
+  update: [DepositedTranslationUpdateWithWhereUniqueNestedInput!]
+  upsert: [DepositedTranslationUpsertWithWhereUniqueNestedInput!]
+  delete: [DepositedTranslationWhereUniqueInput!]
+  connect: [DepositedTranslationWhereUniqueInput!]
+  set: [DepositedTranslationWhereUniqueInput!]
+  disconnect: [DepositedTranslationWhereUniqueInput!]
+  deleteMany: [DepositedTranslationScalarWhereInput!]
+  updateMany: [DepositedTranslationUpdateManyWithWhereNestedInput!]
+}
+
+input DepositedTranslationUpdateManyMutationInput {
+  title: String
+  author: String
+  institute: String
+  articleLang: String
+  resume: String
+}
+
+input DepositedTranslationUpdateManyWithWhereNestedInput {
+  where: DepositedTranslationScalarWhereInput!
+  data: DepositedTranslationUpdateManyDataInput!
+}
+
+input DepositedTranslationUpdateWithWhereUniqueNestedInput {
+  where: DepositedTranslationWhereUniqueInput!
+  data: DepositedTranslationUpdateDataInput!
+}
+
+input DepositedTranslationUpsertWithWhereUniqueNestedInput {
+  where: DepositedTranslationWhereUniqueInput!
+  update: DepositedTranslationUpdateDataInput!
+  create: DepositedTranslationCreateInput!
+}
+
+input DepositedTranslationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  institute: String
+  institute_not: String
+  institute_in: [String!]
+  institute_not_in: [String!]
+  institute_lt: String
+  institute_lte: String
+  institute_gt: String
+  institute_gte: String
+  institute_contains: String
+  institute_not_contains: String
+  institute_starts_with: String
+  institute_not_starts_with: String
+  institute_ends_with: String
+  institute_not_ends_with: String
+  articleLang: String
+  articleLang_not: String
+  articleLang_in: [String!]
+  articleLang_not_in: [String!]
+  articleLang_lt: String
+  articleLang_lte: String
+  articleLang_gt: String
+  articleLang_gte: String
+  articleLang_contains: String
+  articleLang_not_contains: String
+  articleLang_starts_with: String
+  articleLang_not_starts_with: String
+  articleLang_ends_with: String
+  articleLang_not_ends_with: String
+  resume: String
+  resume_not: String
+  resume_in: [String!]
+  resume_not_in: [String!]
+  resume_lt: String
+  resume_lte: String
+  resume_gt: String
+  resume_gte: String
+  resume_contains: String
+  resume_not_contains: String
+  resume_starts_with: String
+  resume_not_starts_with: String
+  resume_ends_with: String
+  resume_not_ends_with: String
+  language: LanguageWhereInput
+  AND: [DepositedTranslationWhereInput!]
+  OR: [DepositedTranslationWhereInput!]
+  NOT: [DepositedTranslationWhereInput!]
+}
+
+input DepositedTranslationWhereUniqueInput {
+  id: ID
+}
+
+input DepositedUpdateInput {
+  index: String
+  uak: String
+  year: String
+  oecd: OecdUpdateOneInput
+  translation: DepositedTranslationUpdateManyInput
+  author: UserUpdateOneRequiredInput
+}
+
+input DepositedUpdateManyMutationInput {
+  index: String
+  uak: String
+  year: String
+}
+
+input DepositedWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  index: String
+  index_not: String
+  index_in: [String!]
+  index_not_in: [String!]
+  index_lt: String
+  index_lte: String
+  index_gt: String
+  index_gte: String
+  index_contains: String
+  index_not_contains: String
+  index_starts_with: String
+  index_not_starts_with: String
+  index_ends_with: String
+  index_not_ends_with: String
+  uak: String
+  uak_not: String
+  uak_in: [String!]
+  uak_not_in: [String!]
+  uak_lt: String
+  uak_lte: String
+  uak_gt: String
+  uak_gte: String
+  uak_contains: String
+  uak_not_contains: String
+  uak_starts_with: String
+  uak_not_starts_with: String
+  uak_ends_with: String
+  uak_not_ends_with: String
+  year: String
+  year_not: String
+  year_in: [String!]
+  year_not_in: [String!]
+  year_lt: String
+  year_lte: String
+  year_gt: String
+  year_gte: String
+  year_contains: String
+  year_not_contains: String
+  year_starts_with: String
+  year_not_starts_with: String
+  year_ends_with: String
+  year_not_ends_with: String
+  oecd: OecdWhereInput
+  translation_every: DepositedTranslationWhereInput
+  translation_some: DepositedTranslationWhereInput
+  translation_none: DepositedTranslationWhereInput
+  author: UserWhereInput
+  AND: [DepositedWhereInput!]
+  OR: [DepositedWhereInput!]
+  NOT: [DepositedWhereInput!]
+}
+
+input DepositedWhereUniqueInput {
+  id: ID
+  index: String
 }
 
 type Employee {
@@ -2379,6 +2930,18 @@ type Mutation {
   upsertDepartmentTranslation(where: DepartmentTranslationWhereUniqueInput!, create: DepartmentTranslationCreateInput!, update: DepartmentTranslationUpdateInput!): DepartmentTranslation!
   deleteDepartmentTranslation(where: DepartmentTranslationWhereUniqueInput!): DepartmentTranslation
   deleteManyDepartmentTranslations(where: DepartmentTranslationWhereInput): BatchPayload!
+  createDeposited(data: DepositedCreateInput!): Deposited!
+  updateDeposited(data: DepositedUpdateInput!, where: DepositedWhereUniqueInput!): Deposited
+  updateManyDepositeds(data: DepositedUpdateManyMutationInput!, where: DepositedWhereInput): BatchPayload!
+  upsertDeposited(where: DepositedWhereUniqueInput!, create: DepositedCreateInput!, update: DepositedUpdateInput!): Deposited!
+  deleteDeposited(where: DepositedWhereUniqueInput!): Deposited
+  deleteManyDepositeds(where: DepositedWhereInput): BatchPayload!
+  createDepositedTranslation(data: DepositedTranslationCreateInput!): DepositedTranslation!
+  updateDepositedTranslation(data: DepositedTranslationUpdateInput!, where: DepositedTranslationWhereUniqueInput!): DepositedTranslation
+  updateManyDepositedTranslations(data: DepositedTranslationUpdateManyMutationInput!, where: DepositedTranslationWhereInput): BatchPayload!
+  upsertDepositedTranslation(where: DepositedTranslationWhereUniqueInput!, create: DepositedTranslationCreateInput!, update: DepositedTranslationUpdateInput!): DepositedTranslation!
+  deleteDepositedTranslation(where: DepositedTranslationWhereUniqueInput!): DepositedTranslation
+  deleteManyDepositedTranslations(where: DepositedTranslationWhereInput): BatchPayload!
   createEmployee(data: EmployeeCreateInput!): Employee!
   updateEmployee(data: EmployeeUpdateInput!, where: EmployeeWhereUniqueInput!): Employee
   updateManyEmployees(data: EmployeeUpdateManyMutationInput!, where: EmployeeWhereInput): BatchPayload!
@@ -4841,6 +5404,12 @@ type Query {
   departmentTranslation(where: DepartmentTranslationWhereUniqueInput!): DepartmentTranslation
   departmentTranslations(where: DepartmentTranslationWhereInput, orderBy: DepartmentTranslationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DepartmentTranslation]!
   departmentTranslationsConnection(where: DepartmentTranslationWhereInput, orderBy: DepartmentTranslationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DepartmentTranslationConnection!
+  deposited(where: DepositedWhereUniqueInput!): Deposited
+  depositeds(where: DepositedWhereInput, orderBy: DepositedOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Deposited]!
+  depositedsConnection(where: DepositedWhereInput, orderBy: DepositedOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DepositedConnection!
+  depositedTranslation(where: DepositedTranslationWhereUniqueInput!): DepositedTranslation
+  depositedTranslations(where: DepositedTranslationWhereInput, orderBy: DepositedTranslationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DepositedTranslation]!
+  depositedTranslationsConnection(where: DepositedTranslationWhereInput, orderBy: DepositedTranslationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DepositedTranslationConnection!
   employee(where: EmployeeWhereUniqueInput!): Employee
   employees(where: EmployeeWhereInput, orderBy: EmployeeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Employee]!
   employeesConnection(where: EmployeeWhereInput, orderBy: EmployeeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EmployeeConnection!
@@ -4919,6 +5488,8 @@ enum Role {
 type Subscription {
   department(where: DepartmentSubscriptionWhereInput): DepartmentSubscriptionPayload
   departmentTranslation(where: DepartmentTranslationSubscriptionWhereInput): DepartmentTranslationSubscriptionPayload
+  deposited(where: DepositedSubscriptionWhereInput): DepositedSubscriptionPayload
+  depositedTranslation(where: DepositedTranslationSubscriptionWhereInput): DepositedTranslationSubscriptionPayload
   employee(where: EmployeeSubscriptionWhereInput): EmployeeSubscriptionPayload
   employeePosition(where: EmployeePositionSubscriptionWhereInput): EmployeePositionSubscriptionPayload
   employeePositionTranslation(where: EmployeePositionTranslationSubscriptionWhereInput): EmployeePositionTranslationSubscriptionPayload

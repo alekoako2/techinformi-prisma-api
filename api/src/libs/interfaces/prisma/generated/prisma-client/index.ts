@@ -20,6 +20,10 @@ export interface Exists {
   departmentTranslation: (
     where?: DepartmentTranslationWhereInput
   ) => Promise<boolean>;
+  deposited: (where?: DepositedWhereInput) => Promise<boolean>;
+  depositedTranslation: (
+    where?: DepositedTranslationWhereInput
+  ) => Promise<boolean>;
   employee: (where?: EmployeeWhereInput) => Promise<boolean>;
   employeePosition: (where?: EmployeePositionWhereInput) => Promise<boolean>;
   employeePositionTranslation: (
@@ -115,6 +119,46 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => DepartmentTranslationConnectionPromise;
+  deposited: (where: DepositedWhereUniqueInput) => DepositedNullablePromise;
+  depositeds: (args?: {
+    where?: DepositedWhereInput;
+    orderBy?: DepositedOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Deposited>;
+  depositedsConnection: (args?: {
+    where?: DepositedWhereInput;
+    orderBy?: DepositedOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => DepositedConnectionPromise;
+  depositedTranslation: (
+    where: DepositedTranslationWhereUniqueInput
+  ) => DepositedTranslationNullablePromise;
+  depositedTranslations: (args?: {
+    where?: DepositedTranslationWhereInput;
+    orderBy?: DepositedTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<DepositedTranslation>;
+  depositedTranslationsConnection: (args?: {
+    where?: DepositedTranslationWhereInput;
+    orderBy?: DepositedTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => DepositedTranslationConnectionPromise;
   employee: (where: EmployeeWhereUniqueInput) => EmployeeNullablePromise;
   employees: (args?: {
     where?: EmployeeWhereInput;
@@ -599,6 +643,44 @@ export interface Prisma {
   deleteManyDepartmentTranslations: (
     where?: DepartmentTranslationWhereInput
   ) => BatchPayloadPromise;
+  createDeposited: (data: DepositedCreateInput) => DepositedPromise;
+  updateDeposited: (args: {
+    data: DepositedUpdateInput;
+    where: DepositedWhereUniqueInput;
+  }) => DepositedPromise;
+  updateManyDepositeds: (args: {
+    data: DepositedUpdateManyMutationInput;
+    where?: DepositedWhereInput;
+  }) => BatchPayloadPromise;
+  upsertDeposited: (args: {
+    where: DepositedWhereUniqueInput;
+    create: DepositedCreateInput;
+    update: DepositedUpdateInput;
+  }) => DepositedPromise;
+  deleteDeposited: (where: DepositedWhereUniqueInput) => DepositedPromise;
+  deleteManyDepositeds: (where?: DepositedWhereInput) => BatchPayloadPromise;
+  createDepositedTranslation: (
+    data: DepositedTranslationCreateInput
+  ) => DepositedTranslationPromise;
+  updateDepositedTranslation: (args: {
+    data: DepositedTranslationUpdateInput;
+    where: DepositedTranslationWhereUniqueInput;
+  }) => DepositedTranslationPromise;
+  updateManyDepositedTranslations: (args: {
+    data: DepositedTranslationUpdateManyMutationInput;
+    where?: DepositedTranslationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertDepositedTranslation: (args: {
+    where: DepositedTranslationWhereUniqueInput;
+    create: DepositedTranslationCreateInput;
+    update: DepositedTranslationUpdateInput;
+  }) => DepositedTranslationPromise;
+  deleteDepositedTranslation: (
+    where: DepositedTranslationWhereUniqueInput
+  ) => DepositedTranslationPromise;
+  deleteManyDepositedTranslations: (
+    where?: DepositedTranslationWhereInput
+  ) => BatchPayloadPromise;
   createEmployee: (data: EmployeeCreateInput) => EmployeePromise;
   updateEmployee: (args: {
     data: EmployeeUpdateInput;
@@ -1036,6 +1118,12 @@ export interface Subscription {
   departmentTranslation: (
     where?: DepartmentTranslationSubscriptionWhereInput
   ) => DepartmentTranslationSubscriptionPayloadSubscription;
+  deposited: (
+    where?: DepositedSubscriptionWhereInput
+  ) => DepositedSubscriptionPayloadSubscription;
+  depositedTranslation: (
+    where?: DepositedTranslationSubscriptionWhereInput
+  ) => DepositedTranslationSubscriptionPayloadSubscription;
   employee: (
     where?: EmployeeSubscriptionWhereInput
   ) => EmployeeSubscriptionPayloadSubscription;
@@ -1132,6 +1220,94 @@ export type DepartmentOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type OecdTranslationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "name_ASC"
+  | "name_DESC";
+
+export type Role = "ADMIN" | "EDITOR" | "CUSTOMER";
+
+export type NewsOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type NewsTranslationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "content_ASC"
+  | "content_DESC";
+
+export type OecdOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "code_ASC"
+  | "code_DESC";
+
+export type UserTranslationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "firstName_ASC"
+  | "firstName_DESC"
+  | "lastName_ASC"
+  | "lastName_DESC";
+
+export type DepositedTranslationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "author_ASC"
+  | "author_DESC"
+  | "institute_ASC"
+  | "institute_DESC"
+  | "articleLang_ASC"
+  | "articleLang_DESC"
+  | "resume_ASC"
+  | "resume_DESC";
+
+export type DepositedOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "index_ASC"
+  | "index_DESC"
+  | "uak_ASC"
+  | "uak_DESC"
+  | "year_ASC"
+  | "year_DESC";
+
 export type Gender = "MALE" | "FEMALE";
 
 export type EmployeePositionTranslationOrderByInput =
@@ -1197,62 +1373,6 @@ export type ExpertTranslationOrderByInput =
   | "workingPlace_DESC"
   | "position_ASC"
   | "position_DESC";
-
-export type Role = "ADMIN" | "EDITOR" | "CUSTOMER";
-
-export type OecdOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "code_ASC"
-  | "code_DESC";
-
-export type OecdTranslationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "name_ASC"
-  | "name_DESC";
-
-export type NewsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type NewsTranslationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "content_ASC"
-  | "content_DESC";
-
-export type UserTranslationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "firstName_ASC"
-  | "firstName_DESC"
-  | "lastName_ASC"
-  | "lastName_DESC";
 
 export type LanguageOrderByInput =
   | "id_ASC"
@@ -1580,6 +1700,575 @@ export interface DepartmentWhereInput {
 export type DepartmentTranslationWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   name?: Maybe<String>;
+}>;
+
+export type DepositedWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  index?: Maybe<String>;
+}>;
+
+export interface OecdTranslationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  language?: Maybe<LanguageWhereInput>;
+  AND?: Maybe<OecdTranslationWhereInput[] | OecdTranslationWhereInput>;
+  OR?: Maybe<OecdTranslationWhereInput[] | OecdTranslationWhereInput>;
+  NOT?: Maybe<OecdTranslationWhereInput[] | OecdTranslationWhereInput>;
+}
+
+export interface NewsWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  translation_every?: Maybe<NewsTranslationWhereInput>;
+  translation_some?: Maybe<NewsTranslationWhereInput>;
+  translation_none?: Maybe<NewsTranslationWhereInput>;
+  author?: Maybe<UserWhereInput>;
+  AND?: Maybe<NewsWhereInput[] | NewsWhereInput>;
+  OR?: Maybe<NewsWhereInput[] | NewsWhereInput>;
+  NOT?: Maybe<NewsWhereInput[] | NewsWhereInput>;
+}
+
+export interface NewsTranslationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  language?: Maybe<LanguageWhereInput>;
+  AND?: Maybe<NewsTranslationWhereInput[] | NewsTranslationWhereInput>;
+  OR?: Maybe<NewsTranslationWhereInput[] | NewsTranslationWhereInput>;
+  NOT?: Maybe<NewsTranslationWhereInput[] | NewsTranslationWhereInput>;
+}
+
+export interface UserWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  news_every?: Maybe<NewsWhereInput>;
+  news_some?: Maybe<NewsWhereInput>;
+  news_none?: Maybe<NewsWhereInput>;
+  oecds_every?: Maybe<OecdWhereInput>;
+  oecds_some?: Maybe<OecdWhereInput>;
+  oecds_none?: Maybe<OecdWhereInput>;
+  role?: Maybe<Role>;
+  role_not?: Maybe<Role>;
+  role_in?: Maybe<Role[] | Role>;
+  role_not_in?: Maybe<Role[] | Role>;
+  translation_every?: Maybe<UserTranslationWhereInput>;
+  translation_some?: Maybe<UserTranslationWhereInput>;
+  translation_none?: Maybe<UserTranslationWhereInput>;
+  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
+  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
+  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
+}
+
+export interface OecdWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  code?: Maybe<String>;
+  code_not?: Maybe<String>;
+  code_in?: Maybe<String[] | String>;
+  code_not_in?: Maybe<String[] | String>;
+  code_lt?: Maybe<String>;
+  code_lte?: Maybe<String>;
+  code_gt?: Maybe<String>;
+  code_gte?: Maybe<String>;
+  code_contains?: Maybe<String>;
+  code_not_contains?: Maybe<String>;
+  code_starts_with?: Maybe<String>;
+  code_not_starts_with?: Maybe<String>;
+  code_ends_with?: Maybe<String>;
+  code_not_ends_with?: Maybe<String>;
+  translation_every?: Maybe<OecdTranslationWhereInput>;
+  translation_some?: Maybe<OecdTranslationWhereInput>;
+  translation_none?: Maybe<OecdTranslationWhereInput>;
+  author?: Maybe<UserWhereInput>;
+  AND?: Maybe<OecdWhereInput[] | OecdWhereInput>;
+  OR?: Maybe<OecdWhereInput[] | OecdWhereInput>;
+  NOT?: Maybe<OecdWhereInput[] | OecdWhereInput>;
+}
+
+export interface UserTranslationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  firstName?: Maybe<String>;
+  firstName_not?: Maybe<String>;
+  firstName_in?: Maybe<String[] | String>;
+  firstName_not_in?: Maybe<String[] | String>;
+  firstName_lt?: Maybe<String>;
+  firstName_lte?: Maybe<String>;
+  firstName_gt?: Maybe<String>;
+  firstName_gte?: Maybe<String>;
+  firstName_contains?: Maybe<String>;
+  firstName_not_contains?: Maybe<String>;
+  firstName_starts_with?: Maybe<String>;
+  firstName_not_starts_with?: Maybe<String>;
+  firstName_ends_with?: Maybe<String>;
+  firstName_not_ends_with?: Maybe<String>;
+  lastName?: Maybe<String>;
+  lastName_not?: Maybe<String>;
+  lastName_in?: Maybe<String[] | String>;
+  lastName_not_in?: Maybe<String[] | String>;
+  lastName_lt?: Maybe<String>;
+  lastName_lte?: Maybe<String>;
+  lastName_gt?: Maybe<String>;
+  lastName_gte?: Maybe<String>;
+  lastName_contains?: Maybe<String>;
+  lastName_not_contains?: Maybe<String>;
+  lastName_starts_with?: Maybe<String>;
+  lastName_not_starts_with?: Maybe<String>;
+  lastName_ends_with?: Maybe<String>;
+  lastName_not_ends_with?: Maybe<String>;
+  language?: Maybe<LanguageWhereInput>;
+  AND?: Maybe<UserTranslationWhereInput[] | UserTranslationWhereInput>;
+  OR?: Maybe<UserTranslationWhereInput[] | UserTranslationWhereInput>;
+  NOT?: Maybe<UserTranslationWhereInput[] | UserTranslationWhereInput>;
+}
+
+export interface DepositedTranslationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  author?: Maybe<String>;
+  author_not?: Maybe<String>;
+  author_in?: Maybe<String[] | String>;
+  author_not_in?: Maybe<String[] | String>;
+  author_lt?: Maybe<String>;
+  author_lte?: Maybe<String>;
+  author_gt?: Maybe<String>;
+  author_gte?: Maybe<String>;
+  author_contains?: Maybe<String>;
+  author_not_contains?: Maybe<String>;
+  author_starts_with?: Maybe<String>;
+  author_not_starts_with?: Maybe<String>;
+  author_ends_with?: Maybe<String>;
+  author_not_ends_with?: Maybe<String>;
+  institute?: Maybe<String>;
+  institute_not?: Maybe<String>;
+  institute_in?: Maybe<String[] | String>;
+  institute_not_in?: Maybe<String[] | String>;
+  institute_lt?: Maybe<String>;
+  institute_lte?: Maybe<String>;
+  institute_gt?: Maybe<String>;
+  institute_gte?: Maybe<String>;
+  institute_contains?: Maybe<String>;
+  institute_not_contains?: Maybe<String>;
+  institute_starts_with?: Maybe<String>;
+  institute_not_starts_with?: Maybe<String>;
+  institute_ends_with?: Maybe<String>;
+  institute_not_ends_with?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  articleLang_not?: Maybe<String>;
+  articleLang_in?: Maybe<String[] | String>;
+  articleLang_not_in?: Maybe<String[] | String>;
+  articleLang_lt?: Maybe<String>;
+  articleLang_lte?: Maybe<String>;
+  articleLang_gt?: Maybe<String>;
+  articleLang_gte?: Maybe<String>;
+  articleLang_contains?: Maybe<String>;
+  articleLang_not_contains?: Maybe<String>;
+  articleLang_starts_with?: Maybe<String>;
+  articleLang_not_starts_with?: Maybe<String>;
+  articleLang_ends_with?: Maybe<String>;
+  articleLang_not_ends_with?: Maybe<String>;
+  resume?: Maybe<String>;
+  resume_not?: Maybe<String>;
+  resume_in?: Maybe<String[] | String>;
+  resume_not_in?: Maybe<String[] | String>;
+  resume_lt?: Maybe<String>;
+  resume_lte?: Maybe<String>;
+  resume_gt?: Maybe<String>;
+  resume_gte?: Maybe<String>;
+  resume_contains?: Maybe<String>;
+  resume_not_contains?: Maybe<String>;
+  resume_starts_with?: Maybe<String>;
+  resume_not_starts_with?: Maybe<String>;
+  resume_ends_with?: Maybe<String>;
+  resume_not_ends_with?: Maybe<String>;
+  language?: Maybe<LanguageWhereInput>;
+  AND?: Maybe<
+    DepositedTranslationWhereInput[] | DepositedTranslationWhereInput
+  >;
+  OR?: Maybe<DepositedTranslationWhereInput[] | DepositedTranslationWhereInput>;
+  NOT?: Maybe<
+    DepositedTranslationWhereInput[] | DepositedTranslationWhereInput
+  >;
+}
+
+export interface DepositedWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  index?: Maybe<String>;
+  index_not?: Maybe<String>;
+  index_in?: Maybe<String[] | String>;
+  index_not_in?: Maybe<String[] | String>;
+  index_lt?: Maybe<String>;
+  index_lte?: Maybe<String>;
+  index_gt?: Maybe<String>;
+  index_gte?: Maybe<String>;
+  index_contains?: Maybe<String>;
+  index_not_contains?: Maybe<String>;
+  index_starts_with?: Maybe<String>;
+  index_not_starts_with?: Maybe<String>;
+  index_ends_with?: Maybe<String>;
+  index_not_ends_with?: Maybe<String>;
+  uak?: Maybe<String>;
+  uak_not?: Maybe<String>;
+  uak_in?: Maybe<String[] | String>;
+  uak_not_in?: Maybe<String[] | String>;
+  uak_lt?: Maybe<String>;
+  uak_lte?: Maybe<String>;
+  uak_gt?: Maybe<String>;
+  uak_gte?: Maybe<String>;
+  uak_contains?: Maybe<String>;
+  uak_not_contains?: Maybe<String>;
+  uak_starts_with?: Maybe<String>;
+  uak_not_starts_with?: Maybe<String>;
+  uak_ends_with?: Maybe<String>;
+  uak_not_ends_with?: Maybe<String>;
+  year?: Maybe<String>;
+  year_not?: Maybe<String>;
+  year_in?: Maybe<String[] | String>;
+  year_not_in?: Maybe<String[] | String>;
+  year_lt?: Maybe<String>;
+  year_lte?: Maybe<String>;
+  year_gt?: Maybe<String>;
+  year_gte?: Maybe<String>;
+  year_contains?: Maybe<String>;
+  year_not_contains?: Maybe<String>;
+  year_starts_with?: Maybe<String>;
+  year_not_starts_with?: Maybe<String>;
+  year_ends_with?: Maybe<String>;
+  year_not_ends_with?: Maybe<String>;
+  oecd?: Maybe<OecdWhereInput>;
+  translation_every?: Maybe<DepositedTranslationWhereInput>;
+  translation_some?: Maybe<DepositedTranslationWhereInput>;
+  translation_none?: Maybe<DepositedTranslationWhereInput>;
+  author?: Maybe<UserWhereInput>;
+  AND?: Maybe<DepositedWhereInput[] | DepositedWhereInput>;
+  OR?: Maybe<DepositedWhereInput[] | DepositedWhereInput>;
+  NOT?: Maybe<DepositedWhereInput[] | DepositedWhereInput>;
+}
+
+export type DepositedTranslationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
 }>;
 
 export type EmployeeWhereUniqueInput = AtLeastOne<{
@@ -1960,372 +2649,6 @@ export interface ExpertTranslationWhereInput {
   AND?: Maybe<ExpertTranslationWhereInput[] | ExpertTranslationWhereInput>;
   OR?: Maybe<ExpertTranslationWhereInput[] | ExpertTranslationWhereInput>;
   NOT?: Maybe<ExpertTranslationWhereInput[] | ExpertTranslationWhereInput>;
-}
-
-export interface OecdWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  code?: Maybe<String>;
-  code_not?: Maybe<String>;
-  code_in?: Maybe<String[] | String>;
-  code_not_in?: Maybe<String[] | String>;
-  code_lt?: Maybe<String>;
-  code_lte?: Maybe<String>;
-  code_gt?: Maybe<String>;
-  code_gte?: Maybe<String>;
-  code_contains?: Maybe<String>;
-  code_not_contains?: Maybe<String>;
-  code_starts_with?: Maybe<String>;
-  code_not_starts_with?: Maybe<String>;
-  code_ends_with?: Maybe<String>;
-  code_not_ends_with?: Maybe<String>;
-  translation_every?: Maybe<OecdTranslationWhereInput>;
-  translation_some?: Maybe<OecdTranslationWhereInput>;
-  translation_none?: Maybe<OecdTranslationWhereInput>;
-  author?: Maybe<UserWhereInput>;
-  AND?: Maybe<OecdWhereInput[] | OecdWhereInput>;
-  OR?: Maybe<OecdWhereInput[] | OecdWhereInput>;
-  NOT?: Maybe<OecdWhereInput[] | OecdWhereInput>;
-}
-
-export interface OecdTranslationWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  language?: Maybe<LanguageWhereInput>;
-  AND?: Maybe<OecdTranslationWhereInput[] | OecdTranslationWhereInput>;
-  OR?: Maybe<OecdTranslationWhereInput[] | OecdTranslationWhereInput>;
-  NOT?: Maybe<OecdTranslationWhereInput[] | OecdTranslationWhereInput>;
-}
-
-export interface UserWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  password?: Maybe<String>;
-  password_not?: Maybe<String>;
-  password_in?: Maybe<String[] | String>;
-  password_not_in?: Maybe<String[] | String>;
-  password_lt?: Maybe<String>;
-  password_lte?: Maybe<String>;
-  password_gt?: Maybe<String>;
-  password_gte?: Maybe<String>;
-  password_contains?: Maybe<String>;
-  password_not_contains?: Maybe<String>;
-  password_starts_with?: Maybe<String>;
-  password_not_starts_with?: Maybe<String>;
-  password_ends_with?: Maybe<String>;
-  password_not_ends_with?: Maybe<String>;
-  news_every?: Maybe<NewsWhereInput>;
-  news_some?: Maybe<NewsWhereInput>;
-  news_none?: Maybe<NewsWhereInput>;
-  oecds_every?: Maybe<OecdWhereInput>;
-  oecds_some?: Maybe<OecdWhereInput>;
-  oecds_none?: Maybe<OecdWhereInput>;
-  role?: Maybe<Role>;
-  role_not?: Maybe<Role>;
-  role_in?: Maybe<Role[] | Role>;
-  role_not_in?: Maybe<Role[] | Role>;
-  translation_every?: Maybe<UserTranslationWhereInput>;
-  translation_some?: Maybe<UserTranslationWhereInput>;
-  translation_none?: Maybe<UserTranslationWhereInput>;
-  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
-  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
-  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
-}
-
-export interface NewsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  translation_every?: Maybe<NewsTranslationWhereInput>;
-  translation_some?: Maybe<NewsTranslationWhereInput>;
-  translation_none?: Maybe<NewsTranslationWhereInput>;
-  author?: Maybe<UserWhereInput>;
-  AND?: Maybe<NewsWhereInput[] | NewsWhereInput>;
-  OR?: Maybe<NewsWhereInput[] | NewsWhereInput>;
-  NOT?: Maybe<NewsWhereInput[] | NewsWhereInput>;
-}
-
-export interface NewsTranslationWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  content?: Maybe<String>;
-  content_not?: Maybe<String>;
-  content_in?: Maybe<String[] | String>;
-  content_not_in?: Maybe<String[] | String>;
-  content_lt?: Maybe<String>;
-  content_lte?: Maybe<String>;
-  content_gt?: Maybe<String>;
-  content_gte?: Maybe<String>;
-  content_contains?: Maybe<String>;
-  content_not_contains?: Maybe<String>;
-  content_starts_with?: Maybe<String>;
-  content_not_starts_with?: Maybe<String>;
-  content_ends_with?: Maybe<String>;
-  content_not_ends_with?: Maybe<String>;
-  language?: Maybe<LanguageWhereInput>;
-  AND?: Maybe<NewsTranslationWhereInput[] | NewsTranslationWhereInput>;
-  OR?: Maybe<NewsTranslationWhereInput[] | NewsTranslationWhereInput>;
-  NOT?: Maybe<NewsTranslationWhereInput[] | NewsTranslationWhereInput>;
-}
-
-export interface UserTranslationWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  firstName?: Maybe<String>;
-  firstName_not?: Maybe<String>;
-  firstName_in?: Maybe<String[] | String>;
-  firstName_not_in?: Maybe<String[] | String>;
-  firstName_lt?: Maybe<String>;
-  firstName_lte?: Maybe<String>;
-  firstName_gt?: Maybe<String>;
-  firstName_gte?: Maybe<String>;
-  firstName_contains?: Maybe<String>;
-  firstName_not_contains?: Maybe<String>;
-  firstName_starts_with?: Maybe<String>;
-  firstName_not_starts_with?: Maybe<String>;
-  firstName_ends_with?: Maybe<String>;
-  firstName_not_ends_with?: Maybe<String>;
-  lastName?: Maybe<String>;
-  lastName_not?: Maybe<String>;
-  lastName_in?: Maybe<String[] | String>;
-  lastName_not_in?: Maybe<String[] | String>;
-  lastName_lt?: Maybe<String>;
-  lastName_lte?: Maybe<String>;
-  lastName_gt?: Maybe<String>;
-  lastName_gte?: Maybe<String>;
-  lastName_contains?: Maybe<String>;
-  lastName_not_contains?: Maybe<String>;
-  lastName_starts_with?: Maybe<String>;
-  lastName_not_starts_with?: Maybe<String>;
-  lastName_ends_with?: Maybe<String>;
-  lastName_not_ends_with?: Maybe<String>;
-  language?: Maybe<LanguageWhereInput>;
-  AND?: Maybe<UserTranslationWhereInput[] | UserTranslationWhereInput>;
-  OR?: Maybe<UserTranslationWhereInput[] | UserTranslationWhereInput>;
-  NOT?: Maybe<UserTranslationWhereInput[] | UserTranslationWhereInput>;
 }
 
 export interface ExpertWhereInput {
@@ -3439,452 +3762,19 @@ export interface DepartmentTranslationUpdateManyMutationInput {
   name?: Maybe<String>;
 }
 
-export interface EmployeeCreateInput {
+export interface DepositedCreateInput {
   id?: Maybe<ID_Input>;
-  email: String;
-  gender: Gender;
-  tel: String;
-  department: DepartmentCreateOneInput;
-  position: EmployeePositionCreateOneInput;
-  translation?: Maybe<EmployeeTranslationCreateManyInput>;
-}
-
-export interface DepartmentCreateOneInput {
-  create?: Maybe<DepartmentCreateInput>;
-  connect?: Maybe<DepartmentWhereUniqueInput>;
-}
-
-export interface EmployeePositionCreateOneInput {
-  create?: Maybe<EmployeePositionCreateInput>;
-  connect?: Maybe<EmployeePositionWhereUniqueInput>;
-}
-
-export interface EmployeePositionCreateInput {
-  id?: Maybe<ID_Input>;
-  translation?: Maybe<
-    EmployeePositionTranslationCreateManyWithoutPositionInput
-  >;
-}
-
-export interface EmployeePositionTranslationCreateManyWithoutPositionInput {
-  create?: Maybe<
-    | EmployeePositionTranslationCreateWithoutPositionInput[]
-    | EmployeePositionTranslationCreateWithoutPositionInput
-  >;
-  connect?: Maybe<
-    | EmployeePositionTranslationWhereUniqueInput[]
-    | EmployeePositionTranslationWhereUniqueInput
-  >;
-}
-
-export interface EmployeePositionTranslationCreateWithoutPositionInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  language: LanguageCreateOneInput;
-}
-
-export interface EmployeeTranslationCreateManyInput {
-  create?: Maybe<
-    EmployeeTranslationCreateInput[] | EmployeeTranslationCreateInput
-  >;
-  connect?: Maybe<
-    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
-  >;
-}
-
-export interface EmployeeTranslationCreateInput {
-  id?: Maybe<ID_Input>;
-  firstName: String;
-  lastName: String;
-  language: LanguageCreateOneInput;
-}
-
-export interface EmployeeUpdateInput {
-  email?: Maybe<String>;
-  gender?: Maybe<Gender>;
-  tel?: Maybe<String>;
-  department?: Maybe<DepartmentUpdateOneRequiredInput>;
-  position?: Maybe<EmployeePositionUpdateOneRequiredInput>;
-  translation?: Maybe<EmployeeTranslationUpdateManyInput>;
-}
-
-export interface DepartmentUpdateOneRequiredInput {
-  create?: Maybe<DepartmentCreateInput>;
-  update?: Maybe<DepartmentUpdateDataInput>;
-  upsert?: Maybe<DepartmentUpsertNestedInput>;
-  connect?: Maybe<DepartmentWhereUniqueInput>;
-}
-
-export interface DepartmentUpdateDataInput {
-  translation?: Maybe<DepartmentTranslationUpdateManyWithoutDepartmentInput>;
-}
-
-export interface DepartmentUpsertNestedInput {
-  update: DepartmentUpdateDataInput;
-  create: DepartmentCreateInput;
-}
-
-export interface EmployeePositionUpdateOneRequiredInput {
-  create?: Maybe<EmployeePositionCreateInput>;
-  update?: Maybe<EmployeePositionUpdateDataInput>;
-  upsert?: Maybe<EmployeePositionUpsertNestedInput>;
-  connect?: Maybe<EmployeePositionWhereUniqueInput>;
-}
-
-export interface EmployeePositionUpdateDataInput {
-  translation?: Maybe<
-    EmployeePositionTranslationUpdateManyWithoutPositionInput
-  >;
-}
-
-export interface EmployeePositionTranslationUpdateManyWithoutPositionInput {
-  create?: Maybe<
-    | EmployeePositionTranslationCreateWithoutPositionInput[]
-    | EmployeePositionTranslationCreateWithoutPositionInput
-  >;
-  delete?: Maybe<
-    | EmployeePositionTranslationWhereUniqueInput[]
-    | EmployeePositionTranslationWhereUniqueInput
-  >;
-  connect?: Maybe<
-    | EmployeePositionTranslationWhereUniqueInput[]
-    | EmployeePositionTranslationWhereUniqueInput
-  >;
-  set?: Maybe<
-    | EmployeePositionTranslationWhereUniqueInput[]
-    | EmployeePositionTranslationWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    | EmployeePositionTranslationWhereUniqueInput[]
-    | EmployeePositionTranslationWhereUniqueInput
-  >;
-  update?: Maybe<
-    | EmployeePositionTranslationUpdateWithWhereUniqueWithoutPositionInput[]
-    | EmployeePositionTranslationUpdateWithWhereUniqueWithoutPositionInput
-  >;
-  upsert?: Maybe<
-    | EmployeePositionTranslationUpsertWithWhereUniqueWithoutPositionInput[]
-    | EmployeePositionTranslationUpsertWithWhereUniqueWithoutPositionInput
-  >;
-  deleteMany?: Maybe<
-    | EmployeePositionTranslationScalarWhereInput[]
-    | EmployeePositionTranslationScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | EmployeePositionTranslationUpdateManyWithWhereNestedInput[]
-    | EmployeePositionTranslationUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface EmployeePositionTranslationUpdateWithWhereUniqueWithoutPositionInput {
-  where: EmployeePositionTranslationWhereUniqueInput;
-  data: EmployeePositionTranslationUpdateWithoutPositionDataInput;
-}
-
-export interface EmployeePositionTranslationUpdateWithoutPositionDataInput {
-  name?: Maybe<String>;
-  language?: Maybe<LanguageUpdateOneRequiredInput>;
-}
-
-export interface EmployeePositionTranslationUpsertWithWhereUniqueWithoutPositionInput {
-  where: EmployeePositionTranslationWhereUniqueInput;
-  update: EmployeePositionTranslationUpdateWithoutPositionDataInput;
-  create: EmployeePositionTranslationCreateWithoutPositionInput;
-}
-
-export interface EmployeePositionTranslationScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    | EmployeePositionTranslationScalarWhereInput[]
-    | EmployeePositionTranslationScalarWhereInput
-  >;
-  OR?: Maybe<
-    | EmployeePositionTranslationScalarWhereInput[]
-    | EmployeePositionTranslationScalarWhereInput
-  >;
-  NOT?: Maybe<
-    | EmployeePositionTranslationScalarWhereInput[]
-    | EmployeePositionTranslationScalarWhereInput
-  >;
-}
-
-export interface EmployeePositionTranslationUpdateManyWithWhereNestedInput {
-  where: EmployeePositionTranslationScalarWhereInput;
-  data: EmployeePositionTranslationUpdateManyDataInput;
-}
-
-export interface EmployeePositionTranslationUpdateManyDataInput {
-  name?: Maybe<String>;
-}
-
-export interface EmployeePositionUpsertNestedInput {
-  update: EmployeePositionUpdateDataInput;
-  create: EmployeePositionCreateInput;
-}
-
-export interface EmployeeTranslationUpdateManyInput {
-  create?: Maybe<
-    EmployeeTranslationCreateInput[] | EmployeeTranslationCreateInput
-  >;
-  update?: Maybe<
-    | EmployeeTranslationUpdateWithWhereUniqueNestedInput[]
-    | EmployeeTranslationUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | EmployeeTranslationUpsertWithWhereUniqueNestedInput[]
-    | EmployeeTranslationUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<
-    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
-  >;
-  connect?: Maybe<
-    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
-  >;
-  set?: Maybe<
-    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | EmployeeTranslationUpdateManyWithWhereNestedInput[]
-    | EmployeeTranslationUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface EmployeeTranslationUpdateWithWhereUniqueNestedInput {
-  where: EmployeeTranslationWhereUniqueInput;
-  data: EmployeeTranslationUpdateDataInput;
-}
-
-export interface EmployeeTranslationUpdateDataInput {
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-  language?: Maybe<LanguageUpdateOneRequiredInput>;
-}
-
-export interface EmployeeTranslationUpsertWithWhereUniqueNestedInput {
-  where: EmployeeTranslationWhereUniqueInput;
-  update: EmployeeTranslationUpdateDataInput;
-  create: EmployeeTranslationCreateInput;
-}
-
-export interface EmployeeTranslationScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  firstName?: Maybe<String>;
-  firstName_not?: Maybe<String>;
-  firstName_in?: Maybe<String[] | String>;
-  firstName_not_in?: Maybe<String[] | String>;
-  firstName_lt?: Maybe<String>;
-  firstName_lte?: Maybe<String>;
-  firstName_gt?: Maybe<String>;
-  firstName_gte?: Maybe<String>;
-  firstName_contains?: Maybe<String>;
-  firstName_not_contains?: Maybe<String>;
-  firstName_starts_with?: Maybe<String>;
-  firstName_not_starts_with?: Maybe<String>;
-  firstName_ends_with?: Maybe<String>;
-  firstName_not_ends_with?: Maybe<String>;
-  lastName?: Maybe<String>;
-  lastName_not?: Maybe<String>;
-  lastName_in?: Maybe<String[] | String>;
-  lastName_not_in?: Maybe<String[] | String>;
-  lastName_lt?: Maybe<String>;
-  lastName_lte?: Maybe<String>;
-  lastName_gt?: Maybe<String>;
-  lastName_gte?: Maybe<String>;
-  lastName_contains?: Maybe<String>;
-  lastName_not_contains?: Maybe<String>;
-  lastName_starts_with?: Maybe<String>;
-  lastName_not_starts_with?: Maybe<String>;
-  lastName_ends_with?: Maybe<String>;
-  lastName_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
-  >;
-  OR?: Maybe<
-    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
-  >;
-  NOT?: Maybe<
-    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
-  >;
-}
-
-export interface EmployeeTranslationUpdateManyWithWhereNestedInput {
-  where: EmployeeTranslationScalarWhereInput;
-  data: EmployeeTranslationUpdateManyDataInput;
-}
-
-export interface EmployeeTranslationUpdateManyDataInput {
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-}
-
-export interface EmployeeUpdateManyMutationInput {
-  email?: Maybe<String>;
-  gender?: Maybe<Gender>;
-  tel?: Maybe<String>;
-}
-
-export interface EmployeePositionUpdateInput {
-  translation?: Maybe<
-    EmployeePositionTranslationUpdateManyWithoutPositionInput
-  >;
-}
-
-export interface EmployeePositionTranslationCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  language: LanguageCreateOneInput;
-  position: EmployeePositionCreateOneWithoutTranslationInput;
-}
-
-export interface EmployeePositionCreateOneWithoutTranslationInput {
-  create?: Maybe<EmployeePositionCreateWithoutTranslationInput>;
-  connect?: Maybe<EmployeePositionWhereUniqueInput>;
-}
-
-export interface EmployeePositionCreateWithoutTranslationInput {
-  id?: Maybe<ID_Input>;
-}
-
-export interface EmployeePositionTranslationUpdateInput {
-  name?: Maybe<String>;
-  language?: Maybe<LanguageUpdateOneRequiredInput>;
-  position?: Maybe<EmployeePositionUpdateOneRequiredWithoutTranslationInput>;
-}
-
-export interface EmployeePositionUpdateOneRequiredWithoutTranslationInput {
-  create?: Maybe<EmployeePositionCreateWithoutTranslationInput>;
-  connect?: Maybe<EmployeePositionWhereUniqueInput>;
-}
-
-export interface EmployeePositionTranslationUpdateManyMutationInput {
-  name?: Maybe<String>;
-}
-
-export interface EmployeeTranslationUpdateInput {
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-  language?: Maybe<LanguageUpdateOneRequiredInput>;
-}
-
-export interface EmployeeTranslationUpdateManyMutationInput {
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-}
-
-export interface ExpertCreateInput {
-  id?: Maybe<ID_Input>;
-  workExperience?: Maybe<String>;
-  inpDate?: Maybe<DateTimeInput>;
-  email?: Maybe<String>;
-  web?: Maybe<String>;
-  tel?: Maybe<String>;
-  mobile?: Maybe<String>;
-  publications?: Maybe<String>;
-  translation?: Maybe<ExpertTranslationCreateManyInput>;
-  oecds?: Maybe<OecdCreateManyInput>;
-  languages?: Maybe<LanguageCreateManyInput>;
+  index: String;
+  uak?: Maybe<String>;
+  year?: Maybe<String>;
+  oecd?: Maybe<OecdCreateOneInput>;
+  translation?: Maybe<DepositedTranslationCreateManyInput>;
   author: UserCreateOneInput;
 }
 
-export interface ExpertTranslationCreateManyInput {
-  create?: Maybe<ExpertTranslationCreateInput[] | ExpertTranslationCreateInput>;
-  connect?: Maybe<
-    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
-  >;
-}
-
-export interface ExpertTranslationCreateInput {
-  id?: Maybe<ID_Input>;
-  fullName?: Maybe<String>;
-  qualification?: Maybe<String>;
-  academicDegree?: Maybe<String>;
-  specialization?: Maybe<String>;
-  workingPlace?: Maybe<String>;
-  position?: Maybe<String>;
-  language: LanguageCreateOneInput;
-}
-
-export interface OecdCreateManyInput {
-  create?: Maybe<OecdCreateInput[] | OecdCreateInput>;
-  connect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+export interface OecdCreateOneInput {
+  create?: Maybe<OecdCreateInput>;
+  connect?: Maybe<OecdWhereUniqueInput>;
 }
 
 export interface OecdCreateInput {
@@ -3960,9 +3850,24 @@ export interface UserTranslationCreateInput {
   language: LanguageCreateOneInput;
 }
 
-export interface LanguageCreateManyInput {
-  create?: Maybe<LanguageCreateInput[] | LanguageCreateInput>;
-  connect?: Maybe<LanguageWhereUniqueInput[] | LanguageWhereUniqueInput>;
+export interface DepositedTranslationCreateManyInput {
+  create?: Maybe<
+    DepositedTranslationCreateInput[] | DepositedTranslationCreateInput
+  >;
+  connect?: Maybe<
+    | DepositedTranslationWhereUniqueInput[]
+    | DepositedTranslationWhereUniqueInput
+  >;
+}
+
+export interface DepositedTranslationCreateInput {
+  id?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  author?: Maybe<String>;
+  institute?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  resume?: Maybe<String>;
+  language: LanguageCreateOneInput;
 }
 
 export interface UserCreateOneInput {
@@ -3991,235 +3896,22 @@ export interface OecdCreateWithoutAuthorInput {
   translation?: Maybe<OecdTranslationCreateManyInput>;
 }
 
-export interface ExpertUpdateInput {
-  workExperience?: Maybe<String>;
-  inpDate?: Maybe<DateTimeInput>;
-  email?: Maybe<String>;
-  web?: Maybe<String>;
-  tel?: Maybe<String>;
-  mobile?: Maybe<String>;
-  publications?: Maybe<String>;
-  translation?: Maybe<ExpertTranslationUpdateManyInput>;
-  oecds?: Maybe<OecdUpdateManyInput>;
-  languages?: Maybe<LanguageUpdateManyInput>;
+export interface DepositedUpdateInput {
+  index?: Maybe<String>;
+  uak?: Maybe<String>;
+  year?: Maybe<String>;
+  oecd?: Maybe<OecdUpdateOneInput>;
+  translation?: Maybe<DepositedTranslationUpdateManyInput>;
   author?: Maybe<UserUpdateOneRequiredInput>;
 }
 
-export interface ExpertTranslationUpdateManyInput {
-  create?: Maybe<ExpertTranslationCreateInput[] | ExpertTranslationCreateInput>;
-  update?: Maybe<
-    | ExpertTranslationUpdateWithWhereUniqueNestedInput[]
-    | ExpertTranslationUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | ExpertTranslationUpsertWithWhereUniqueNestedInput[]
-    | ExpertTranslationUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<
-    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
-  >;
-  connect?: Maybe<
-    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
-  >;
-  set?: Maybe<
-    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ExpertTranslationUpdateManyWithWhereNestedInput[]
-    | ExpertTranslationUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ExpertTranslationUpdateWithWhereUniqueNestedInput {
-  where: ExpertTranslationWhereUniqueInput;
-  data: ExpertTranslationUpdateDataInput;
-}
-
-export interface ExpertTranslationUpdateDataInput {
-  fullName?: Maybe<String>;
-  qualification?: Maybe<String>;
-  academicDegree?: Maybe<String>;
-  specialization?: Maybe<String>;
-  workingPlace?: Maybe<String>;
-  position?: Maybe<String>;
-  language?: Maybe<LanguageUpdateOneRequiredInput>;
-}
-
-export interface ExpertTranslationUpsertWithWhereUniqueNestedInput {
-  where: ExpertTranslationWhereUniqueInput;
-  update: ExpertTranslationUpdateDataInput;
-  create: ExpertTranslationCreateInput;
-}
-
-export interface ExpertTranslationScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  fullName?: Maybe<String>;
-  fullName_not?: Maybe<String>;
-  fullName_in?: Maybe<String[] | String>;
-  fullName_not_in?: Maybe<String[] | String>;
-  fullName_lt?: Maybe<String>;
-  fullName_lte?: Maybe<String>;
-  fullName_gt?: Maybe<String>;
-  fullName_gte?: Maybe<String>;
-  fullName_contains?: Maybe<String>;
-  fullName_not_contains?: Maybe<String>;
-  fullName_starts_with?: Maybe<String>;
-  fullName_not_starts_with?: Maybe<String>;
-  fullName_ends_with?: Maybe<String>;
-  fullName_not_ends_with?: Maybe<String>;
-  qualification?: Maybe<String>;
-  qualification_not?: Maybe<String>;
-  qualification_in?: Maybe<String[] | String>;
-  qualification_not_in?: Maybe<String[] | String>;
-  qualification_lt?: Maybe<String>;
-  qualification_lte?: Maybe<String>;
-  qualification_gt?: Maybe<String>;
-  qualification_gte?: Maybe<String>;
-  qualification_contains?: Maybe<String>;
-  qualification_not_contains?: Maybe<String>;
-  qualification_starts_with?: Maybe<String>;
-  qualification_not_starts_with?: Maybe<String>;
-  qualification_ends_with?: Maybe<String>;
-  qualification_not_ends_with?: Maybe<String>;
-  academicDegree?: Maybe<String>;
-  academicDegree_not?: Maybe<String>;
-  academicDegree_in?: Maybe<String[] | String>;
-  academicDegree_not_in?: Maybe<String[] | String>;
-  academicDegree_lt?: Maybe<String>;
-  academicDegree_lte?: Maybe<String>;
-  academicDegree_gt?: Maybe<String>;
-  academicDegree_gte?: Maybe<String>;
-  academicDegree_contains?: Maybe<String>;
-  academicDegree_not_contains?: Maybe<String>;
-  academicDegree_starts_with?: Maybe<String>;
-  academicDegree_not_starts_with?: Maybe<String>;
-  academicDegree_ends_with?: Maybe<String>;
-  academicDegree_not_ends_with?: Maybe<String>;
-  specialization?: Maybe<String>;
-  specialization_not?: Maybe<String>;
-  specialization_in?: Maybe<String[] | String>;
-  specialization_not_in?: Maybe<String[] | String>;
-  specialization_lt?: Maybe<String>;
-  specialization_lte?: Maybe<String>;
-  specialization_gt?: Maybe<String>;
-  specialization_gte?: Maybe<String>;
-  specialization_contains?: Maybe<String>;
-  specialization_not_contains?: Maybe<String>;
-  specialization_starts_with?: Maybe<String>;
-  specialization_not_starts_with?: Maybe<String>;
-  specialization_ends_with?: Maybe<String>;
-  specialization_not_ends_with?: Maybe<String>;
-  workingPlace?: Maybe<String>;
-  workingPlace_not?: Maybe<String>;
-  workingPlace_in?: Maybe<String[] | String>;
-  workingPlace_not_in?: Maybe<String[] | String>;
-  workingPlace_lt?: Maybe<String>;
-  workingPlace_lte?: Maybe<String>;
-  workingPlace_gt?: Maybe<String>;
-  workingPlace_gte?: Maybe<String>;
-  workingPlace_contains?: Maybe<String>;
-  workingPlace_not_contains?: Maybe<String>;
-  workingPlace_starts_with?: Maybe<String>;
-  workingPlace_not_starts_with?: Maybe<String>;
-  workingPlace_ends_with?: Maybe<String>;
-  workingPlace_not_ends_with?: Maybe<String>;
-  position?: Maybe<String>;
-  position_not?: Maybe<String>;
-  position_in?: Maybe<String[] | String>;
-  position_not_in?: Maybe<String[] | String>;
-  position_lt?: Maybe<String>;
-  position_lte?: Maybe<String>;
-  position_gt?: Maybe<String>;
-  position_gte?: Maybe<String>;
-  position_contains?: Maybe<String>;
-  position_not_contains?: Maybe<String>;
-  position_starts_with?: Maybe<String>;
-  position_not_starts_with?: Maybe<String>;
-  position_ends_with?: Maybe<String>;
-  position_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
-  >;
-  OR?: Maybe<
-    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
-  >;
-  NOT?: Maybe<
-    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
-  >;
-}
-
-export interface ExpertTranslationUpdateManyWithWhereNestedInput {
-  where: ExpertTranslationScalarWhereInput;
-  data: ExpertTranslationUpdateManyDataInput;
-}
-
-export interface ExpertTranslationUpdateManyDataInput {
-  fullName?: Maybe<String>;
-  qualification?: Maybe<String>;
-  academicDegree?: Maybe<String>;
-  specialization?: Maybe<String>;
-  workingPlace?: Maybe<String>;
-  position?: Maybe<String>;
-}
-
-export interface OecdUpdateManyInput {
-  create?: Maybe<OecdCreateInput[] | OecdCreateInput>;
-  update?: Maybe<
-    | OecdUpdateWithWhereUniqueNestedInput[]
-    | OecdUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | OecdUpsertWithWhereUniqueNestedInput[]
-    | OecdUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  connect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  set?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  disconnect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  deleteMany?: Maybe<OecdScalarWhereInput[] | OecdScalarWhereInput>;
-  updateMany?: Maybe<
-    OecdUpdateManyWithWhereNestedInput[] | OecdUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface OecdUpdateWithWhereUniqueNestedInput {
-  where: OecdWhereUniqueInput;
-  data: OecdUpdateDataInput;
+export interface OecdUpdateOneInput {
+  create?: Maybe<OecdCreateInput>;
+  update?: Maybe<OecdUpdateDataInput>;
+  upsert?: Maybe<OecdUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<OecdWhereUniqueInput>;
 }
 
 export interface OecdUpdateDataInput {
@@ -4700,10 +4392,247 @@ export interface UserUpsertWithoutOecdsInput {
   create: UserCreateWithoutOecdsInput;
 }
 
-export interface OecdUpsertWithWhereUniqueNestedInput {
-  where: OecdWhereUniqueInput;
+export interface OecdUpsertNestedInput {
   update: OecdUpdateDataInput;
   create: OecdCreateInput;
+}
+
+export interface DepositedTranslationUpdateManyInput {
+  create?: Maybe<
+    DepositedTranslationCreateInput[] | DepositedTranslationCreateInput
+  >;
+  update?: Maybe<
+    | DepositedTranslationUpdateWithWhereUniqueNestedInput[]
+    | DepositedTranslationUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | DepositedTranslationUpsertWithWhereUniqueNestedInput[]
+    | DepositedTranslationUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    | DepositedTranslationWhereUniqueInput[]
+    | DepositedTranslationWhereUniqueInput
+  >;
+  connect?: Maybe<
+    | DepositedTranslationWhereUniqueInput[]
+    | DepositedTranslationWhereUniqueInput
+  >;
+  set?: Maybe<
+    | DepositedTranslationWhereUniqueInput[]
+    | DepositedTranslationWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    | DepositedTranslationWhereUniqueInput[]
+    | DepositedTranslationWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    | DepositedTranslationScalarWhereInput[]
+    | DepositedTranslationScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | DepositedTranslationUpdateManyWithWhereNestedInput[]
+    | DepositedTranslationUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface DepositedTranslationUpdateWithWhereUniqueNestedInput {
+  where: DepositedTranslationWhereUniqueInput;
+  data: DepositedTranslationUpdateDataInput;
+}
+
+export interface DepositedTranslationUpdateDataInput {
+  title?: Maybe<String>;
+  author?: Maybe<String>;
+  institute?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  resume?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+}
+
+export interface DepositedTranslationUpsertWithWhereUniqueNestedInput {
+  where: DepositedTranslationWhereUniqueInput;
+  update: DepositedTranslationUpdateDataInput;
+  create: DepositedTranslationCreateInput;
+}
+
+export interface DepositedTranslationScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  author?: Maybe<String>;
+  author_not?: Maybe<String>;
+  author_in?: Maybe<String[] | String>;
+  author_not_in?: Maybe<String[] | String>;
+  author_lt?: Maybe<String>;
+  author_lte?: Maybe<String>;
+  author_gt?: Maybe<String>;
+  author_gte?: Maybe<String>;
+  author_contains?: Maybe<String>;
+  author_not_contains?: Maybe<String>;
+  author_starts_with?: Maybe<String>;
+  author_not_starts_with?: Maybe<String>;
+  author_ends_with?: Maybe<String>;
+  author_not_ends_with?: Maybe<String>;
+  institute?: Maybe<String>;
+  institute_not?: Maybe<String>;
+  institute_in?: Maybe<String[] | String>;
+  institute_not_in?: Maybe<String[] | String>;
+  institute_lt?: Maybe<String>;
+  institute_lte?: Maybe<String>;
+  institute_gt?: Maybe<String>;
+  institute_gte?: Maybe<String>;
+  institute_contains?: Maybe<String>;
+  institute_not_contains?: Maybe<String>;
+  institute_starts_with?: Maybe<String>;
+  institute_not_starts_with?: Maybe<String>;
+  institute_ends_with?: Maybe<String>;
+  institute_not_ends_with?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  articleLang_not?: Maybe<String>;
+  articleLang_in?: Maybe<String[] | String>;
+  articleLang_not_in?: Maybe<String[] | String>;
+  articleLang_lt?: Maybe<String>;
+  articleLang_lte?: Maybe<String>;
+  articleLang_gt?: Maybe<String>;
+  articleLang_gte?: Maybe<String>;
+  articleLang_contains?: Maybe<String>;
+  articleLang_not_contains?: Maybe<String>;
+  articleLang_starts_with?: Maybe<String>;
+  articleLang_not_starts_with?: Maybe<String>;
+  articleLang_ends_with?: Maybe<String>;
+  articleLang_not_ends_with?: Maybe<String>;
+  resume?: Maybe<String>;
+  resume_not?: Maybe<String>;
+  resume_in?: Maybe<String[] | String>;
+  resume_not_in?: Maybe<String[] | String>;
+  resume_lt?: Maybe<String>;
+  resume_lte?: Maybe<String>;
+  resume_gt?: Maybe<String>;
+  resume_gte?: Maybe<String>;
+  resume_contains?: Maybe<String>;
+  resume_not_contains?: Maybe<String>;
+  resume_starts_with?: Maybe<String>;
+  resume_not_starts_with?: Maybe<String>;
+  resume_ends_with?: Maybe<String>;
+  resume_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    | DepositedTranslationScalarWhereInput[]
+    | DepositedTranslationScalarWhereInput
+  >;
+  OR?: Maybe<
+    | DepositedTranslationScalarWhereInput[]
+    | DepositedTranslationScalarWhereInput
+  >;
+  NOT?: Maybe<
+    | DepositedTranslationScalarWhereInput[]
+    | DepositedTranslationScalarWhereInput
+  >;
+}
+
+export interface DepositedTranslationUpdateManyWithWhereNestedInput {
+  where: DepositedTranslationScalarWhereInput;
+  data: DepositedTranslationUpdateManyDataInput;
+}
+
+export interface DepositedTranslationUpdateManyDataInput {
+  title?: Maybe<String>;
+  author?: Maybe<String>;
+  institute?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  resume?: Maybe<String>;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  news?: Maybe<NewsUpdateManyWithoutAuthorInput>;
+  oecds?: Maybe<OecdUpdateManyWithoutAuthorInput>;
+  role?: Maybe<Role>;
+  translation?: Maybe<UserTranslationUpdateManyInput>;
+}
+
+export interface OecdUpdateManyWithoutAuthorInput {
+  create?: Maybe<OecdCreateWithoutAuthorInput[] | OecdCreateWithoutAuthorInput>;
+  delete?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  connect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  set?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  disconnect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  update?: Maybe<
+    | OecdUpdateWithWhereUniqueWithoutAuthorInput[]
+    | OecdUpdateWithWhereUniqueWithoutAuthorInput
+  >;
+  upsert?: Maybe<
+    | OecdUpsertWithWhereUniqueWithoutAuthorInput[]
+    | OecdUpsertWithWhereUniqueWithoutAuthorInput
+  >;
+  deleteMany?: Maybe<OecdScalarWhereInput[] | OecdScalarWhereInput>;
+  updateMany?: Maybe<
+    OecdUpdateManyWithWhereNestedInput[] | OecdUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface OecdUpdateWithWhereUniqueWithoutAuthorInput {
+  where: OecdWhereUniqueInput;
+  data: OecdUpdateWithoutAuthorDataInput;
+}
+
+export interface OecdUpdateWithoutAuthorDataInput {
+  code?: Maybe<String>;
+  translation?: Maybe<OecdTranslationUpdateManyInput>;
+}
+
+export interface OecdUpsertWithWhereUniqueWithoutAuthorInput {
+  where: OecdWhereUniqueInput;
+  update: OecdUpdateWithoutAuthorDataInput;
+  create: OecdCreateWithoutAuthorInput;
 }
 
 export interface OecdScalarWhereInput {
@@ -4763,6 +4692,724 @@ export interface OecdUpdateManyWithWhereNestedInput {
 
 export interface OecdUpdateManyDataInput {
   code?: Maybe<String>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface DepositedUpdateManyMutationInput {
+  index?: Maybe<String>;
+  uak?: Maybe<String>;
+  year?: Maybe<String>;
+}
+
+export interface DepositedTranslationUpdateInput {
+  title?: Maybe<String>;
+  author?: Maybe<String>;
+  institute?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  resume?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+}
+
+export interface DepositedTranslationUpdateManyMutationInput {
+  title?: Maybe<String>;
+  author?: Maybe<String>;
+  institute?: Maybe<String>;
+  articleLang?: Maybe<String>;
+  resume?: Maybe<String>;
+}
+
+export interface EmployeeCreateInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  gender: Gender;
+  tel: String;
+  department: DepartmentCreateOneInput;
+  position: EmployeePositionCreateOneInput;
+  translation?: Maybe<EmployeeTranslationCreateManyInput>;
+}
+
+export interface DepartmentCreateOneInput {
+  create?: Maybe<DepartmentCreateInput>;
+  connect?: Maybe<DepartmentWhereUniqueInput>;
+}
+
+export interface EmployeePositionCreateOneInput {
+  create?: Maybe<EmployeePositionCreateInput>;
+  connect?: Maybe<EmployeePositionWhereUniqueInput>;
+}
+
+export interface EmployeePositionCreateInput {
+  id?: Maybe<ID_Input>;
+  translation?: Maybe<
+    EmployeePositionTranslationCreateManyWithoutPositionInput
+  >;
+}
+
+export interface EmployeePositionTranslationCreateManyWithoutPositionInput {
+  create?: Maybe<
+    | EmployeePositionTranslationCreateWithoutPositionInput[]
+    | EmployeePositionTranslationCreateWithoutPositionInput
+  >;
+  connect?: Maybe<
+    | EmployeePositionTranslationWhereUniqueInput[]
+    | EmployeePositionTranslationWhereUniqueInput
+  >;
+}
+
+export interface EmployeePositionTranslationCreateWithoutPositionInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  language: LanguageCreateOneInput;
+}
+
+export interface EmployeeTranslationCreateManyInput {
+  create?: Maybe<
+    EmployeeTranslationCreateInput[] | EmployeeTranslationCreateInput
+  >;
+  connect?: Maybe<
+    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
+  >;
+}
+
+export interface EmployeeTranslationCreateInput {
+  id?: Maybe<ID_Input>;
+  firstName: String;
+  lastName: String;
+  language: LanguageCreateOneInput;
+}
+
+export interface EmployeeUpdateInput {
+  email?: Maybe<String>;
+  gender?: Maybe<Gender>;
+  tel?: Maybe<String>;
+  department?: Maybe<DepartmentUpdateOneRequiredInput>;
+  position?: Maybe<EmployeePositionUpdateOneRequiredInput>;
+  translation?: Maybe<EmployeeTranslationUpdateManyInput>;
+}
+
+export interface DepartmentUpdateOneRequiredInput {
+  create?: Maybe<DepartmentCreateInput>;
+  update?: Maybe<DepartmentUpdateDataInput>;
+  upsert?: Maybe<DepartmentUpsertNestedInput>;
+  connect?: Maybe<DepartmentWhereUniqueInput>;
+}
+
+export interface DepartmentUpdateDataInput {
+  translation?: Maybe<DepartmentTranslationUpdateManyWithoutDepartmentInput>;
+}
+
+export interface DepartmentUpsertNestedInput {
+  update: DepartmentUpdateDataInput;
+  create: DepartmentCreateInput;
+}
+
+export interface EmployeePositionUpdateOneRequiredInput {
+  create?: Maybe<EmployeePositionCreateInput>;
+  update?: Maybe<EmployeePositionUpdateDataInput>;
+  upsert?: Maybe<EmployeePositionUpsertNestedInput>;
+  connect?: Maybe<EmployeePositionWhereUniqueInput>;
+}
+
+export interface EmployeePositionUpdateDataInput {
+  translation?: Maybe<
+    EmployeePositionTranslationUpdateManyWithoutPositionInput
+  >;
+}
+
+export interface EmployeePositionTranslationUpdateManyWithoutPositionInput {
+  create?: Maybe<
+    | EmployeePositionTranslationCreateWithoutPositionInput[]
+    | EmployeePositionTranslationCreateWithoutPositionInput
+  >;
+  delete?: Maybe<
+    | EmployeePositionTranslationWhereUniqueInput[]
+    | EmployeePositionTranslationWhereUniqueInput
+  >;
+  connect?: Maybe<
+    | EmployeePositionTranslationWhereUniqueInput[]
+    | EmployeePositionTranslationWhereUniqueInput
+  >;
+  set?: Maybe<
+    | EmployeePositionTranslationWhereUniqueInput[]
+    | EmployeePositionTranslationWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    | EmployeePositionTranslationWhereUniqueInput[]
+    | EmployeePositionTranslationWhereUniqueInput
+  >;
+  update?: Maybe<
+    | EmployeePositionTranslationUpdateWithWhereUniqueWithoutPositionInput[]
+    | EmployeePositionTranslationUpdateWithWhereUniqueWithoutPositionInput
+  >;
+  upsert?: Maybe<
+    | EmployeePositionTranslationUpsertWithWhereUniqueWithoutPositionInput[]
+    | EmployeePositionTranslationUpsertWithWhereUniqueWithoutPositionInput
+  >;
+  deleteMany?: Maybe<
+    | EmployeePositionTranslationScalarWhereInput[]
+    | EmployeePositionTranslationScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | EmployeePositionTranslationUpdateManyWithWhereNestedInput[]
+    | EmployeePositionTranslationUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EmployeePositionTranslationUpdateWithWhereUniqueWithoutPositionInput {
+  where: EmployeePositionTranslationWhereUniqueInput;
+  data: EmployeePositionTranslationUpdateWithoutPositionDataInput;
+}
+
+export interface EmployeePositionTranslationUpdateWithoutPositionDataInput {
+  name?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+}
+
+export interface EmployeePositionTranslationUpsertWithWhereUniqueWithoutPositionInput {
+  where: EmployeePositionTranslationWhereUniqueInput;
+  update: EmployeePositionTranslationUpdateWithoutPositionDataInput;
+  create: EmployeePositionTranslationCreateWithoutPositionInput;
+}
+
+export interface EmployeePositionTranslationScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    | EmployeePositionTranslationScalarWhereInput[]
+    | EmployeePositionTranslationScalarWhereInput
+  >;
+  OR?: Maybe<
+    | EmployeePositionTranslationScalarWhereInput[]
+    | EmployeePositionTranslationScalarWhereInput
+  >;
+  NOT?: Maybe<
+    | EmployeePositionTranslationScalarWhereInput[]
+    | EmployeePositionTranslationScalarWhereInput
+  >;
+}
+
+export interface EmployeePositionTranslationUpdateManyWithWhereNestedInput {
+  where: EmployeePositionTranslationScalarWhereInput;
+  data: EmployeePositionTranslationUpdateManyDataInput;
+}
+
+export interface EmployeePositionTranslationUpdateManyDataInput {
+  name?: Maybe<String>;
+}
+
+export interface EmployeePositionUpsertNestedInput {
+  update: EmployeePositionUpdateDataInput;
+  create: EmployeePositionCreateInput;
+}
+
+export interface EmployeeTranslationUpdateManyInput {
+  create?: Maybe<
+    EmployeeTranslationCreateInput[] | EmployeeTranslationCreateInput
+  >;
+  update?: Maybe<
+    | EmployeeTranslationUpdateWithWhereUniqueNestedInput[]
+    | EmployeeTranslationUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | EmployeeTranslationUpsertWithWhereUniqueNestedInput[]
+    | EmployeeTranslationUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
+  >;
+  connect?: Maybe<
+    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
+  >;
+  set?: Maybe<
+    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    EmployeeTranslationWhereUniqueInput[] | EmployeeTranslationWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | EmployeeTranslationUpdateManyWithWhereNestedInput[]
+    | EmployeeTranslationUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EmployeeTranslationUpdateWithWhereUniqueNestedInput {
+  where: EmployeeTranslationWhereUniqueInput;
+  data: EmployeeTranslationUpdateDataInput;
+}
+
+export interface EmployeeTranslationUpdateDataInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+}
+
+export interface EmployeeTranslationUpsertWithWhereUniqueNestedInput {
+  where: EmployeeTranslationWhereUniqueInput;
+  update: EmployeeTranslationUpdateDataInput;
+  create: EmployeeTranslationCreateInput;
+}
+
+export interface EmployeeTranslationScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  firstName?: Maybe<String>;
+  firstName_not?: Maybe<String>;
+  firstName_in?: Maybe<String[] | String>;
+  firstName_not_in?: Maybe<String[] | String>;
+  firstName_lt?: Maybe<String>;
+  firstName_lte?: Maybe<String>;
+  firstName_gt?: Maybe<String>;
+  firstName_gte?: Maybe<String>;
+  firstName_contains?: Maybe<String>;
+  firstName_not_contains?: Maybe<String>;
+  firstName_starts_with?: Maybe<String>;
+  firstName_not_starts_with?: Maybe<String>;
+  firstName_ends_with?: Maybe<String>;
+  firstName_not_ends_with?: Maybe<String>;
+  lastName?: Maybe<String>;
+  lastName_not?: Maybe<String>;
+  lastName_in?: Maybe<String[] | String>;
+  lastName_not_in?: Maybe<String[] | String>;
+  lastName_lt?: Maybe<String>;
+  lastName_lte?: Maybe<String>;
+  lastName_gt?: Maybe<String>;
+  lastName_gte?: Maybe<String>;
+  lastName_contains?: Maybe<String>;
+  lastName_not_contains?: Maybe<String>;
+  lastName_starts_with?: Maybe<String>;
+  lastName_not_starts_with?: Maybe<String>;
+  lastName_ends_with?: Maybe<String>;
+  lastName_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
+  >;
+  OR?: Maybe<
+    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
+  >;
+  NOT?: Maybe<
+    EmployeeTranslationScalarWhereInput[] | EmployeeTranslationScalarWhereInput
+  >;
+}
+
+export interface EmployeeTranslationUpdateManyWithWhereNestedInput {
+  where: EmployeeTranslationScalarWhereInput;
+  data: EmployeeTranslationUpdateManyDataInput;
+}
+
+export interface EmployeeTranslationUpdateManyDataInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+}
+
+export interface EmployeeUpdateManyMutationInput {
+  email?: Maybe<String>;
+  gender?: Maybe<Gender>;
+  tel?: Maybe<String>;
+}
+
+export interface EmployeePositionUpdateInput {
+  translation?: Maybe<
+    EmployeePositionTranslationUpdateManyWithoutPositionInput
+  >;
+}
+
+export interface EmployeePositionTranslationCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  language: LanguageCreateOneInput;
+  position: EmployeePositionCreateOneWithoutTranslationInput;
+}
+
+export interface EmployeePositionCreateOneWithoutTranslationInput {
+  create?: Maybe<EmployeePositionCreateWithoutTranslationInput>;
+  connect?: Maybe<EmployeePositionWhereUniqueInput>;
+}
+
+export interface EmployeePositionCreateWithoutTranslationInput {
+  id?: Maybe<ID_Input>;
+}
+
+export interface EmployeePositionTranslationUpdateInput {
+  name?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+  position?: Maybe<EmployeePositionUpdateOneRequiredWithoutTranslationInput>;
+}
+
+export interface EmployeePositionUpdateOneRequiredWithoutTranslationInput {
+  create?: Maybe<EmployeePositionCreateWithoutTranslationInput>;
+  connect?: Maybe<EmployeePositionWhereUniqueInput>;
+}
+
+export interface EmployeePositionTranslationUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface EmployeeTranslationUpdateInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+}
+
+export interface EmployeeTranslationUpdateManyMutationInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+}
+
+export interface ExpertCreateInput {
+  id?: Maybe<ID_Input>;
+  workExperience?: Maybe<String>;
+  inpDate?: Maybe<DateTimeInput>;
+  email?: Maybe<String>;
+  web?: Maybe<String>;
+  tel?: Maybe<String>;
+  mobile?: Maybe<String>;
+  publications?: Maybe<String>;
+  translation?: Maybe<ExpertTranslationCreateManyInput>;
+  oecds?: Maybe<OecdCreateManyInput>;
+  languages?: Maybe<LanguageCreateManyInput>;
+  author: UserCreateOneInput;
+}
+
+export interface ExpertTranslationCreateManyInput {
+  create?: Maybe<ExpertTranslationCreateInput[] | ExpertTranslationCreateInput>;
+  connect?: Maybe<
+    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
+  >;
+}
+
+export interface ExpertTranslationCreateInput {
+  id?: Maybe<ID_Input>;
+  fullName?: Maybe<String>;
+  qualification?: Maybe<String>;
+  academicDegree?: Maybe<String>;
+  specialization?: Maybe<String>;
+  workingPlace?: Maybe<String>;
+  position?: Maybe<String>;
+  language: LanguageCreateOneInput;
+}
+
+export interface OecdCreateManyInput {
+  create?: Maybe<OecdCreateInput[] | OecdCreateInput>;
+  connect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+}
+
+export interface LanguageCreateManyInput {
+  create?: Maybe<LanguageCreateInput[] | LanguageCreateInput>;
+  connect?: Maybe<LanguageWhereUniqueInput[] | LanguageWhereUniqueInput>;
+}
+
+export interface ExpertUpdateInput {
+  workExperience?: Maybe<String>;
+  inpDate?: Maybe<DateTimeInput>;
+  email?: Maybe<String>;
+  web?: Maybe<String>;
+  tel?: Maybe<String>;
+  mobile?: Maybe<String>;
+  publications?: Maybe<String>;
+  translation?: Maybe<ExpertTranslationUpdateManyInput>;
+  oecds?: Maybe<OecdUpdateManyInput>;
+  languages?: Maybe<LanguageUpdateManyInput>;
+  author?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface ExpertTranslationUpdateManyInput {
+  create?: Maybe<ExpertTranslationCreateInput[] | ExpertTranslationCreateInput>;
+  update?: Maybe<
+    | ExpertTranslationUpdateWithWhereUniqueNestedInput[]
+    | ExpertTranslationUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | ExpertTranslationUpsertWithWhereUniqueNestedInput[]
+    | ExpertTranslationUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
+  >;
+  connect?: Maybe<
+    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
+  >;
+  set?: Maybe<
+    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    ExpertTranslationWhereUniqueInput[] | ExpertTranslationWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ExpertTranslationUpdateManyWithWhereNestedInput[]
+    | ExpertTranslationUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ExpertTranslationUpdateWithWhereUniqueNestedInput {
+  where: ExpertTranslationWhereUniqueInput;
+  data: ExpertTranslationUpdateDataInput;
+}
+
+export interface ExpertTranslationUpdateDataInput {
+  fullName?: Maybe<String>;
+  qualification?: Maybe<String>;
+  academicDegree?: Maybe<String>;
+  specialization?: Maybe<String>;
+  workingPlace?: Maybe<String>;
+  position?: Maybe<String>;
+  language?: Maybe<LanguageUpdateOneRequiredInput>;
+}
+
+export interface ExpertTranslationUpsertWithWhereUniqueNestedInput {
+  where: ExpertTranslationWhereUniqueInput;
+  update: ExpertTranslationUpdateDataInput;
+  create: ExpertTranslationCreateInput;
+}
+
+export interface ExpertTranslationScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  fullName?: Maybe<String>;
+  fullName_not?: Maybe<String>;
+  fullName_in?: Maybe<String[] | String>;
+  fullName_not_in?: Maybe<String[] | String>;
+  fullName_lt?: Maybe<String>;
+  fullName_lte?: Maybe<String>;
+  fullName_gt?: Maybe<String>;
+  fullName_gte?: Maybe<String>;
+  fullName_contains?: Maybe<String>;
+  fullName_not_contains?: Maybe<String>;
+  fullName_starts_with?: Maybe<String>;
+  fullName_not_starts_with?: Maybe<String>;
+  fullName_ends_with?: Maybe<String>;
+  fullName_not_ends_with?: Maybe<String>;
+  qualification?: Maybe<String>;
+  qualification_not?: Maybe<String>;
+  qualification_in?: Maybe<String[] | String>;
+  qualification_not_in?: Maybe<String[] | String>;
+  qualification_lt?: Maybe<String>;
+  qualification_lte?: Maybe<String>;
+  qualification_gt?: Maybe<String>;
+  qualification_gte?: Maybe<String>;
+  qualification_contains?: Maybe<String>;
+  qualification_not_contains?: Maybe<String>;
+  qualification_starts_with?: Maybe<String>;
+  qualification_not_starts_with?: Maybe<String>;
+  qualification_ends_with?: Maybe<String>;
+  qualification_not_ends_with?: Maybe<String>;
+  academicDegree?: Maybe<String>;
+  academicDegree_not?: Maybe<String>;
+  academicDegree_in?: Maybe<String[] | String>;
+  academicDegree_not_in?: Maybe<String[] | String>;
+  academicDegree_lt?: Maybe<String>;
+  academicDegree_lte?: Maybe<String>;
+  academicDegree_gt?: Maybe<String>;
+  academicDegree_gte?: Maybe<String>;
+  academicDegree_contains?: Maybe<String>;
+  academicDegree_not_contains?: Maybe<String>;
+  academicDegree_starts_with?: Maybe<String>;
+  academicDegree_not_starts_with?: Maybe<String>;
+  academicDegree_ends_with?: Maybe<String>;
+  academicDegree_not_ends_with?: Maybe<String>;
+  specialization?: Maybe<String>;
+  specialization_not?: Maybe<String>;
+  specialization_in?: Maybe<String[] | String>;
+  specialization_not_in?: Maybe<String[] | String>;
+  specialization_lt?: Maybe<String>;
+  specialization_lte?: Maybe<String>;
+  specialization_gt?: Maybe<String>;
+  specialization_gte?: Maybe<String>;
+  specialization_contains?: Maybe<String>;
+  specialization_not_contains?: Maybe<String>;
+  specialization_starts_with?: Maybe<String>;
+  specialization_not_starts_with?: Maybe<String>;
+  specialization_ends_with?: Maybe<String>;
+  specialization_not_ends_with?: Maybe<String>;
+  workingPlace?: Maybe<String>;
+  workingPlace_not?: Maybe<String>;
+  workingPlace_in?: Maybe<String[] | String>;
+  workingPlace_not_in?: Maybe<String[] | String>;
+  workingPlace_lt?: Maybe<String>;
+  workingPlace_lte?: Maybe<String>;
+  workingPlace_gt?: Maybe<String>;
+  workingPlace_gte?: Maybe<String>;
+  workingPlace_contains?: Maybe<String>;
+  workingPlace_not_contains?: Maybe<String>;
+  workingPlace_starts_with?: Maybe<String>;
+  workingPlace_not_starts_with?: Maybe<String>;
+  workingPlace_ends_with?: Maybe<String>;
+  workingPlace_not_ends_with?: Maybe<String>;
+  position?: Maybe<String>;
+  position_not?: Maybe<String>;
+  position_in?: Maybe<String[] | String>;
+  position_not_in?: Maybe<String[] | String>;
+  position_lt?: Maybe<String>;
+  position_lte?: Maybe<String>;
+  position_gt?: Maybe<String>;
+  position_gte?: Maybe<String>;
+  position_contains?: Maybe<String>;
+  position_not_contains?: Maybe<String>;
+  position_starts_with?: Maybe<String>;
+  position_not_starts_with?: Maybe<String>;
+  position_ends_with?: Maybe<String>;
+  position_not_ends_with?: Maybe<String>;
+  AND?: Maybe<
+    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
+  >;
+  OR?: Maybe<
+    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
+  >;
+  NOT?: Maybe<
+    ExpertTranslationScalarWhereInput[] | ExpertTranslationScalarWhereInput
+  >;
+}
+
+export interface ExpertTranslationUpdateManyWithWhereNestedInput {
+  where: ExpertTranslationScalarWhereInput;
+  data: ExpertTranslationUpdateManyDataInput;
+}
+
+export interface ExpertTranslationUpdateManyDataInput {
+  fullName?: Maybe<String>;
+  qualification?: Maybe<String>;
+  academicDegree?: Maybe<String>;
+  specialization?: Maybe<String>;
+  workingPlace?: Maybe<String>;
+  position?: Maybe<String>;
+}
+
+export interface OecdUpdateManyInput {
+  create?: Maybe<OecdCreateInput[] | OecdCreateInput>;
+  update?: Maybe<
+    | OecdUpdateWithWhereUniqueNestedInput[]
+    | OecdUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | OecdUpsertWithWhereUniqueNestedInput[]
+    | OecdUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  connect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  set?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  disconnect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
+  deleteMany?: Maybe<OecdScalarWhereInput[] | OecdScalarWhereInput>;
+  updateMany?: Maybe<
+    OecdUpdateManyWithWhereNestedInput[] | OecdUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface OecdUpdateWithWhereUniqueNestedInput {
+  where: OecdWhereUniqueInput;
+  data: OecdUpdateDataInput;
+}
+
+export interface OecdUpsertWithWhereUniqueNestedInput {
+  where: OecdWhereUniqueInput;
+  update: OecdUpdateDataInput;
+  create: OecdCreateInput;
 }
 
 export interface LanguageUpdateManyInput {
@@ -4859,63 +5506,6 @@ export interface LanguageUpdateManyWithWhereNestedInput {
 export interface LanguageUpdateManyDataInput {
   code?: Maybe<LanguageCode>;
   name?: Maybe<String>;
-}
-
-export interface UserUpdateOneRequiredInput {
-  create?: Maybe<UserCreateInput>;
-  update?: Maybe<UserUpdateDataInput>;
-  upsert?: Maybe<UserUpsertNestedInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateDataInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  news?: Maybe<NewsUpdateManyWithoutAuthorInput>;
-  oecds?: Maybe<OecdUpdateManyWithoutAuthorInput>;
-  role?: Maybe<Role>;
-  translation?: Maybe<UserTranslationUpdateManyInput>;
-}
-
-export interface OecdUpdateManyWithoutAuthorInput {
-  create?: Maybe<OecdCreateWithoutAuthorInput[] | OecdCreateWithoutAuthorInput>;
-  delete?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  connect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  set?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  disconnect?: Maybe<OecdWhereUniqueInput[] | OecdWhereUniqueInput>;
-  update?: Maybe<
-    | OecdUpdateWithWhereUniqueWithoutAuthorInput[]
-    | OecdUpdateWithWhereUniqueWithoutAuthorInput
-  >;
-  upsert?: Maybe<
-    | OecdUpsertWithWhereUniqueWithoutAuthorInput[]
-    | OecdUpsertWithWhereUniqueWithoutAuthorInput
-  >;
-  deleteMany?: Maybe<OecdScalarWhereInput[] | OecdScalarWhereInput>;
-  updateMany?: Maybe<
-    OecdUpdateManyWithWhereNestedInput[] | OecdUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface OecdUpdateWithWhereUniqueWithoutAuthorInput {
-  where: OecdWhereUniqueInput;
-  data: OecdUpdateWithoutAuthorDataInput;
-}
-
-export interface OecdUpdateWithoutAuthorDataInput {
-  code?: Maybe<String>;
-  translation?: Maybe<OecdTranslationUpdateManyInput>;
-}
-
-export interface OecdUpsertWithWhereUniqueWithoutAuthorInput {
-  where: OecdWhereUniqueInput;
-  update: OecdUpdateWithoutAuthorDataInput;
-  create: OecdCreateWithoutAuthorInput;
-}
-
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
 }
 
 export interface ExpertUpdateManyMutationInput {
@@ -5477,11 +6067,6 @@ export interface QrjJournalCreateOneInput {
   connect?: Maybe<QrjJournalWhereUniqueInput>;
 }
 
-export interface OecdCreateOneInput {
-  create?: Maybe<OecdCreateInput>;
-  connect?: Maybe<OecdWhereUniqueInput>;
-}
-
 export interface QrjPublicationTranslationCreateManyInput {
   create?: Maybe<
     | QrjPublicationTranslationCreateInput[]
@@ -5534,20 +6119,6 @@ export interface QrjJournalUpdateDataInput {
 export interface QrjJournalUpsertNestedInput {
   update: QrjJournalUpdateDataInput;
   create: QrjJournalCreateInput;
-}
-
-export interface OecdUpdateOneInput {
-  create?: Maybe<OecdCreateInput>;
-  update?: Maybe<OecdUpdateDataInput>;
-  upsert?: Maybe<OecdUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<OecdWhereUniqueInput>;
-}
-
-export interface OecdUpsertNestedInput {
-  update: OecdUpdateDataInput;
-  create: OecdCreateInput;
 }
 
 export interface QrjPublicationTranslationUpdateManyInput {
@@ -5863,6 +6434,43 @@ export interface DepartmentTranslationSubscriptionWhereInput {
   NOT?: Maybe<
     | DepartmentTranslationSubscriptionWhereInput[]
     | DepartmentTranslationSubscriptionWhereInput
+  >;
+}
+
+export interface DepositedSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<DepositedWhereInput>;
+  AND?: Maybe<
+    DepositedSubscriptionWhereInput[] | DepositedSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    DepositedSubscriptionWhereInput[] | DepositedSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    DepositedSubscriptionWhereInput[] | DepositedSubscriptionWhereInput
+  >;
+}
+
+export interface DepositedTranslationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<DepositedTranslationWhereInput>;
+  AND?: Maybe<
+    | DepositedTranslationSubscriptionWhereInput[]
+    | DepositedTranslationSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | DepositedTranslationSubscriptionWhereInput[]
+    | DepositedTranslationSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | DepositedTranslationSubscriptionWhereInput[]
+    | DepositedTranslationSubscriptionWhereInput
   >;
 }
 
@@ -6513,6 +7121,618 @@ export interface AggregateDepartmentTranslationSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Deposited {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  index: String;
+  uak?: String;
+  year?: String;
+}
+
+export interface DepositedPromise extends Promise<Deposited>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  index: () => Promise<String>;
+  uak: () => Promise<String>;
+  year: () => Promise<String>;
+  oecd: <T = OecdPromise>() => T;
+  translation: <T = FragmentableArray<DepositedTranslation>>(args?: {
+    where?: DepositedTranslationWhereInput;
+    orderBy?: DepositedTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserPromise>() => T;
+}
+
+export interface DepositedSubscription
+  extends Promise<AsyncIterator<Deposited>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  index: () => Promise<AsyncIterator<String>>;
+  uak: () => Promise<AsyncIterator<String>>;
+  year: () => Promise<AsyncIterator<String>>;
+  oecd: <T = OecdSubscription>() => T;
+  translation: <
+    T = Promise<AsyncIterator<DepositedTranslationSubscription>>
+  >(args?: {
+    where?: DepositedTranslationWhereInput;
+    orderBy?: DepositedTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserSubscription>() => T;
+}
+
+export interface DepositedNullablePromise
+  extends Promise<Deposited | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  index: () => Promise<String>;
+  uak: () => Promise<String>;
+  year: () => Promise<String>;
+  oecd: <T = OecdPromise>() => T;
+  translation: <T = FragmentableArray<DepositedTranslation>>(args?: {
+    where?: DepositedTranslationWhereInput;
+    orderBy?: DepositedTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserPromise>() => T;
+}
+
+export interface Oecd {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  code: String;
+}
+
+export interface OecdPromise extends Promise<Oecd>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  code: () => Promise<String>;
+  translation: <T = FragmentableArray<OecdTranslation>>(args?: {
+    where?: OecdTranslationWhereInput;
+    orderBy?: OecdTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserPromise>() => T;
+}
+
+export interface OecdSubscription
+  extends Promise<AsyncIterator<Oecd>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  code: () => Promise<AsyncIterator<String>>;
+  translation: <
+    T = Promise<AsyncIterator<OecdTranslationSubscription>>
+  >(args?: {
+    where?: OecdTranslationWhereInput;
+    orderBy?: OecdTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserSubscription>() => T;
+}
+
+export interface OecdNullablePromise
+  extends Promise<Oecd | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  code: () => Promise<String>;
+  translation: <T = FragmentableArray<OecdTranslation>>(args?: {
+    where?: OecdTranslationWhereInput;
+    orderBy?: OecdTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserPromise>() => T;
+}
+
+export interface OecdTranslation {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  name: String;
+}
+
+export interface OecdTranslationPromise
+  extends Promise<OecdTranslation>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface OecdTranslationSubscription
+  extends Promise<AsyncIterator<OecdTranslation>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  name: () => Promise<AsyncIterator<String>>;
+  language: <T = LanguageSubscription>() => T;
+}
+
+export interface OecdTranslationNullablePromise
+  extends Promise<OecdTranslation | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface User {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  email: String;
+  password: String;
+  role: Role;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  news: <T = FragmentableArray<News>>(args?: {
+    where?: NewsWhereInput;
+    orderBy?: NewsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  oecds: <T = FragmentableArray<Oecd>>(args?: {
+    where?: OecdWhereInput;
+    orderBy?: OecdOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  role: () => Promise<Role>;
+  translation: <T = FragmentableArray<UserTranslation>>(args?: {
+    where?: UserTranslationWhereInput;
+    orderBy?: UserTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  news: <T = Promise<AsyncIterator<NewsSubscription>>>(args?: {
+    where?: NewsWhereInput;
+    orderBy?: NewsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  oecds: <T = Promise<AsyncIterator<OecdSubscription>>>(args?: {
+    where?: OecdWhereInput;
+    orderBy?: OecdOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  role: () => Promise<AsyncIterator<Role>>;
+  translation: <
+    T = Promise<AsyncIterator<UserTranslationSubscription>>
+  >(args?: {
+    where?: UserTranslationWhereInput;
+    orderBy?: UserTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  news: <T = FragmentableArray<News>>(args?: {
+    where?: NewsWhereInput;
+    orderBy?: NewsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  oecds: <T = FragmentableArray<Oecd>>(args?: {
+    where?: OecdWhereInput;
+    orderBy?: OecdOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  role: () => Promise<Role>;
+  translation: <T = FragmentableArray<UserTranslation>>(args?: {
+    where?: UserTranslationWhereInput;
+    orderBy?: UserTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface News {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface NewsPromise extends Promise<News>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  translation: <T = FragmentableArray<NewsTranslation>>(args?: {
+    where?: NewsTranslationWhereInput;
+    orderBy?: NewsTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserPromise>() => T;
+}
+
+export interface NewsSubscription
+  extends Promise<AsyncIterator<News>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  translation: <
+    T = Promise<AsyncIterator<NewsTranslationSubscription>>
+  >(args?: {
+    where?: NewsTranslationWhereInput;
+    orderBy?: NewsTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserSubscription>() => T;
+}
+
+export interface NewsNullablePromise
+  extends Promise<News | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  translation: <T = FragmentableArray<NewsTranslation>>(args?: {
+    where?: NewsTranslationWhereInput;
+    orderBy?: NewsTranslationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  author: <T = UserPromise>() => T;
+}
+
+export interface NewsTranslation {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  title?: String;
+  description?: String;
+  content?: String;
+}
+
+export interface NewsTranslationPromise
+  extends Promise<NewsTranslation>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  content: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface NewsTranslationSubscription
+  extends Promise<AsyncIterator<NewsTranslation>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  language: <T = LanguageSubscription>() => T;
+}
+
+export interface NewsTranslationNullablePromise
+  extends Promise<NewsTranslation | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  content: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface UserTranslation {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  firstName: String;
+  lastName: String;
+}
+
+export interface UserTranslationPromise
+  extends Promise<UserTranslation>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface UserTranslationSubscription
+  extends Promise<AsyncIterator<UserTranslation>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  firstName: () => Promise<AsyncIterator<String>>;
+  lastName: () => Promise<AsyncIterator<String>>;
+  language: <T = LanguageSubscription>() => T;
+}
+
+export interface UserTranslationNullablePromise
+  extends Promise<UserTranslation | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface DepositedTranslation {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  title?: String;
+  author?: String;
+  institute?: String;
+  articleLang?: String;
+  resume?: String;
+}
+
+export interface DepositedTranslationPromise
+  extends Promise<DepositedTranslation>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  author: () => Promise<String>;
+  institute: () => Promise<String>;
+  articleLang: () => Promise<String>;
+  resume: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface DepositedTranslationSubscription
+  extends Promise<AsyncIterator<DepositedTranslation>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  author: () => Promise<AsyncIterator<String>>;
+  institute: () => Promise<AsyncIterator<String>>;
+  articleLang: () => Promise<AsyncIterator<String>>;
+  resume: () => Promise<AsyncIterator<String>>;
+  language: <T = LanguageSubscription>() => T;
+}
+
+export interface DepositedTranslationNullablePromise
+  extends Promise<DepositedTranslation | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  author: () => Promise<String>;
+  institute: () => Promise<String>;
+  articleLang: () => Promise<String>;
+  resume: () => Promise<String>;
+  language: <T = LanguagePromise>() => T;
+}
+
+export interface DepositedConnection {
+  pageInfo: PageInfo;
+  edges: DepositedEdge[];
+}
+
+export interface DepositedConnectionPromise
+  extends Promise<DepositedConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<DepositedEdge>>() => T;
+  aggregate: <T = AggregateDepositedPromise>() => T;
+}
+
+export interface DepositedConnectionSubscription
+  extends Promise<AsyncIterator<DepositedConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<DepositedEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateDepositedSubscription>() => T;
+}
+
+export interface DepositedEdge {
+  node: Deposited;
+  cursor: String;
+}
+
+export interface DepositedEdgePromise
+  extends Promise<DepositedEdge>,
+    Fragmentable {
+  node: <T = DepositedPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface DepositedEdgeSubscription
+  extends Promise<AsyncIterator<DepositedEdge>>,
+    Fragmentable {
+  node: <T = DepositedSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateDeposited {
+  count: Int;
+}
+
+export interface AggregateDepositedPromise
+  extends Promise<AggregateDeposited>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateDepositedSubscription
+  extends Promise<AsyncIterator<AggregateDeposited>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface DepositedTranslationConnection {
+  pageInfo: PageInfo;
+  edges: DepositedTranslationEdge[];
+}
+
+export interface DepositedTranslationConnectionPromise
+  extends Promise<DepositedTranslationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<DepositedTranslationEdge>>() => T;
+  aggregate: <T = AggregateDepositedTranslationPromise>() => T;
+}
+
+export interface DepositedTranslationConnectionSubscription
+  extends Promise<AsyncIterator<DepositedTranslationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<DepositedTranslationEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateDepositedTranslationSubscription>() => T;
+}
+
+export interface DepositedTranslationEdge {
+  node: DepositedTranslation;
+  cursor: String;
+}
+
+export interface DepositedTranslationEdgePromise
+  extends Promise<DepositedTranslationEdge>,
+    Fragmentable {
+  node: <T = DepositedTranslationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface DepositedTranslationEdgeSubscription
+  extends Promise<AsyncIterator<DepositedTranslationEdge>>,
+    Fragmentable {
+  node: <T = DepositedTranslationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateDepositedTranslation {
+  count: Int;
+}
+
+export interface AggregateDepositedTranslationPromise
+  extends Promise<AggregateDepositedTranslation>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateDepositedTranslationSubscription
+  extends Promise<AsyncIterator<AggregateDepositedTranslation>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface Employee {
   id: ID_Output;
   createdAt: DateTimeOutput;
@@ -7152,376 +8372,6 @@ export interface ExpertTranslationNullablePromise
   specialization: () => Promise<String>;
   workingPlace: () => Promise<String>;
   position: () => Promise<String>;
-  language: <T = LanguagePromise>() => T;
-}
-
-export interface Oecd {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  code: String;
-}
-
-export interface OecdPromise extends Promise<Oecd>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  code: () => Promise<String>;
-  translation: <T = FragmentableArray<OecdTranslation>>(args?: {
-    where?: OecdTranslationWhereInput;
-    orderBy?: OecdTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  author: <T = UserPromise>() => T;
-}
-
-export interface OecdSubscription
-  extends Promise<AsyncIterator<Oecd>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  code: () => Promise<AsyncIterator<String>>;
-  translation: <
-    T = Promise<AsyncIterator<OecdTranslationSubscription>>
-  >(args?: {
-    where?: OecdTranslationWhereInput;
-    orderBy?: OecdTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  author: <T = UserSubscription>() => T;
-}
-
-export interface OecdNullablePromise
-  extends Promise<Oecd | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  code: () => Promise<String>;
-  translation: <T = FragmentableArray<OecdTranslation>>(args?: {
-    where?: OecdTranslationWhereInput;
-    orderBy?: OecdTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  author: <T = UserPromise>() => T;
-}
-
-export interface OecdTranslation {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  name: String;
-}
-
-export interface OecdTranslationPromise
-  extends Promise<OecdTranslation>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  name: () => Promise<String>;
-  language: <T = LanguagePromise>() => T;
-}
-
-export interface OecdTranslationSubscription
-  extends Promise<AsyncIterator<OecdTranslation>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  name: () => Promise<AsyncIterator<String>>;
-  language: <T = LanguageSubscription>() => T;
-}
-
-export interface OecdTranslationNullablePromise
-  extends Promise<OecdTranslation | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  name: () => Promise<String>;
-  language: <T = LanguagePromise>() => T;
-}
-
-export interface User {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  email: String;
-  password: String;
-  role: Role;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  news: <T = FragmentableArray<News>>(args?: {
-    where?: NewsWhereInput;
-    orderBy?: NewsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  oecds: <T = FragmentableArray<Oecd>>(args?: {
-    where?: OecdWhereInput;
-    orderBy?: OecdOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  role: () => Promise<Role>;
-  translation: <T = FragmentableArray<UserTranslation>>(args?: {
-    where?: UserTranslationWhereInput;
-    orderBy?: UserTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  news: <T = Promise<AsyncIterator<NewsSubscription>>>(args?: {
-    where?: NewsWhereInput;
-    orderBy?: NewsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  oecds: <T = Promise<AsyncIterator<OecdSubscription>>>(args?: {
-    where?: OecdWhereInput;
-    orderBy?: OecdOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  role: () => Promise<AsyncIterator<Role>>;
-  translation: <
-    T = Promise<AsyncIterator<UserTranslationSubscription>>
-  >(args?: {
-    where?: UserTranslationWhereInput;
-    orderBy?: UserTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  news: <T = FragmentableArray<News>>(args?: {
-    where?: NewsWhereInput;
-    orderBy?: NewsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  oecds: <T = FragmentableArray<Oecd>>(args?: {
-    where?: OecdWhereInput;
-    orderBy?: OecdOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  role: () => Promise<Role>;
-  translation: <T = FragmentableArray<UserTranslation>>(args?: {
-    where?: UserTranslationWhereInput;
-    orderBy?: UserTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface News {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface NewsPromise extends Promise<News>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  translation: <T = FragmentableArray<NewsTranslation>>(args?: {
-    where?: NewsTranslationWhereInput;
-    orderBy?: NewsTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  author: <T = UserPromise>() => T;
-}
-
-export interface NewsSubscription
-  extends Promise<AsyncIterator<News>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  translation: <
-    T = Promise<AsyncIterator<NewsTranslationSubscription>>
-  >(args?: {
-    where?: NewsTranslationWhereInput;
-    orderBy?: NewsTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  author: <T = UserSubscription>() => T;
-}
-
-export interface NewsNullablePromise
-  extends Promise<News | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  translation: <T = FragmentableArray<NewsTranslation>>(args?: {
-    where?: NewsTranslationWhereInput;
-    orderBy?: NewsTranslationOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  author: <T = UserPromise>() => T;
-}
-
-export interface NewsTranslation {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  title?: String;
-  description?: String;
-  content?: String;
-}
-
-export interface NewsTranslationPromise
-  extends Promise<NewsTranslation>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  content: () => Promise<String>;
-  language: <T = LanguagePromise>() => T;
-}
-
-export interface NewsTranslationSubscription
-  extends Promise<AsyncIterator<NewsTranslation>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  language: <T = LanguageSubscription>() => T;
-}
-
-export interface NewsTranslationNullablePromise
-  extends Promise<NewsTranslation | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  content: () => Promise<String>;
-  language: <T = LanguagePromise>() => T;
-}
-
-export interface UserTranslation {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  firstName: String;
-  lastName: String;
-}
-
-export interface UserTranslationPromise
-  extends Promise<UserTranslation>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  firstName: () => Promise<String>;
-  lastName: () => Promise<String>;
-  language: <T = LanguagePromise>() => T;
-}
-
-export interface UserTranslationSubscription
-  extends Promise<AsyncIterator<UserTranslation>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  firstName: () => Promise<AsyncIterator<String>>;
-  lastName: () => Promise<AsyncIterator<String>>;
-  language: <T = LanguageSubscription>() => T;
-}
-
-export interface UserTranslationNullablePromise
-  extends Promise<UserTranslation | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  firstName: () => Promise<String>;
-  lastName: () => Promise<String>;
   language: <T = LanguagePromise>() => T;
 }
 
@@ -9152,6 +10002,124 @@ export interface DepartmentTranslationPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
 }
 
+export interface DepositedSubscriptionPayload {
+  mutation: MutationType;
+  node: Deposited;
+  updatedFields: String[];
+  previousValues: DepositedPreviousValues;
+}
+
+export interface DepositedSubscriptionPayloadPromise
+  extends Promise<DepositedSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = DepositedPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = DepositedPreviousValuesPromise>() => T;
+}
+
+export interface DepositedSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<DepositedSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = DepositedSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = DepositedPreviousValuesSubscription>() => T;
+}
+
+export interface DepositedPreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  index: String;
+  uak?: String;
+  year?: String;
+}
+
+export interface DepositedPreviousValuesPromise
+  extends Promise<DepositedPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  index: () => Promise<String>;
+  uak: () => Promise<String>;
+  year: () => Promise<String>;
+}
+
+export interface DepositedPreviousValuesSubscription
+  extends Promise<AsyncIterator<DepositedPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  index: () => Promise<AsyncIterator<String>>;
+  uak: () => Promise<AsyncIterator<String>>;
+  year: () => Promise<AsyncIterator<String>>;
+}
+
+export interface DepositedTranslationSubscriptionPayload {
+  mutation: MutationType;
+  node: DepositedTranslation;
+  updatedFields: String[];
+  previousValues: DepositedTranslationPreviousValues;
+}
+
+export interface DepositedTranslationSubscriptionPayloadPromise
+  extends Promise<DepositedTranslationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = DepositedTranslationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = DepositedTranslationPreviousValuesPromise>() => T;
+}
+
+export interface DepositedTranslationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<DepositedTranslationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = DepositedTranslationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = DepositedTranslationPreviousValuesSubscription>() => T;
+}
+
+export interface DepositedTranslationPreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  title?: String;
+  author?: String;
+  institute?: String;
+  articleLang?: String;
+  resume?: String;
+}
+
+export interface DepositedTranslationPreviousValuesPromise
+  extends Promise<DepositedTranslationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  author: () => Promise<String>;
+  institute: () => Promise<String>;
+  articleLang: () => Promise<String>;
+  resume: () => Promise<String>;
+}
+
+export interface DepositedTranslationPreviousValuesSubscription
+  extends Promise<AsyncIterator<DepositedTranslationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  author: () => Promise<AsyncIterator<String>>;
+  institute: () => Promise<AsyncIterator<String>>;
+  articleLang: () => Promise<AsyncIterator<String>>;
+  resume: () => Promise<AsyncIterator<String>>;
+}
+
 export interface EmployeeSubscriptionPayload {
   mutation: MutationType;
   node: Employee;
@@ -10496,6 +11464,14 @@ export const models: Model[] = [
   },
   {
     name: "QrjPublicationTranslation",
+    embedded: false
+  },
+  {
+    name: "Deposited",
+    embedded: false
+  },
+  {
+    name: "DepositedTranslation",
     embedded: false
   },
   {

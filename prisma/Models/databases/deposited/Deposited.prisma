@@ -1,0 +1,23 @@
+type Deposited {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    index: String! @unique
+    uak: String
+    year: String
+    oecd: Oecd
+    translation: [DepositedTranslation!] @relation(link: TABLE, onDelete: CASCADE)
+    author: User!
+}
+
+type DepositedTranslation{
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    title: String
+    author: String
+    institute: String
+    articleLang: String
+    resume: String
+    language: Language! @relation
+}
