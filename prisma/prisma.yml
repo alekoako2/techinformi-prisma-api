@@ -10,6 +10,7 @@ datamodel: [
   Models/news/News.prisma,
   Models/qrj/Qrj.prisma,
   Models/databases/qrj-publication/QrjPublication.prisma,
+  Models/databases/deposited/Deposited.prisma,
   Models/databases/expert/Expert.prisma,
   Models/technology-transfer-centers/technology-transfer-network/TechnologyTransferNetwork.prisma,
   Models/technology-transfer-centers/technology-transfer-and-innovation-organization/TechnologyTransferAndInnovationOrganization.prisma
