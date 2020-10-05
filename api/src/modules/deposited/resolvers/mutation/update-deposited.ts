@@ -1,5 +1,8 @@
 import { Context } from '@interfaces/apollo/context'
 import {
+  DepositedCreateInput,
+  DepositedTranslationCreateInput,
+  DepositedTranslationCreateManyInput,
   DepositedTranslationUpdateDataInput,
   DepositedTranslationUpdateManyInput,
   DepositedTranslationUpdateWithWhereUniqueNestedInput,
@@ -42,37 +45,78 @@ export const updateDeposited = async (
   schema.translation = {} as DepositedTranslationUpdateManyInput
   schema.translation.update = [] as DepositedTranslationUpdateWithWhereUniqueNestedInput[]
 
-  for (let i = 0; i < translation.length; i++) {
-    const { title, author, institute, resume, language, id } = translation[i]
+  if (translation)
+    for (let i = 0; i < translation.length; i++) {
+      const { title, author, institute, resume, language, id } = translation[i]
 
-    schema.translation.update[
-      i
-    ] = {} as DepositedTranslationUpdateWithWhereUniqueNestedInput
+      schema.translation.update[
+        i
+      ] = {} as DepositedTranslationUpdateWithWhereUniqueNestedInput
 
-    schema.translation.update[
-      i
-    ].where = {} as DepositedTranslationWhereUniqueInput
+      schema.translation.update[
+        i
+      ].where = {} as DepositedTranslationWhereUniqueInput
 
-    schema.translation.update[
-      i
-    ].data = {} as DepositedTranslationUpdateDataInput
+      schema.translation.update[
+        i
+      ].data = {} as DepositedTranslationUpdateDataInput
 
-    schema.translation.update[i].data = {
-      title,
-      author,
-      institute,
-      resume,
-      language: {
-        connect: { code: language },
-      },
+      schema.translation.update[i].data = {
+        title,
+        author,
+        institute,
+        resume,
+        language: {
+          connect: { code: language },
+        },
+      }
+
+      schema.translation.update[i].where = { id }
     }
 
-    schema.translation.update[i].where = { id }
+  let createSchema: DepositedCreateInput = {} as DepositedCreateInput
+
+  createSchema = {
+    index,
+    year,
+    uak,
+    author: {
+      connect: {
+        email: user.email,
+      },
+    },
   }
 
-  return ___.prisma.updateDeposited({
-    data: {
+  if (oecd) {
+    createSchema.oecd = { connect: { code: oecd } }
+  }
+
+  createSchema.translation = {} as DepositedTranslationCreateManyInput
+  createSchema.translation.create = [] as DepositedTranslationCreateInput[]
+
+  if (translation)
+    for (let i = 0; i < translation.length; i++) {
+      const { title, author, institute, resume, language } = translation[i]
+
+      createSchema.translation.create[i] = {} as DepositedTranslationCreateInput
+
+      createSchema.translation.create[i] = {
+        title,
+        author,
+        institute,
+        resume,
+        language: {
+          connect: { code: language },
+        },
+      }
+    }
+
+  return ___.prisma.upsertDeposited({
+    update: {
       ...schema,
+    },
+    create: {
+      ...createSchema,
     },
     where: { id },
   })

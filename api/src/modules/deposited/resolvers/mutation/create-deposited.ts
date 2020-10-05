@@ -11,7 +11,7 @@ export const createDeposited = async (
   { input: { index, year, uak, oecd, translation } },
   ___: Context
 ) => {
-  let schema: DepositedCreateInput = {} as DepositedCreateInput
+  let createSchema: DepositedCreateInput = {} as DepositedCreateInput
 
   const user = await getUser(___)
 
@@ -19,7 +19,7 @@ export const createDeposited = async (
     throw new Error('User not authenticated')
   }
 
-  schema = {
+  createSchema = {
     index,
     year,
     uak,
@@ -31,29 +31,30 @@ export const createDeposited = async (
   }
 
   if (oecd) {
-    schema.oecd = { connect: { code: oecd } }
+    createSchema.oecd = { connect: { code: oecd } }
   }
 
-  schema.translation = {} as DepositedTranslationCreateManyInput
-  schema.translation.create = [] as DepositedTranslationCreateInput[]
+  createSchema.translation = {} as DepositedTranslationCreateManyInput
+  createSchema.translation.create = [] as DepositedTranslationCreateInput[]
 
-  for (let i = 0; i < translation.length; i++) {
-    const { title, author, institute, resume, language } = translation[i]
+  if (translation)
+    for (let i = 0; i < translation.length; i++) {
+      const { title, author, institute, resume, language } = translation[i]
 
-    schema.translation.create[i] = {} as DepositedTranslationCreateInput
+      createSchema.translation.create[i] = {} as DepositedTranslationCreateInput
 
-    schema.translation.create[i] = {
-      title,
-      author,
-      institute,
-      resume,
-      language: {
-        connect: { code: language },
-      },
+      createSchema.translation.create[i] = {
+        title,
+        author,
+        institute,
+        resume,
+        language: {
+          connect: { code: language },
+        },
+      }
     }
-  }
 
   return ___.prisma.createDeposited({
-    ...schema,
+    ...createSchema,
   })
 }

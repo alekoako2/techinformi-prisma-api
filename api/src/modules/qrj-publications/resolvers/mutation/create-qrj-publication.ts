@@ -56,27 +56,28 @@ export const createQrjPublication = async (
   schema.translation = {} as QrjPublicationTranslationCreateManyInput
   schema.translation.create = [] as QrjPublicationTranslationCreateInput[]
 
-  for (let i = 0; i < translation.length; i++) {
-    const {
-      title,
-      publicationAuthor,
-      publicationLang,
-      abstract,
-      language,
-    } = translation[i]
+  if (translation)
+    for (let i = 0; i < translation.length; i++) {
+      const {
+        title,
+        publicationAuthor,
+        publicationLang,
+        abstract,
+        language,
+      } = translation[i]
 
-    schema.translation.create[i] = {} as QrjPublicationTranslationCreateInput
+      schema.translation.create[i] = {} as QrjPublicationTranslationCreateInput
 
-    schema.translation.create[i] = {
-      title,
-      publicationAuthor,
-      publicationLang,
-      abstract,
-      language: {
-        connect: { code: language },
-      },
+      schema.translation.create[i] = {
+        title,
+        publicationAuthor,
+        publicationLang,
+        abstract,
+        language: {
+          connect: { code: language },
+        },
+      }
     }
-  }
 
   return ___.prisma.createQrjPublication({
     ...schema,
