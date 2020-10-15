@@ -43,7 +43,7 @@ export const typeDefs = gql`
     id: ID
     title: String
     author: String
-    institue: String
+    institute: String
     resume: String
     language: Language
   }
