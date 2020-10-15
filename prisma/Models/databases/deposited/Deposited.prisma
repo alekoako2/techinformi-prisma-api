@@ -19,5 +19,4 @@ type DepositedTranslation{
     institute: String
     articleLang: String
     resume: String
-    language:Language! @relation
 }
