@@ -19,4 +19,6 @@ type DepositedTranslation{
     institute: String
     articleLang: String
     resume: String
+
+
 }
